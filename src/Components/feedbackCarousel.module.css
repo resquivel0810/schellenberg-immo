@@ -1,0 +1,97 @@
+.CarouselItem {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.CarouselItemContent {
+    width: 400px;
+    height: 400px;
+    /* background-color: #313131; */
+    /* border: 3px solid #fdfdfd; */
+    padding: 15px;
+    border-radius: 15px;
+    display: grid;
+    justify-content: center;
+    user-select: none;
+    align-content: center;
+}
+
+.CarouselItemContent img{
+    width: 700px;
+}
+
+.CarouselItemContent p{
+    text-align: center;
+}
+
+
+
+.CarouselTitle h2 {
+   text-align: center;
+    color: white;
+    text-transform: uppercase;
+
+}
+
+
+.Carousel {
+    position: relative;   
+    z-index: 2;
+
+}
+
+
+
+.ContainerCarousel {
+    display: flex;
+    align-items: center;
+    overflow-y: hidden;
+    width: 1200px;
+    height: 700px;
+    transition: transform 0.5s ease-out;
+    background-color: white;
+}
+
+.CarouselIndicators {
+    position: absolute;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    bottom: 100px;
+    right: 50vw;
+}
+  
+.CarouselIndicators li {
+    display: inline-block;
+    width: 45px;
+    height: 5px;
+    cursor: pointer;
+    background-color: #A5A5A5;
+    margin: 0 7.5px;
+}
+
+.CarouselIndicators li.active {
+    background-color: #a58d71;
+}
+
+.SlideButtons {
+    position: absolute;
+    /* top: 50%; */
+    bottom: 50%;
+    left: calc((100vw - 1240px)/2);
+    width: 1240px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+@media screen and (max-width: 991px) {
+    .CarouselItemContent img{
+        width: 90vw;
+    }
+}

@@ -1,0 +1,231 @@
+body {
+    font-family: "Inter", sans-serif;
+    color: #6D758F;
+    overflow-x: hidden;
+}
+
+.hero {
+    height: 100vh;
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
+
+.hero .fisrtHalf {
+    background-color: #a58d71;
+    height: 50%;
+}
+
+.hero .secondHalf {
+    height: 50%;
+    background-color: white;
+}
+
+.hero h1, .hero h2 {
+    color: white;
+    text-align: center;
+    margin-top: 0;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    padding-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+}
+
+.about {
+    /* height: 1000px; */
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 200px;
+}
+
+.aboutMain {
+    text-align: center;
+}
+
+.aboutPersons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.aboutPerson {
+    width: 300px;
+    padding: 25px 20px;
+}
+
+.aboutPerson:first-child {
+    background-color: #737373;
+    color: white !important;
+}
+
+.aboutPerson:nth-child(2) {
+    background-color: #f1f3f7;
+    
+}
+
+.programsAndModules {
+
+    padding-top:  100px;
+    background-color: #F5F5F5;
+}
+
+.programsAndModulesContent {
+    width: 1200px;
+    margin: auto;
+}
+
+.programsAndModulesDescription {
+    text-align: center;
+}
+
+.toggleSelect {
+    display: flex;
+    justify-content:space-evenly;
+    height: 100px;
+}
+
+.toggleSelect button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.toggleSelect button {
+    width: 50%;
+}
+
+.categoryContent {
+    padding: 75px 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contentCharacteristic {
+    width: 300px;
+    background-image: linear-gradient(to bottom,rgb(116, 115, 115), rgb(217, 219, 223));
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+}
+
+.mentorsAndCoaches {
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 200px;
+}
+
+.mentorsAndCoachesIntro {
+    text-align: center;
+}
+
+.mentorsAndCoachesPeople {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    
+}
+
+.mentorOrCoach {
+    font-family: "Inter", sans-serif;
+    color: #6D758F;
+    padding: 30px 15px;
+    width: 300px;
+    background-color: #f1f3f7;
+    margin: 30px;
+}
+
+.mentorOrCoach img {
+    margin: auto;
+    display: flex;
+}
+
+.mentorOrCoach h3 {
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.mentorOrCoach span {
+    text-transform: uppercase;
+}
+
+.ourMemberships {
+    background-color: #F3F0ED;
+    display: flex;
+    justify-content: center;
+}
+
+.ourMembershipsContent {
+    margin: auto;
+    width: 1200px;
+    padding: 100px;
+    background-color: #737373;
+    padding: 50px 0 50px 0;
+    margin: 50px 0;
+    text-align: center;
+    max-width: 900px;
+    color: white;
+    border-radius: 10px;
+}
+
+.ourMembershipsContent h2 {
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+.memberships {
+    width: 60%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.contact {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.contact div form {
+    width: 500px;
+    height: 600px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #e1e4ed;
+}
+
+.formOneOfTwo {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.contactContent {
+    width: 1200px;
+    position: absolute;
+    top: calc((1000px - 600px) / 2);
+    border-radius: 15px;
+    
+
+}
+
+.contactInfo {
+    position: absolute;
+    top: calc((600px - 300px)/2);
+    left: 530px;
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 0 15px 15px 0;
+    border: 1px solid #e1e4ed;
+    border-left: none;
+}
