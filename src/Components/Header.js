@@ -38,7 +38,7 @@ export default function Header(){
             <div className={classes.Content}>
             <div className={classes.ImageContainer}>
                 {/* <Link to={`/`}> */}
-                    <img style={{width:'350px', objectFit:'contain', backgroundColor:'white'}} src={LogoHeader } alt="HeaderLogo" />
+                    <img style={{width:'300px', objectFit:'contain', backgroundColor:'white'}} src={LogoHeader } alt="HeaderLogo" />
                 {/* </Link> */}
                 
             </div>
@@ -69,7 +69,15 @@ export default function Header(){
                         style={{color:location.pathname === "/nosotros"?'#6d758f' : '#6d758f', fontWeight:location.pathname === "/nosotros"?'bold' : 'normal'}}
                         onClick={() => {topFunction()}}
                     >
-                        Programme und Module
+                        Coaches & Mentoren
+                    </Link>
+                    <Link
+                        to={`/`}
+                        className={classes.HeaderLink}
+                        style={{color:location.pathname === "/nosotros"?'#6d758f' : '#6d758f', fontWeight:location.pathname === "/nosotros"?'bold' : 'normal'}}
+                        onClick={() => {topFunction()}}
+                    >
+                        Programme & Module
                     </Link>
                     <Link
                         to={`/`}
@@ -77,7 +85,15 @@ export default function Header(){
                         style={{color:location.pathname === "/tienda"?'#6d758f' : '#6d758f', fontWeight:location.pathname === "/tienda"?'bold' : 'normal'}}
                         onClick={() => {topFunction()}}
                     >
-                        Testimonials
+                        Netzwerk
+                    </Link>
+                    <Link
+                        to={`/`}
+                        className={classes.HeaderLink}
+                        style={{color:location.pathname === "/tienda"?'#6d758f' : '#6d758f', fontWeight:location.pathname === "/tienda"?'bold' : 'normal'}}
+                        onClick={() => {topFunction()}}
+                    >
+                        Mitgliedschaften
                     </Link>
                     <Link
                         to={`/`}

@@ -2,17 +2,27 @@ body {
     font-family: "Inter", sans-serif;
     color: #6D758F;
     overflow-x: hidden;
+   
 }
 
 .hero {
-    height: 100vh;
+    height: calc(100vh + 500px);
     margin-top: 100px;
     margin-bottom: 200px;
+    position: relative;
+}
+
+.banner {
+    position: relative;
 }
 
 .hero .fisrtHalf {
-    background-color: #a58d71;
-    height: 50%;
+    /* background-color: #a58d71; */
+    /* height: 50%; */
+    position: absolute;
+    top: 0;
+    width: 1000px;
+    right: calc((100vw - 1000px)/2)
 }
 
 .hero .secondHalf {
@@ -27,24 +37,57 @@ body {
 }
 
 .hero h1 {
-    font-size: 4.5rem;
-    padding-top: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    padding-top: 430px;
+    margin-bottom: 0.5rem;
+    color: #A58D71;
 }
 
 .hero h2 {
-    font-size: 1.5rem;
+    font-size: 24px;
+    color: black;
+    font-weight: 400;
+}
+
+.hero h3 {
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 63px;
+}
+
+.hero h4 {
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.heroBottomText {
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    justify-items: center;
+    width: 100vw;
 }
 
 .about {
     /* height: 1000px; */
-    max-width: 1200px;
+    max-width: 1118px;
     margin: auto;
     margin-bottom: 200px;
 }
 
+.about h1 {
+    font-size: 36px;
+    margin-bottom: 0.5rem;
+}
+
 .aboutMain {
     text-align: center;
+    margin-bottom: 100px;
 }
 
 .aboutPersons {
@@ -52,9 +95,49 @@ body {
     justify-content: space-evenly;
 }
 
+/* .aboutPerson img {
+    margin: 80px 124px;
+} */
+
+.aboutPersonImg {
+    height: 280px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.aboutPerson h3 {
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.aboutPerson span {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.aboutPerson p {
+    line-height: 24px;
+}
+
+.aboutPersonSocial {
+    display: flex;
+    height: unset;
+    width: 92px;
+    justify-content: space-between;
+    
+}
+
+/* .aboutPersonSocial img {
+   background-color: #6d758f;
+} */
+
+
 .aboutPerson {
-    width: 300px;
-    padding: 25px 20px;
+    height: 760px;
+    width: 410px;
+    padding: 20px 20px;
 }
 
 .aboutPerson:first-child {
@@ -109,12 +192,44 @@ body {
 }
 
 .contentCharacteristic {
-    width: 300px;
+    width: 355px;
+    height: 355px;
     background-image: linear-gradient(to bottom,rgb(116, 115, 115), rgb(217, 219, 223));
+    /* background-size: cover; */
     padding: 15px;
     border-radius: 10px;
     color: white;
+    position: relative;
 }
+
+.contentCharacteristic div {
+    position: absolute;
+    z-index: 2;
+}
+
+.contentCharacteristic img {
+    width: 355px;
+    position: absolute;
+    z-index: 1;
+}
+
+/* .contentCharacteristic:nth-child(1) {
+    background-image: url(/src/Images/p&mImg1.png);
+    -webkit-filter: brightness(80%);
+    -moz-filter: brightness(80%);
+    -o-filter: brightness(80%);
+    -ms-filter: brightness(80%);
+    filter: brightness(80%);
+    
+}
+.contentCharacteristic:nth-child(2) {
+    background-image: url(/src/Images/p&mImg2.png);
+    
+}
+.contentCharacteristic:nth-child(3) {
+    background-image: url(/src/Images/p&mImg3.png);
+    
+} */
 
 .mentorsAndCoaches {
     max-width: 1200px;
@@ -124,6 +239,10 @@ body {
 
 .mentorsAndCoachesIntro {
     text-align: center;
+}
+
+.mentorsAndCoachesIntro h2 {
+    font-size: 36px;
 }
 
 .mentorsAndCoachesPeople {
@@ -136,10 +255,11 @@ body {
 .mentorOrCoach {
     font-family: "Inter", sans-serif;
     color: #6D758F;
-    padding: 30px 15px;
-    width: 300px;
+    padding: 20px 20px;
+    width: 410px;
     background-color: #f1f3f7;
     margin: 30px;
+    height: 760px;
 }
 
 .mentorOrCoach img {
@@ -221,11 +341,74 @@ body {
     position: absolute;
     top: calc((600px - 300px)/2);
     left: 530px;
-    width: 300px;
+    width: 310px;
     height: 300px;
     background-color: white;
     padding: 15px;
     border-radius: 0 15px 15px 0;
     border: 1px solid #e1e4ed;
     border-left: none;
+}
+
+.contactInfo h2, .contactInfo p {
+    margin: 0;
+}
+
+.contactElement {
+    display: flex;
+}
+
+@media screen and (max-width: 991px) {
+
+    .aboutPersons {
+        display: grid;
+    }
+
+    .mentorsAndCoachesPeople {
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: center;
+        
+    }
+
+    .programsAndModulesContent {
+        width: 100vw
+    }
+
+    .toggleSelect {
+        width: 100vw;
+    }
+
+    .categoryContent {
+        width: 100vw;
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: center;
+    }
+
+    .contentCharacteristic {
+        margin: 20px 0;
+        background-image: url(/src/Images/p&mImg1.png);
+    }
+
+    .ourMemberships {
+        background-color: #737373;
+    }
+
+    .contact {
+        display: grid;
+    }
+
+    .contactInfo {
+        position: unset;
+        width: 310px;
+        height: 300px;
+        background-color: white;
+        padding: 15px;
+        border: none;
+    }
+
+
+
+    
 }

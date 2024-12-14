@@ -4,16 +4,13 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import demoFancyMapStyles from "./MapStyle.json";
 
 const libraries = ['places'];
-const mapContainerStyle = {
-  width: '100vw',
-  height: '1000px',
-};
+// const mapContainerStyle = 
 const center = {
-  lat: 47.255528946311244, // default latitude
-  lng: 8.647772878833043, // default longitude 
+  lat: 47.318580636148276, // default latitude
+  lng: 8.634934668469434, // default longitude 
 };
 
-const Map = () => {
+const Map = ({mapWidth, mapHeight}) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyC2JLjZLwlCghrdi8uK9LWD_UDyB3hCjoo',
     libraries,
@@ -30,8 +27,13 @@ const Map = () => {
   return (
     <div>
       <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        zoom={13}
+        mapContainerStyle={
+          {
+            width: mapWidth,
+            height: mapHeight,
+          }
+        }
+        zoom={15}
         center={center}
         options={{
             styles: demoFancyMapStyles,
