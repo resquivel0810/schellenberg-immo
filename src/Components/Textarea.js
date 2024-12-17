@@ -1,11 +1,12 @@
 import React from 'react';
+import classes from './Input.module.css';
 
 const TextArea = (props) => {
     return(
         <div style={{position: 'relative'}}>
-            {/* <label htmlFor="props.name" className="form-label">
-                {props.title}
-            </label> */}
+            <label htmlFor={props.name} className={classes.customLabel}>
+                {props.name}
+            </label>
             <textarea
                 className={` ${props.className}`}
                 id={props.id}

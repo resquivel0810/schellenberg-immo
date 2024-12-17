@@ -44,7 +44,7 @@ export const getPlausibleYears = () => {
 // Pads a string value with leading zeroes(0) until length is reached
 // For example: zeroPad(5, 2) => "05"
 export const zeroPad = (value, length) => {
-  return `${value}`.padStart(length, "");
+  return `${value}`.padStart(length, "0");
 };
 // (int) Number days in a month for a given year from 28 - 31
 export const getMonthDays = (month = THIS_MONTH, year = THIS_YEAR) => {
@@ -156,19 +156,19 @@ export default (month = THIS_MONTH, year = THIS_YEAR) => {
 
   const prevMonthDates = [...new Array(daysFromPrevMonth)].map((n, index) => {
     const day = index + 1 + (prevMonthDays - daysFromPrevMonth);
-    return [prevMonthYear, zeroPad(prevMonth, 2), zeroPad(day, 2)];
+    return [prevMonthYear, zeroPad(prevMonth, 2), day];
   });
   // Builds dates to be displayed from current month
 
   const thisMonthDates = [...new Array(monthDays)].map((n, index) => {
     const day = index + 1;
-    return [year, zeroPad(month, 2), zeroPad(day, 2)];
+    return [year, zeroPad(month, 2), day];
   });
   // Builds dates to be displayed from next month
 
   const nextMonthDates = [...new Array(daysFromNextMonth)].map((n, index) => {
     const day = index + 1;
-    return [nextMonthYear, zeroPad(nextMonth, 2), zeroPad(day, 2)];
+    return [nextMonthYear, zeroPad(nextMonth, 2), day];
   });
   // Combines all dates from previous, current and next months
 

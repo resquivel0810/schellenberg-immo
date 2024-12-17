@@ -3,36 +3,56 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    align-self: baseline;
+    margin-top: 64px;
 }
 
 .CarouselItemContent {
-    width: 400px;
+    width: 490px;
     height: 400px;
     /* background-color: #313131; */
     /* border: 3px solid #fdfdfd; */
-    padding: 15px;
-    border-radius: 15px;
+    padding: 40px;
+    border-radius: 8px;
     display: grid;
     justify-content: center;
     user-select: none;
     align-content: center;
-}
-
-.CarouselItemContent img{
-    width: 700px;
-}
-
-.CarouselItemContent p{
-    text-align: center;
+    box-shadow: 0px 1px 4px 0px rgba(25, 33, 61, 0.08);
 }
 
 
+.CarouselItemContent div h3 {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
 
-.CarouselTitle h2 {
-   text-align: center;
-    color: white;
-    text-transform: uppercase;
+.CarouselItemContent div p {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
 
+.CarouselItemContent div h4 {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.CarouselItemContent div span {
+    font-family: 'Inter';
+    color: #B4B9C9;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
 }
 
 
@@ -80,17 +100,36 @@
 
 .SlideButtons {
     position: absolute;
-    /* top: 50%; */
-    bottom: 50%;
+    top: calc(264px - (33px/2));
     left: calc((100vw - 1240px)/2);
     width: 1240px;
     display: flex;
     justify-content: space-between;
 }
 
+.SlideButtons button {
+    border: none;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 4px;
+}
+
 
 
 @media screen and (max-width: 991px) {
+    .CarouselItemContent {
+        width: 400px;
+        height: 400px;
+        /* background-color: #313131; */
+        /* border: 3px solid #fdfdfd; */
+        padding: 15px;
+        border-radius: 15px;
+        display: grid;
+        justify-content: center;
+        user-select: none;
+        align-content: center;
+    }
     .CarouselItemContent img{
         width: 90vw;
     }

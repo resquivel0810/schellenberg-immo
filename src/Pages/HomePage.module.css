@@ -154,21 +154,36 @@ body {
 
     padding-top:  100px;
     background-color: #F5F5F5;
+    padding-bottom: 55px;
 }
 
 .programsAndModulesContent {
-    width: 1200px;
+    width: 1220px;
     margin: auto;
 }
 
 .programsAndModulesDescription {
     text-align: center;
+    margin-bottom: 48px;
+
+}
+
+.programsAndModulesDescription h2 {
+    font-size: 36px;
+    margin-bottom: 0.5rem;
+}
+
+.programsAndModulesDescription p {
+    line-height: 24px;
+    max-width: 876px;
+    text-align: center;
+    margin: auto;
 }
 
 .toggleSelect {
     display: flex;
     justify-content:space-evenly;
-    height: 100px;
+    height: 34px;
 }
 
 .toggleSelect button {
@@ -183,6 +198,8 @@ body {
 
 .toggleSelect button {
     width: 50%;
+    /* font-weight: 800; */
+    font-size: 14px;
 }
 
 .categoryContent {
@@ -197,39 +214,75 @@ body {
     background-image: linear-gradient(to bottom,rgb(116, 115, 115), rgb(217, 219, 223));
     /* background-size: cover; */
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 8px;
     color: white;
     position: relative;
+    box-shadow: 0px 15px 15px 0px rgba(225, 228, 237, 0.20);
 }
 
 .contentCharacteristic div {
     position: absolute;
     z-index: 2;
+    padding: 9px 24px 9px 9px;
+}
+
+.contentCharacteristic div h3 {
+    font-size: 24px;
+}
+
+.contentCharacteristic div p {
+    line-height: 18px;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 
 .contentCharacteristic img {
-    width: 355px;
+    width: 385px;
+    height: 385px;
     position: absolute;
     z-index: 1;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+    filter: brightness(.6);
 }
 
-/* .contentCharacteristic:nth-child(1) {
-    background-image: url(/src/Images/p&mImg1.png);
-    -webkit-filter: brightness(80%);
-    -moz-filter: brightness(80%);
-    -o-filter: brightness(80%);
-    -ms-filter: brightness(80%);
-    filter: brightness(80%);
+.programsAndModulesCallToAction {
+    color: white;
+    background-color: black;
+    display: flex;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0px 1px 4px 0px rgba(25, 33, 61, 0.08);
+    margin: auto;
+    font-size: 14px;
+    font-family: 'Inter';   
+    align-items: center;
+    width: 195px;
+    justify-content: space-between;
     
 }
-.contentCharacteristic:nth-child(2) {
-    background-image: url(/src/Images/p&mImg2.png);
-    
+
+.feedback {
+
+    padding-top: 80px;
 }
-.contentCharacteristic:nth-child(3) {
-    background-image: url(/src/Images/p&mImg3.png);
-    
-} */
+
+.feedbackDescription {
+   text-align: center;
+}
+
+.feedbackDescription h2{
+    font-size: 36px;
+    margin-bottom: 24px;
+    margin-top: 0;
+    font-weight: 800;
+}
+.feedbackDescription p {
+    margin: 0;
+}
 
 .mentorsAndCoaches {
     max-width: 1200px;
@@ -280,6 +333,7 @@ body {
     background-color: #F3F0ED;
     display: flex;
     justify-content: center;
+    padding: 40px 0;
 }
 
 .ourMembershipsContent {
@@ -287,25 +341,34 @@ body {
     width: 1200px;
     padding: 100px;
     background-color: #737373;
-    padding: 50px 0 50px 0;
-    margin: 50px 0;
+    padding: 64px;
+    /* margin: 50px 0; */
     text-align: center;
-    max-width: 900px;
+    max-width: 1106px;
     color: white;
     border-radius: 10px;
+    
 }
 
 .ourMembershipsContent h2 {
     margin-top: 0;
-    margin-bottom: 50px;
+    margin-bottom: 62px;
+    font-family: 'Inter';
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
 }
 
 .memberships {
-    width: 60%;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     margin: auto;
     justify-content: space-between;
+    height: 140px;
+    align-content: space-between;
+    justify-items: center; 
+
 }
 
 .contact {
@@ -315,12 +378,13 @@ body {
 }
 
 .contact div form {
-    width: 500px;
-    height: 600px;
+    width: 577px;
+    height: 785px;
     background-color: white;
-    padding: 15px;
-    border-radius: 15px;
+    padding: 32px;
+    border-radius: 8px;
     border: 1px solid #e1e4ed;
+    box-shadow: 0px 1px 4px 0px rgba(25, 33, 61, 0.08);
 }
 
 .formOneOfTwo {
@@ -331,7 +395,7 @@ body {
 .contactContent {
     width: 1200px;
     position: absolute;
-    top: calc((1000px - 600px) / 2);
+    top: calc((1000px - 849px) / 2);
     border-radius: 15px;
     
 
@@ -339,12 +403,12 @@ body {
 
 .contactInfo {
     position: absolute;
-    top: calc((600px - 300px)/2);
-    left: 530px;
+    top: calc((785px - 300px)/2);
+    left: 643px;
     width: 310px;
     height: 300px;
     background-color: white;
-    padding: 15px;
+    padding: 26px 20px;
     border-radius: 0 15px 15px 0;
     border: 1px solid #e1e4ed;
     border-left: none;
@@ -356,6 +420,21 @@ body {
 
 .contactElement {
     display: flex;
+}
+
+.contactSubmit{
+    color: white;
+    background-color: black;
+    display: flex;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0px 1px 4px 0px rgba(25, 33, 61, 0.08);
+    font-size: 14px;
+    font-family: 'Inter';
+    align-items: center;
+    width: 103px;
+    justify-content: space-between;
 }
 
 @media screen and (max-width: 991px) {

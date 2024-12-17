@@ -13,6 +13,12 @@ import dummy from '../Images/empty.svg';
 import logo1 from '../Images/stock_logo.svg';
 import logo2 from '../Images/svit_logo.svg';
 import logo3 from '../Images/svit_s_logo.svg';
+import logo4 from '../Images/athletes_network.png';
+import logo5 from '../Images/dropbox.svg';
+import logo6 from '../Images/hubspot.svg';
+import logo7 from '../Images/framer.svg';
+import logo8 from '../Images/slack.svg';
+
 import instagramLogo from '../Images/instagram_logo.svg';
 import instagramLogoDark from '../Images/Instagram_logo_dark.svg';
 import facebookLogo from '../Images/facebook_logo.svg';
@@ -156,7 +162,7 @@ export default function HomePage() {
         <Header/>
         <section className={classes.hero}>
             <div className={classes.banner}>
-                <video style={{width:'100vw', objectFit:'cover', height:'calc(100vh + 100px)' }} controlsList="nofullscreen" autoPlay="true" muted="true" loop="true" controls='' webkit-playsInLine="true" playsInLine="true">
+                <video style={{width:'100vw', objectFit:'cover', height:'calc(100vh + 100px)',  filter: 'brightness(90%)' }} controlsList="nofullscreen" autoPlay="true" muted="true" loop="true" controls='' webkit-playsInLine="true" playsInLine="true">
                     <source src={banner} type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
@@ -351,7 +357,8 @@ export default function HomePage() {
                             <button
                                 onClick={() => setDisplayedCategory('1')}
                                 style={{
-                                    borderBottom: displayedCategory === '1' ? '2px solid black' : '2px solid white'
+                                    borderBottom: displayedCategory === '1' ? '2px solid #6D758F' : '2px solid #E1E4ED',
+                                    fontWeight: displayedCategory === '1' ? '800' : '400'
                                 }}
                             >
                                 ingrado.immo
@@ -359,7 +366,8 @@ export default function HomePage() {
                             <button
                                 onClick={() => setDisplayedCategory('2')} 
                                 style={{
-                                    borderBottom: displayedCategory === '2' ? '2px solid black' : '2px solid white'
+                                    borderBottom: displayedCategory === '2' ? '2px solid #6D758F' : '2px solid #E1E4ED',
+                                    fontWeight: displayedCategory === '2' ? '800' : '400'
                                 }}
                             >
                                 innovage.immo
@@ -379,22 +387,28 @@ export default function HomePage() {
                                     </p>
                                 </div>
                                 
-                                <img src={pAndMImg1}></img>
+                                <img src={pAndMImg1} />
                             </div>
                             <div className={classes.contentCharacteristic}>
-                                <h3>Fachmentoring</h3>
-                                <p>
-                                    Profitieren Sie vom Fachwissen und der Erfahrung erfolgreicher
-                                    Mentoren, die Ihnen helfen, Ihre beruflichen Ziele zu erreichen.
-                                </p>
-                                <img></img>
+                                <div>
+                                    <h3>Fachmentoring</h3>
+                                    <p>
+                                        Profitieren Sie vom Fachwissen und der Erfahrung erfolgreicher
+                                        Mentoren, die Ihnen helfen, Ihre beruflichen Ziele zu erreichen.
+                                    </p>
+                                </div>
+                                
+                                <img src={pAndMImg2} />
                             </div>
                             <div className={classes.contentCharacteristic}>
-                                <h3>Karriereentwicklung und Leadership-Coaching</h3>
-                                <p>
-                                    Bauen Sie Ihre Führungsfähigkeiten aus und gestalten Sie 
-                                    Ihre Karriere durch gezieltes Coaching.
-                                </p>
+                                <div>
+                                    <h3>Karriereentwicklung und Leadership-Coaching</h3>
+                                    <p>
+                                        Bauen Sie Ihre Führungsfähigkeiten aus und gestalten Sie 
+                                        Ihre Karriere durch gezieltes Coaching.
+                                    </p>
+                                </div>
+                                <img src={pAndMImg3} />
                             </div>
                         </div>
                         </>
@@ -402,43 +416,63 @@ export default function HomePage() {
                         <>
                         <div className={classes.categoryContent}>
                             <div className={classes.contentCharacteristic}>
-                                <h3>Title 1</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Facere quasi minima beatae cumque? Alias aliquam corporis, 
-                                    maiores dolorum fuga numquam nihil suscipit eaque. Nobis, 
-                                    earum sapiente. Praesentium odio incidunt non!
-                                </p>
-                                <img></img>
+                                <div>
+                                    <h3>Title 1</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                        Facere quasi minima beatae cumque? Alias aliquam corporis, 
+                                        maiores dolorum fuga numquam nihil suscipit eaque. Nobis, 
+                                        earum sapiente. Praesentium odio incidunt non!
+                                    </p>
+                                </div>
+                                <img />
                             </div>
                             <div className={classes.contentCharacteristic}>
-                            <   h3>Title 2</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Facere quasi minima beatae cumque? Alias aliquam corporis, 
-                                    maiores dolorum fuga numquam nihil suscipit eaque. Nobis, 
-                                    earum sapiente. Praesentium odio incidunt non!
-                                </p>
-                                <img></img>
+                                <div>
+                                    <h3>Title 2</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                        Facere quasi minima beatae cumque? Alias aliquam corporis, 
+                                        maiores dolorum fuga numquam nihil suscipit eaque. Nobis, 
+                                        earum sapiente. Praesentium odio incidunt non!
+                                    </p>
+                                </div>
+                                <img />
                             </div>
                             <div className={classes.contentCharacteristic}>
-                                <h3>Title 3</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Facere quasi minima beatae cumque? Alias aliquam corporis, 
-                                    maiores dolorum fuga numquam nihil suscipit eaque. Nobis, 
-                                    earum sapiente. Praesentium odio incidunt non!
-                                </p>
+                                <div>
+                                    <h3>Title 3</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                        Facere quasi minima beatae cumque? Alias aliquam corporis, 
+                                        maiores dolorum fuga numquam nihil suscipit eaque. Nobis, 
+                                        earum sapiente. Praesentium odio incidunt non!
+                                    </p>
+                                </div>
+                                
+                                <img />
                             </div>
                         </div>
+                        
                         </>
                     }
                     
                 </div>
+                <button className={classes.programsAndModulesCallToAction}>
+                    <span>Lassen Sie uns reden</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.88458 1.8808L10.1999 6.00001L5.88458 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.1999 6L1.79999 6" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
             
         </section>
-        <section>
+        <section className={classes.feedback}>
+            <div className={classes.feedbackDescription}>
+                <h2>Freunde und beratende Stimmen</h2>
+                <p>Erfahrungen und Erfolge aus erster Hand</p>
+            </div>
             <FeedbackCarousel />
         </section>
         <section className={classes.ourMemberships}>
@@ -448,6 +482,11 @@ export default function HomePage() {
                         <img src={logo1}/>
                         <img src={logo2}/>
                         <img src={logo3}/>
+                        <img src={logo4}/>
+                        <img src={logo5}/>
+                        <img src={logo6}/>
+                        <img src={logo7}/>
+                        <img src={logo8}/>
                     </div>
             </div>
         </section>
@@ -694,16 +733,22 @@ export default function HomePage() {
                         
                             <TextArea 
                                 placeholder="Nachricht hier eingeben..."
-                                name="body" 
+                                name="Nachricht" 
                                 handleChange={handleChange} 
                                 // handleBlur={commentBlurHandler}
-                                style={{height:'150px', resize:'none', borderRadius:'5px', padding:'10px', width:'95%'}}
+                                style={{height:'210px', resize:'none', borderRadius:'5px', padding:'10px', width:'95%', marginTop:'16px', border:'1px solid #F1F3F7', boxShadow:'0px 1px 4px 0px rgba(25, 33, 61, 0.08)'}}
                                 className={bodyError.exists ? "is-invalid": ""}
                                 errorDiv = {bodyError.exists ? "text-danger" : "no-danger"}
                                 errorMsg = {bodyError.helperText}
                                 // writtenCharacters ={feedback.comment.length}
                             />
-                            <button style={{marginTop:'50px'}}>Senden</button>
+                            <button className={classes.contactSubmit} style={{marginTop:'25px'}}>
+                                <span>Senden</span>
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.88454 1.88074L10.1999 5.99995L5.88454 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.1999 6L1.79996 6" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
                         </form>
                         <div className={classes.contactInfo}>
                             <h2>Wir sind für Sie da!</h2>

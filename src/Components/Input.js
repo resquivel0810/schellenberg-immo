@@ -1,14 +1,15 @@
 import React from 'react';
+import classes from './Input.module.css';
 
 const Input = (props) => {
     return(
-        <div style={{height:'45px'}}>
-            {/* <label htmlFor="props.name" className="form-label">
-                {props.title}
-            </label> */}
+        <div className={classes.container} >
+            <label htmlFor={props.name} className={classes.customLabel}>
+                {props.placeholder}
+            </label>
             <input 
                 type={props.type}
-                className={` ${props.className}`}
+                className={`${classes.customInput} ${props.className}`}
                 id={props.id}
                 name={props.name}
                 value={props.value}
@@ -24,7 +25,7 @@ const Input = (props) => {
                 data-checked={props.checked}
                 
             />
-            <div className={props.errorDiv}>
+            <div className={`${props.errorDiv} ${classes.customError}`}>
                 {props.errorMsg}
             </div>
         </div>

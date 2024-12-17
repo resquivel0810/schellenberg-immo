@@ -1,0 +1,37 @@
+.container {
+    display: grid;
+    height: 100px;
+    position: relative;
+}
+
+.customLabel {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    height: 0px;
+}
+
+.customInput{
+    height: max-content;
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    width: 240px;
+    border-radius: 6px;
+    border: 1px solid #F1F3F7;
+    padding: 12px 10px;
+    color: #6D758F;
+    box-shadow: 0px 1px 4px 0px rgba(25, 33, 61, 0.08);
+    /* position: absolute;
+    top: 20px; */
+}
+
+.customError {
+    position: absolute;
+    bottom: 0;
+}
+
