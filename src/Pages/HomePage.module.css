@@ -512,7 +512,7 @@ body {
     }
 
     .aboutPerson {
-        height: 760px;
+        height: 820px;
         width: calc(90vw - 40px);
         padding: 20px 20px;
         margin: 5px 5vw;
@@ -527,6 +527,38 @@ body {
     .aboutPersons {
         display: grid;
         justify-content: center;
+    }
+
+    .mentorsAndCoachesIntro h2 {
+        font-size: 29px;
+    }
+
+    .mentorsAndCoachesIntro p {
+        font-family: 'Inter';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+    .mentorsAndCoachesIntro {
+ 
+        padding: 0 5vw;
+
+    }
+
+    .mentorOrCoach {
+        font-family: "Inter", sans-serif;
+        color: #6D758F;
+        padding: 20px 20px;
+        width: calc(90vw - 40px);
+        background-color: #f1f3f7;
+        margin: 5px auto;
+        height: 760px;
+    }
+
+    .mentorsAndCoaches {
+        margin-bottom: 50px;
     }
 
     .mentorsAndCoachesPeople {
