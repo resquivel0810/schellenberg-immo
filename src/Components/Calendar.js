@@ -49,7 +49,7 @@ export default function Calendar({setSelectedDate=f=>f, selectedDate=new Date(),
       }}
     >
       <div style={{display:'flex', justifyContent: 'space-between', margin: '20px 0', alignItems:'center'}}>
-        <h2 style={{fontWeight:'600', margin:'0', fontSize:'28px'}}>{Object.values(CALENDAR_MONTHS)[dateState.month - 1]} {dateState.year}</h2>
+        <h2 className={classes.monthTitle}>{Object.values(CALENDAR_MONTHS)[dateState.month - 1]} {dateState.year}</h2>
         <div >
             
             <button

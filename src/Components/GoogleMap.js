@@ -33,7 +33,7 @@ const Map = ({mapWidth, mapHeight}) => {
             height: mapHeight,
           }
         }
-        zoom={15}
+        zoom={12}
         center={center}
         options={{
             styles: demoFancyMapStyles,

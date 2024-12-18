@@ -100,7 +100,7 @@ export default function Footer(){
                             <div>Deutsch</div>
                             <div>Englisch</div>
                         </div>
-                        <div className={classes.newsletter}>
+                        {/* <div className={classes.newsletter}>
                             <div>Newsletter abonnieren</div>
                             <div>
                                 <div style={{marginBottom:'10px'}} >
@@ -124,7 +124,7 @@ export default function Footer(){
                                     und innovativen Lösungen für die Immobilienbranche – direkt in Ihr Postfach.
                                 </p>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className={classes.footerInfo}>
                         <div>

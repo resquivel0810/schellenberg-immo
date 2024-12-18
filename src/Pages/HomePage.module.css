@@ -438,9 +438,95 @@ body {
 }
 
 @media screen and (max-width: 991px) {
+    .hero {
+        height: calc(100vh + 200px);
+        margin-top: 70px;
+        margin-bottom: 70px;
+        position: relative;
+        background-color: #F3F0ED;
+    }
+    .banner {
+        display: flex;
+        justify-content: center;
+        background-color: #F3F0ED;
+    }
+    .hero .fisrtHalf {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        right: calc((100vw - 100%)/2)
+    }
+
+    .hero h1 {
+        font-size: 36px;
+        /* max-width: 90vw; */
+        padding-top: 96px;
+        margin-bottom: 0.5rem;
+        color: #A58D71;
+    }
+    
+    .hero h2 {
+        font-size: 14px;
+        color: black;
+        font-weight: 400;
+    }
+    
+    .hero h3 {
+        font-size: 30px;
+        color: black;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 180px;
+    }
+    
+    .hero h4 {
+        font-size: 24px;
+        color: black;
+        font-weight: 700;
+        text-align: center;
+    
+    }
+    
+    .heroBottomText {
+        position: absolute;
+        bottom: 0;
+        display: grid;
+        justify-items: center;
+        width: 100vw;
+        padding-bottom: 30px;
+    }
+
+    .about h1 {
+        font-size: 29px;
+        margin-bottom: 0.5rem;
+    }
+
+    .aboutMain {
+        padding: 0 5vw;
+        margin-bottom: 70px;
+        font-family: 'Inter';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; 
+    }
+
+    .aboutPerson {
+        height: 760px;
+        width: calc(90vw - 40px);
+        padding: 20px 20px;
+        margin: 5px 5vw;
+    }
+
+    .about {
+        max-width: 1118px;
+        margin: auto;
+        margin-bottom: 100px;
+    }
 
     .aboutPersons {
         display: grid;
+        justify-content: center;
     }
 
     .mentorsAndCoachesPeople {

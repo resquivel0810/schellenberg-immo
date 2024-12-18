@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 
 import LogoHeader from '../Images/logo.png';
+import LogoHeaderSmall from '../Images/Logo_responsive.svg'
 
 import classes from './Header.module.css'
 
@@ -37,9 +38,16 @@ export default function Header(){
         <header className={classes.Header}>
             <div className={classes.Content}>
             <div className={classes.ImageContainer}>
-                {/* <Link to={`/`}> */}
-                    <img style={{width:'300px', objectFit:'contain', backgroundColor:'white'}} src={LogoHeader } alt="HeaderLogo" />
-                {/* </Link> */}
+                <Link to={`/`}>
+                    <img className={classes.Logo} src={ window.innerWidth < 991 ? LogoHeaderSmall :LogoHeader } alt="HeaderLogo" />
+                    {
+                        window.innerWidth < 991
+                        ?
+                        <></>
+                        :
+                        <></>
+                    }
+                </Link>
                 
             </div>
             {

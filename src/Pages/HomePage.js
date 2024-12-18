@@ -28,6 +28,7 @@ import xLogoDark from '../Images/x_logo_dark.svg';
 
 
 import banner from "../Videos/banner.mp4";
+import bannerResponsive from '../Videos/banner_responsive.mp4';
 
 import pAndMImg1 from '../Images/p&mImg1.png';
 import pAndMImg2 from '../Images/p&mImg2.png';
@@ -162,18 +163,35 @@ export default function HomePage() {
         <Header/>
         <section className={classes.hero}>
             <div className={classes.banner}>
-                <video style={{width:'100vw', objectFit:'cover', height:'calc(100vh + 100px)',  filter: 'brightness(90%)' }} controlsList="nofullscreen" autoPlay="true" muted="true" loop="true" controls='' webkit-playsInLine="true" playsInLine="true">
+                {
+                    window.innerWidth < 991 
+                    ?
+                    <>
+                    <video style={{width:'90vw', objectFit:'cover', height:'calc(80vh + 0px)',  filter: 'brightness(95%)', marginTop:'46px', borderRadius:'16px' }} controlsList="nofullscreen" autoPlay="true" muted="true" loop="true" controls='' webkit-playsInLine="true" playsInLine="true">
+                    <source src={bannerResponsive} type="video/mp4"/>
+                        Your browser does not support the video tag.
+                    </video>
+                    </>
+                    :
+                    <>
+                    <video style={{width:'100vw', objectFit:'cover', height:'calc(100vh + 100px)',  filter: 'brightness(90%)' }} controlsList="nofullscreen" autoPlay="true" muted="true" loop="true" controls='' webkit-playsInLine="true" playsInLine="true">
                     <source src={banner} type="video/mp4"/>
-                    Your browser does not support the video tag.
-                </video>
-                <div class="custom-shape-divider-bottom-1734117816">
-                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-                    </svg>
-                </div>
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="custom-shape-divider-bottom-1734117816">
+                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                        </svg>
+                    </div>
+                    </>
+                }
+                
             </div>
             
             <div className={classes.fisrtHalf}>
+                {
+
+                }
                 <h1>Ihre Vision, unsere Expertise</h1>
                 <h2>Persönliche und unternehmerische Exzellenz für die <br/> Zukunft der Immobilienbranche</h2>
                 <h3>Jetzt kostenloses Erstgespräch <br/> vereinbaren!</h3>

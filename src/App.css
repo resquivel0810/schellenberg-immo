@@ -72,3 +72,12 @@ html {
 .custom-shape-divider-bottom-1734117816 .shape-fill {
   fill: #FFFFFF;
 }
+
+
+@media screen and (max-width: 991px) {
+  .calendarDay {
+
+    font-size: 18px;
+  
+  }
+}
