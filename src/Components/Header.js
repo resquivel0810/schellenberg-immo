@@ -53,7 +53,7 @@ export default function Header(){
         <header className={classes.Header}>
             <div className={classes.Content}>
             <div className={classes.ImageContainer}>
-                <Link onClick={() => {scrollToTargetAdjusted("hero", 100)}} to={`/`}>
+                <Link onClick={() => {scrollToTargetAdjusted("hero", 100); setNavbarOpen(false)}} to={`/`}>
                     <img className={classes.Logo} src={ window.innerWidth < 991 ? LogoHeaderSmall :LogoHeader } alt="HeaderLogo" />
                 </Link>
                 
@@ -75,7 +75,8 @@ export default function Header(){
                         scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
                         to='/#Überschellenberg.immo' 
                         className={classes.HeaderLink}
-                        style={{color:location.hash === "#Überschellenberg.immo"?'#6d758f' : '#6d758f'}}
+                        // style={{color:location.hash === "#Überschellenberg.immo"?'white' : 'white'}}
+                        onClick={() => setNavbarOpen(false)}
                     > 
                         Über schellenberg.immo 
                     </HashLink>
@@ -83,7 +84,8 @@ export default function Header(){
                         scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
                         to='/#Coaches&Mentoren' 
                         className={classes.HeaderLink}
-                        style={{color:location.hash === "#Coaches&Mentoren"?'#6d758f' : '#6d758f'}}
+                        // style={{color:location.hash === "#Coaches&Mentoren"?'white' : 'white'}}
+                        onClick={() => setNavbarOpen(false)}
                     > 
                         Coaches & Mentoren
                     </HashLink>
@@ -91,7 +93,8 @@ export default function Header(){
                         scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
                         to='/#Programme&Module' 
                         className={classes.HeaderLink}
-                        style={{color:location.hash === "#Programme&Module"?'#6d758f' : '#6d758f'}}
+                        // style={{color:location.hash === "#Programme&Module"?'white' : 'white'}}
+                        onClick={() => setNavbarOpen(false)}
                     > 
                         Programme & Module
                     </HashLink>
@@ -99,7 +102,8 @@ export default function Header(){
                         scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
                         to='/#Netzwerk' 
                         className={classes.HeaderLink}
-                        style={{color:location.hash === "#Netzwerk"?'#6d758f' : '#6d758f'}}
+                        // style={{color:location.hash === "#Netzwerk"?'white' : 'white'}}
+                        onClick={() => setNavbarOpen(false)}
                     > 
                         Netzwerk
                     </HashLink>
@@ -107,7 +111,8 @@ export default function Header(){
                         scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
                         to='/#Mitgliedschaften' 
                         className={classes.HeaderLink}
-                        style={{color:location.hash === "#Mitgliedschaften"?'#6d758f' : '#6d758f'}}
+                        // style={{color:location.hash === "#Mitgliedschaften"?'white' : 'white'}}
+                        onClick={() => setNavbarOpen(false)}
                     > 
                         Mitgliedschaften
                     </HashLink>
@@ -115,7 +120,8 @@ export default function Header(){
                         scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
                         to='/#Kontakt' 
                         className={classes.HeaderLink}
-                        style={{color:location.hash === "#Kontakt"?'#6d758f' : '#6d758f'}}
+                        // style={{color:location.hash === "#Kontakt"?'white' : 'white'}}
+                        onClick={() => setNavbarOpen(false)}
                     > 
                         Kontakt
                     </HashLink>

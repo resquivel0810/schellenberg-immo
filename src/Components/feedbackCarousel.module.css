@@ -118,6 +118,9 @@
 
 
 @media screen and (max-width: 991px) {
+    .CarouselItem {
+        margin-top: 112px;
+    }
     .CarouselItemContent {
         width: calc(90vw - 30px);
         height: 400px;
@@ -138,7 +141,7 @@
         position: absolute;
         top: calc(10px);
         left: calc((100vw - 100px) / 2);
-        width: 100px;
+        width: 116px;
         display: flex;
         justify-content: space-between;
     }

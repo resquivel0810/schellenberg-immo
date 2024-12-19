@@ -167,7 +167,7 @@ export default function HomePage() {
                     window.innerWidth < 991 
                     ?
                     <>
-                    <video style={{width:'90vw', objectFit:'cover', height:'calc(80vh + 0px)',  filter: 'brightness(95%)', marginTop:'46px', borderRadius:'16px' }} controlsList="nofullscreen" autoPlay="true" muted="true" loop="true" controls='' webkit-playsInLine="true" playsInLine="true">
+                    <video style={{width:'90vw', objectFit:'cover', height:'calc(80vh + 0px)', minHeight:'800px',  filter: 'brightness(95%)', marginTop:'46px', borderRadius:'16px' }} controlsList="nofullscreen" autoPlay="true" muted="true" loop="true" controls='' webkit-playsInLine="true" playsInLine="true">
                     <source src={bannerResponsive} type="video/mp4"/>
                         Your browser does not support the video tag.
                     </video>

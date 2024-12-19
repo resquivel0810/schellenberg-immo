@@ -38,7 +38,7 @@
         position: absolute;
         z-index: 2;
         left: calc((100vw - 334px) / 2);
-        bottom: 230px;
+        bottom: 22%;
         background-color: white;
         border-radius: 8px;
         box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.13);
