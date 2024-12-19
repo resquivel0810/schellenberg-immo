@@ -14,6 +14,7 @@ import logo1 from '../Images/stock_logo.svg';
 import logo2 from '../Images/svit_logo.svg';
 import logo3 from '../Images/svit_s_logo.svg';
 import logo4 from '../Images/athletes_network.png';
+import logo4s from '../Images/athletes_network_s.png';
 import logo5 from '../Images/dropbox.svg';
 import logo6 from '../Images/hubspot.svg';
 import logo7 from '../Images/framer.svg';
@@ -500,7 +501,7 @@ export default function HomePage() {
                         <img src={logo1}/>
                         <img src={logo2}/>
                         <img src={logo3}/>
-                        <img src={logo4}/>
+                        <img src={window.innerWidth < 991 ? logo4s : logo4}/>
                         <img src={logo5}/>
                         <img src={logo6}/>
                         <img src={logo7}/>
@@ -519,12 +520,12 @@ export default function HomePage() {
                             Lassen Sie uns über Ihre Ziele sprechen – für Sie oder Ihr Unternehmen. 
                             Unsere Experten freuen sich, Sie in einem persönlichen Gespräch kennenzulernen.
                         </p>
-                        <div>
+                        <div className={classes.contactElements}>
                             <div className={classes.contactElement}>
                                 <div>
                                     <img style={{margin:'5px'}} src={mailLogo} />
                                 </div>
-                                <div>
+                                <div className={classes.contactElementInfo}>
                                     <div>E-Mail:</div>
                                     <div style={{fontWeight:'600'}}>info@ingrado.immo</div>
                                 </div>
@@ -533,7 +534,7 @@ export default function HomePage() {
                                 <div>
                                     <img style={{margin:'5px'}} src={telephoneLogo} />
                                 </div>
-                                <div>
+                                <div className={classes.contactElementInfo}>
                                     <div>Telefonisch</div>
                                     <div style={{fontWeight:'600'}}>Telefon: +41 44 244 60 60</div>
                                     <div style={{fontWeight:'600'}}>Mobil: +41 79 244 60 60</div>
@@ -543,7 +544,7 @@ export default function HomePage() {
                                 <div>
                                     <img src={locationLogo} />
                                 </div>
-                                <div>
+                                <div className={classes.contactElementInfo}>
                                     <div>Standort:</div>
                                     <div style={{fontWeight:'600'}}>Scherrstrasse 3, 8006 Zürich</div>
                                 </div>
@@ -642,13 +643,19 @@ export default function HomePage() {
                             name="body" 
                             handleChange={handleChange} 
                             // handleBlur={commentBlurHandler}
-                            style={{height:'150px', resize:'none', borderRadius:'5px', padding:'10px', width:'90%'}}
+                            style={{height:'150px', resize:'none', borderRadius:'5px', padding:'10px', width:'95%', marginTop:'16px', border:'1px solid #F1F3F7', boxShadow:'0px 1px 4px 0px rgba(25, 33, 61, 0.08)', fontFamily:'"Inter"'}}
                             className={bodyError.exists ? "is-invalid": ""}
                             errorDiv = {bodyError.exists ? "text-danger" : "no-danger"}
                             errorMsg = {bodyError.helperText}
                             // writtenCharacters ={feedback.comment.length}
                         />
-                        <button style={{marginTop:'50px'}}>Senden</button>
+                        <button className={classes.contactSubmit} style={{marginTop:'25px'}}>
+                            <span>Senden</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.88454 1.88074L10.1999 5.99995L5.88454 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10.1999 6L1.79996 6" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
                     </form>
                     <GoogleMap mapWidth={'100vw'} mapHeight={'500px'}/>
                 </section>

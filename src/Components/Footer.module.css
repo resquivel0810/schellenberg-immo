@@ -29,9 +29,13 @@
     margin-bottom: 15px;
 }
 
-.footerLinks div {
-    color: rgba(255, 255, 255, 0.7);
+.FooterLinkContainer {
     margin-bottom: 13px;
+}
+
+.FooterLink {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
 }
 
 .footerInfo {

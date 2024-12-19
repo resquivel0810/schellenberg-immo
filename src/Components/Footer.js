@@ -8,7 +8,22 @@ import Logo from '../Images/Logo.svg';
 import linkedinLogo from '../Images/linkedin_logo.svg';
 import instagramLogo from '../Images/instagram_logo.svg';
 
+import { HashLink } from 'react-router-hash-link';
+
 export default function Footer(){
+
+    function scrollToTargetAdjusted(targetElement, offset){
+        var element = document.getElementById(targetElement);
+        var headerOffset = offset;
+        var elementPosition = element.getBoundingClientRect().top;
+        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+        window.scrollTo({
+             top: offsetPosition,
+             behavior: "smooth"
+        });
+    }
+
     return(
         <>
         {
@@ -56,11 +71,11 @@ export default function Footer(){
                         <div>Impressum</div>
                         <div>AGB</div>
                     </div>
-                    <div className={classes.footerLinks}>
+                    {/* <div className={classes.footerLinks}>
                         <h4>Sprache</h4>
                         <div>Deutsch</div>
                         <div>Englisch</div>
-                    </div>
+                    </div> */}
                 </div>
                 <div>
                     <img src={Logo} />
@@ -84,7 +99,17 @@ export default function Footer(){
                     <div className={classes.footerLinksAndForm}>
                         <div className={classes.footerLinks}>
                             <h4>Sitemap</h4>
-                            <div>Über schellenberg.immo</div>
+                            {/* <div>Über schellenberg.immo</div> */}
+                            <div className={classes.FooterLinkContainer}>
+                                <HashLink
+                                    scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                                    to='/#Überschellenberg.immo' 
+                                    className={classes.FooterLink}
+                                > 
+                                    Über schellenberg.immo 
+                                </HashLink>
+                            </div>
+                            
                             <div>Programme und Module</div>
                             <div>Testimonials</div>
                             <div>Kontakt</div>
@@ -95,11 +120,11 @@ export default function Footer(){
                             <div>Impressum</div>
                             <div>AGB</div>
                         </div>
-                        <div className={classes.footerLinks}>
+                        {/* <div className={classes.footerLinks}>
                             <h4>Sprache</h4>
                             <div>Deutsch</div>
                             <div>Englisch</div>
-                        </div>
+                        </div> */}
                         {/* <div className={classes.newsletter}>
                             <div>Newsletter abonnieren</div>
                             <div>
