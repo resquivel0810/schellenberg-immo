@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 
-import LogoHeader from '../Images/logo.png';
+import LogoHeader from '../Images/Logo_main.png';
 import LogoHeaderSmall from '../Images/Logo_responsive.svg'
 
 import classes from './Header.module.css'
 
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 export default function Header(){
 
@@ -34,19 +35,26 @@ export default function Header(){
         document.documentElement.scrollTop = 0;
     }
 
+    function scrollToTargetAdjusted(targetElement, offset){
+        var element = document.getElementById(targetElement);
+        var headerOffset = offset;
+        var elementPosition = element.getBoundingClientRect().top;
+        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+        window.scrollTo({
+             top: offsetPosition,
+             behavior: "smooth"
+        });
+    }
+
+
+
     return(
         <header className={classes.Header}>
             <div className={classes.Content}>
             <div className={classes.ImageContainer}>
-                <Link to={`/`}>
+                <Link onClick={() => {scrollToTargetAdjusted("hero", 100)}} to={`/`}>
                     <img className={classes.Logo} src={ window.innerWidth < 991 ? LogoHeaderSmall :LogoHeader } alt="HeaderLogo" />
-                    {
-                        window.innerWidth < 991
-                        ?
-                        <></>
-                        :
-                        <></>
-                    }
                 </Link>
                 
             </div>
@@ -63,54 +71,54 @@ export default function Header(){
             }
             <div className={`${classes.LinksContainer} ${navbarOpen ? classes.visible: classes.hidden}` }>
                 <div className={classes.Links} >
-                    <Link
-                        to={`/`}
+                    <HashLink
+                        scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                        to='/#Überschellenberg.immo' 
                         className={classes.HeaderLink}
-                        style={{color:location.pathname === "/"?'#6d758f' : '#6d758f', fontWeight:location.pathname === "/"?'bold' : 'normal'}}
-                        onClick={() => {topFunction()}}
-                    >
-                        Über schellenberg.immo
-                    </Link>
-                    <Link
-                        to={`/`}
+                        style={{color:location.hash === "#Überschellenberg.immo"?'#6d758f' : '#6d758f'}}
+                    > 
+                        Über schellenberg.immo 
+                    </HashLink>
+                    <HashLink
+                        scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                        to='/#Coaches&Mentoren' 
                         className={classes.HeaderLink}
-                        style={{color:location.pathname === "/nosotros"?'#6d758f' : '#6d758f', fontWeight:location.pathname === "/nosotros"?'bold' : 'normal'}}
-                        onClick={() => {topFunction()}}
-                    >
+                        style={{color:location.hash === "#Coaches&Mentoren"?'#6d758f' : '#6d758f'}}
+                    > 
                         Coaches & Mentoren
-                    </Link>
-                    <Link
-                        to={`/`}
+                    </HashLink>
+                    <HashLink
+                        scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                        to='/#Programme&Module' 
                         className={classes.HeaderLink}
-                        style={{color:location.pathname === "/nosotros"?'#6d758f' : '#6d758f', fontWeight:location.pathname === "/nosotros"?'bold' : 'normal'}}
-                        onClick={() => {topFunction()}}
-                    >
+                        style={{color:location.hash === "#Programme&Module"?'#6d758f' : '#6d758f'}}
+                    > 
                         Programme & Module
-                    </Link>
-                    <Link
-                        to={`/`}
+                    </HashLink>
+                    <HashLink
+                        scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                        to='/#Netzwerk' 
                         className={classes.HeaderLink}
-                        style={{color:location.pathname === "/tienda"?'#6d758f' : '#6d758f', fontWeight:location.pathname === "/tienda"?'bold' : 'normal'}}
-                        onClick={() => {topFunction()}}
-                    >
+                        style={{color:location.hash === "#Netzwerk"?'#6d758f' : '#6d758f'}}
+                    > 
                         Netzwerk
-                    </Link>
-                    <Link
-                        to={`/`}
+                    </HashLink>
+                    <HashLink
+                        scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                        to='/#Mitgliedschaften' 
                         className={classes.HeaderLink}
-                        style={{color:location.pathname === "/tienda"?'#6d758f' : '#6d758f', fontWeight:location.pathname === "/tienda"?'bold' : 'normal'}}
-                        onClick={() => {topFunction()}}
-                    >
+                        style={{color:location.hash === "#Mitgliedschaften"?'#6d758f' : '#6d758f'}}
+                    > 
                         Mitgliedschaften
-                    </Link>
-                    <Link
-                        to={`/`}
+                    </HashLink>
+                    <HashLink
+                        scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                        to='/#Kontakt' 
                         className={classes.HeaderLink}
-                        style={{color:location.pathname === "/mayoreo"?'#6d758f' : '#6d758f', fontWeight:location.pathname === "/mayoreo"?'bold' : 'normal'}}
-                        onClick={() => {topFunction()}}
-                    >
+                        style={{color:location.hash === "#Kontakt"?'#6d758f' : '#6d758f'}}
+                    > 
                         Kontakt
-                    </Link>
+                    </HashLink>
                 </div>
             </div>
             </div>

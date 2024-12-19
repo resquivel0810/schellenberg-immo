@@ -6,8 +6,8 @@ import demoFancyMapStyles from "./MapStyle.json";
 const libraries = ['places'];
 // const mapContainerStyle = 
 const center = {
-  lat: 47.318580636148276, // default latitude
-  lng: 8.634934668469434, // default longitude 
+  lat: 47.3839195, // default latitude
+  lng: 8.5446037, // default longitude 
 };
 
 const Map = ({mapWidth, mapHeight}) => {
@@ -33,7 +33,7 @@ const Map = ({mapWidth, mapHeight}) => {
             height: mapHeight,
           }
         }
-        zoom={12}
+        zoom={13}
         center={center}
         options={{
             styles: demoFancyMapStyles,
@@ -46,3 +46,5 @@ const Map = ({mapWidth, mapHeight}) => {
 };
 
 export default Map;
+
+

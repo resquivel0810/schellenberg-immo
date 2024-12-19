@@ -16,7 +16,7 @@ export default function Footer(){
             ?
             <>
             <section className={classes.footer}>
-                <div className={classes.newsletter}>
+                {/* <div className={classes.newsletter}>
                     <div>Newsletter abonnieren</div>
                     <div>
                         <div style={{marginBottom:'10px'}} >
@@ -41,7 +41,7 @@ export default function Footer(){
                         </p>
                     </div>
 
-                </div>
+                </div> */}
                 <div className={classes.footerLinks}>
                     <h4>Sitemap</h4>
                     <div>Über schellenberg.immo</div>
@@ -130,7 +130,7 @@ export default function Footer(){
                         <div>
                             <img src={Logo} />
                         </div>
-                        <div>schellenberg.immo GmbH 2024 ©</div>
+                        <div className={classes.trademark}>schellenberg.immo GmbH 2024 ©</div>
                         <div>
                             <a href="https://www.linkedin.com/in/philipp-schellenberg-80811a6a/">
                                 <img src={linkedinLogo} />

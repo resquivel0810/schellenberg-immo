@@ -161,7 +161,7 @@ export default function HomePage() {
     return (
         <>
         <Header/>
-        <section className={classes.hero}>
+        <section id="hero" className={classes.hero}>
             <div className={classes.banner}>
                 {
                     window.innerWidth < 991 
@@ -207,7 +207,7 @@ export default function HomePage() {
             
 
         </section>
-        <section className={classes.about}>
+        <section id="Überschellenberg.immo" className={classes.about}>
             <div className={classes.aboutMain}>
                 <h1>Über schellenberg.immo</h1>
                 <p>
@@ -263,7 +263,7 @@ export default function HomePage() {
                 </div>
             </div>
         </section>
-        <section className={classes.mentorsAndCoaches}>
+        <section id="Coaches&Mentoren" className={classes.mentorsAndCoaches}>
             <div className={classes.mentorsAndCoachesIntro}>
                 <h2>Mentoren und Coaches</h2>
                 <p>
@@ -360,7 +360,7 @@ export default function HomePage() {
                 </div>
 
         </section>
-        <section className={classes.programsAndModules}>
+        <section id="Programme&Module" className={classes.programsAndModules}>
             <div className={classes.programsAndModulesContent}>
                 <div className={classes.programsAndModulesDescription}>
                     <h2>Programme und Module für nachhaltigen Erfolg in der Immobilienbranche</h2>
@@ -486,14 +486,14 @@ export default function HomePage() {
             </div>
             
         </section>
-        <section className={classes.feedback}>
+        <section id="Netzwerk" className={classes.feedback}>
             <div className={classes.feedbackDescription}>
                 <h2>Freunde und beratende Stimmen</h2>
                 <p>Erfahrungen und Erfolge aus erster Hand</p>
             </div>
             <FeedbackCarousel />
         </section>
-        <section className={classes.ourMemberships}>
+        <section id="Mitgliedschaften" className={classes.ourMemberships}>
             <div className={classes.ourMembershipsContent}>
                     <h2>Unsere Mitgliedschaften</h2>
                     <div className={classes.memberships}>
@@ -512,7 +512,7 @@ export default function HomePage() {
             window.innerWidth < 991 
             ?
             <>
-                <section className={classes.contact}>
+                <section id="Kontakt" className={classes.contact}>
                     <div className={classes.contactInfo}>
                         <h2>Wir sind für Sie da!</h2>
                         <p>
@@ -656,7 +656,7 @@ export default function HomePage() {
             </>
             :
             <>
-                <section className={classes.contact}>
+                <section id="Kontakt" className={classes.contact}>
                     <GoogleMap mapWidth={'100vw'} mapHeight={'1000px'}/>
                     <div className={classes.contactContent}>
                         <form onSubmit={handleSubmit}>
@@ -754,7 +754,7 @@ export default function HomePage() {
                                 name="Nachricht" 
                                 handleChange={handleChange} 
                                 // handleBlur={commentBlurHandler}
-                                style={{height:'210px', resize:'none', borderRadius:'5px', padding:'10px', width:'95%', marginTop:'16px', border:'1px solid #F1F3F7', boxShadow:'0px 1px 4px 0px rgba(25, 33, 61, 0.08)'}}
+                                style={{height:'210px', resize:'none', borderRadius:'5px', padding:'10px', width:'95%', marginTop:'16px', border:'1px solid #F1F3F7', boxShadow:'0px 1px 4px 0px rgba(25, 33, 61, 0.08)', fontFamily:'"Inter"'}}
                                 className={bodyError.exists ? "is-invalid": ""}
                                 errorDiv = {bodyError.exists ? "text-danger" : "no-danger"}
                                 errorMsg = {bodyError.helperText}
@@ -774,12 +774,12 @@ export default function HomePage() {
                                 Lassen Sie uns über Ihre Ziele sprechen – für Sie oder Ihr Unternehmen. 
                                 Unsere Experten freuen sich, Sie in einem persönlichen Gespräch kennenzulernen.
                             </p>
-                            <div>
+                            <div className={classes.contactElements}>
                                 <div className={classes.contactElement}>
                                     <div>
                                         <img style={{margin:'5px'}} src={mailLogo} />
                                     </div>
-                                    <div>
+                                    <div className={classes.contactElementInfo}>
                                         <div>E-Mail:</div>
                                         <div style={{fontWeight:'600'}}>info@ingrado.immo</div>
                                     </div>
@@ -788,7 +788,7 @@ export default function HomePage() {
                                     <div>
                                         <img style={{margin:'5px'}} src={telephoneLogo} />
                                     </div>
-                                    <div>
+                                    <div className={classes.contactElementInfo}>
                                         <div>Telefonisch</div>
                                         <div style={{fontWeight:'600'}}>Telefon: +41 44 244 60 60</div>
                                         <div style={{fontWeight:'600'}}>Mobil: +41 79 244 60 60</div>
@@ -798,7 +798,7 @@ export default function HomePage() {
                                     <div>
                                         <img src={locationLogo} />
                                     </div>
-                                    <div>
+                                    <div className={classes.contactElementInfo}>
                                         <div>Standort:</div>
                                         <div style={{fontWeight:'600'}}>Scherrstrasse 3, 8006 Zürich</div>
                                     </div>

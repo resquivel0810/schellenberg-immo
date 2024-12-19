@@ -20,25 +20,34 @@
 .footerLinksAndForm {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    padding-bottom: 25px;
+    padding-bottom: 47px;
     justify-content: space-between;
 }
 
 .footerLinks h4 {
     margin: 0;
+    margin-bottom: 15px;
 }
 
 .footerLinks div {
     color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 13px;
 }
 
 .footerInfo {
     display: grid;
     grid-template-columns: auto auto auto;
-    padding-top: 25px;
+    padding-top: 47px;
     border-top: 2px solid #aa947a;
     justify-content: space-between;
     align-items: baseline;
+}
+
+.trademark {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 @media screen and (max-width: 991px) {
