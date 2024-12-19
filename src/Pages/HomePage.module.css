@@ -41,6 +41,7 @@ body {
     padding-top: 430px;
     margin-bottom: 0.5rem;
     color: #A58D71;
+    padding-top: 43%;
 }
 
 .hero h2 {
@@ -469,7 +470,8 @@ body {
 
 @media screen and (max-width: 991px) {
     .hero {
-        height: calc(100vh + 200px);
+        height: calc(100vh + 300px);
+        min-height: 1196px;
         margin-top: 70px;
         margin-bottom: 70px;
         position: relative;
@@ -506,7 +508,7 @@ body {
         color: black;
         font-weight: 700;
         text-align: center;
-        margin-top: 30%;
+        margin-top: 60%;
     }
     
     .hero h4 {
@@ -719,7 +721,7 @@ body {
         width: calc(100vw - 74px);
         justify-self: center;
         position: unset;
-
+        height: unset;
         background-color: white;
         padding: 71px 15px 15px 15px;
         border: none;

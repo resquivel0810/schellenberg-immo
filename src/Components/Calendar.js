@@ -102,7 +102,7 @@ export default function Calendar({setSelectedDate=f=>f, selectedDate=new Date(),
         <>{getCalendarDates().map((d, i) => 
           <CalendarDate 
             isToday={new Date(d.join("/")).toDateString()===new Date().toDateString()}  key={i} day={d[2]}  
-            setDate={() => {setSelectedDate(new Date(d.join("/")))}}
+            setDate={() => {setSelectedDate(new Date(d.join("/")));window.open("https://book.timify.com/services?accountId=6759f42d06b3e46fdfd7043d&hideCloseButton=true", 'DBox').focus();}}
             date={d}
             isSelected={selectedDate.toDateString() === new Date(d.join("/")).toDateString()}
             test={() => console.log(selectedDate.toDateString() == new Date(d.join("/")).toDateString() )}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { HashLink } from 'react-router-hash-link';
 import Header from "../Components/Header";
 import Calendar from "../Components/Calendar";
 import FeedbackCarousel from "../Components/FeedbackCarousel";
@@ -158,7 +159,17 @@ export default function HomePage() {
         //     .then((data) => setStatus("Submitted"));
         console.log('Form submitted')
     };
-    
+    function scrollToTargetAdjusted(targetElement, offset){
+        var element = document.getElementById(targetElement);
+        var headerOffset = offset;
+        var elementPosition = element.getBoundingClientRect().top;
+        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+        window.scrollTo({
+             top: offsetPosition,
+             behavior: "smooth"
+        });
+    }
     return (
         <>
         <Header/>
@@ -477,13 +488,21 @@ export default function HomePage() {
                     }
                     
                 </div>
-                <button className={classes.programsAndModulesCallToAction}>
+                <HashLink
+                    scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                    to='/#Kontakt' 
+                    className={classes.FooterLink}
+                > 
+                    <button className={classes.programsAndModulesCallToAction}>
                     <span>Lassen Sie uns reden</span>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.88458 1.8808L10.1999 6.00001L5.88458 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M10.1999 6L1.79999 6" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
+                </HashLink>
+
+                
             </div>
             
         </section>

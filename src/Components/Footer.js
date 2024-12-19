@@ -59,17 +59,67 @@ export default function Footer(){
                 </div> */}
                 <div className={classes.footerLinks}>
                     <h4>Sitemap</h4>
-                    <div>Über schellenberg.immo</div>
-                    <div>Programme und Module</div>
-                    <div>Testimonials</div>
-                    <div>Kontakt</div>
+                    <div className={classes.FooterLinkContainer}>
+                        <HashLink
+                            scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                            to='/#Überschellenberg.immo' 
+                            className={classes.FooterLink}
+                        > 
+                            Über schellenberg.immo 
+                        </HashLink>
+                    </div>
+                    <div className={classes.FooterLinkContainer}>
+                        <HashLink
+                            scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                            to='/#Coaches&Mentoren' 
+                            className={classes.FooterLink}
+                        > 
+                            Coaches & Mentoren
+                        </HashLink>
+                    </div>
+                    <div className={classes.FooterLinkContainer} >
+                        <HashLink
+                            scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                            to='/#Programme&Module' 
+                            className={classes.FooterLink}
+                        > 
+                            Programme & Module
+                        </HashLink>
+                    </div>
+                    <div className={classes.FooterLinkContainer}>
+                        <HashLink
+                            scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                            to='/#Netzwerk' 
+                            className={classes.FooterLink}
+                        > 
+                            Netzwerk
+                        </HashLink>
+                    </div>
+                    <div className={classes.FooterLinkContainer}>
+                        <HashLink
+                            scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                            to='/#Mitgliedschaften' 
+                            className={classes.FooterLink}
+                        > 
+                            Mitgliedschaften
+                        </HashLink>
+                    </div>
+                    <div className={classes.FooterLinkContainer}>
+                        <HashLink
+                            scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                            to='/#Kontakt' 
+                            className={classes.FooterLink}
+                        > 
+                            Kontakt
+                        </HashLink>
+                    </div>
                 </div>
                 <div style={{display: 'grid', gridTemplateColumns: 'auto auto'}}>
                     <div className={classes.footerLinks}>
                         <h4>Rechtliche Hinweise</h4>
                         <div>Datenschutz</div>
                         <div>Impressum</div>
-                        <div>AGB</div>
+                        {/* <div>AGB</div> */}
                     </div>
                     {/* <div className={classes.footerLinks}>
                         <h4>Sprache</h4>
@@ -99,7 +149,6 @@ export default function Footer(){
                     <div className={classes.footerLinksAndForm}>
                         <div className={classes.footerLinks}>
                             <h4>Sitemap</h4>
-                            {/* <div>Über schellenberg.immo</div> */}
                             <div className={classes.FooterLinkContainer}>
                                 <HashLink
                                     scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
@@ -109,16 +158,57 @@ export default function Footer(){
                                     Über schellenberg.immo 
                                 </HashLink>
                             </div>
-                            
-                            <div>Programme und Module</div>
-                            <div>Testimonials</div>
-                            <div>Kontakt</div>
+                            <div className={classes.FooterLinkContainer}>
+                                <HashLink
+                                    scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                                    to='/#Coaches&Mentoren' 
+                                    className={classes.FooterLink}
+                                > 
+                                    Coaches & Mentoren
+                                </HashLink>
+                            </div>
+                            <div className={classes.FooterLinkContainer} >
+                                <HashLink
+                                    scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                                    to='/#Programme&Module' 
+                                    className={classes.FooterLink}
+                                > 
+                                    Programme & Module
+                                </HashLink>
+                            </div>
+                            <div className={classes.FooterLinkContainer}>
+                                <HashLink
+                                    scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                                    to='/#Netzwerk' 
+                                    className={classes.FooterLink}
+                                > 
+                                    Netzwerk
+                                </HashLink>
+                            </div>
+                            <div className={classes.FooterLinkContainer}>
+                                <HashLink
+                                    scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                                    to='/#Mitgliedschaften' 
+                                    className={classes.FooterLink}
+                                > 
+                                    Mitgliedschaften
+                                </HashLink>
+                            </div>
+                            <div className={classes.FooterLinkContainer}>
+                                <HashLink
+                                    scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                                    to='/#Kontakt' 
+                                    className={classes.FooterLink}
+                                > 
+                                    Kontakt
+                                </HashLink>
+                            </div>
                         </div>
                         <div className={classes.footerLinks}>
                             <h4>Rechtliche Hinweise</h4>
                             <div>Datenschutz</div>
                             <div>Impressum</div>
-                            <div>AGB</div>
+                            {/* <div>AGB</div> */}
                         </div>
                         {/* <div className={classes.footerLinks}>
                             <h4>Sprache</h4>
@@ -160,7 +250,7 @@ export default function Footer(){
                             <a href="https://www.linkedin.com/in/philipp-schellenberg-80811a6a/">
                                 <img src={linkedinLogo} />
                             </a>
-                            <a href="">
+                            <a href="https://www.instagram.com/schellenberg.immo/">
                                 <img src={instagramLogo} />
                             </a>
                         </div>
