@@ -706,6 +706,7 @@ export default function HomePage() {
                                 title = {"organization"}
                                 type = {"text"}
                                 name = {"organization"}
+                                id = {"organization"}
                                 placeholder = {"Unternehmen (optional)"}
                                 value={request.txt}
                                 handleChange={handleChange}

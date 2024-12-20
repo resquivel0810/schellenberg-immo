@@ -4,6 +4,18 @@ import classes from './feedbackCarousel.module.css'
 
 import avatar from '../Images/avatar.png'
 
+import imgRB from '../Images/Rahel_Bertschinger.png';
+import imgJN from '../Images/Janosch_Nietlispach.png';
+import imgMP from '../Images/Mirjam_Probst.png';
+import imgBS from '../Images/Beda_Stadelmann.png';
+import imgDL from '../Images/Dino_Lauber.png';
+import imgCB from '../Images/Chris_Baltisberger.png';
+
+
+
+
+
+
 
 
 const FeedbackCarousel = () => {
@@ -11,18 +23,56 @@ const FeedbackCarousel = () => {
         [
             {
                 "id": 1,
-                "feedbackTitle": "Erfolg im Beruf und Balance im Leben",
-                "feedbackText": "Als ehemaliger Profisportler, Unternehmer und Familienvater weiß ich, wie wichtig es ist, beruflichen Erfolg mit dem Familienleben zu vereinbaren. Philipp Schellenberg unterstützt und befähigt Business Athleten – Menschen, die sowohl beruflich als auch privat ihr Bestes geben wollen. Seine Mission, Fach- und Führungskräften, Nachwuchstalenten und Quereinsteigern Werkzeuge für berufliche und familiäre Erfüllung zu bieten, hat mich überzeugt. Gerne stehe ich ihm dabei mit meiner Erfahrung beratend zur Seite.",
-                "feedbackAuthor": "Tristan Fasnacht",
-                "feedbackAuthorPosition": "Leiter Bewirtschaftung Schwez, Prevera AG",
+                "feedbackImg": imgRB,
+                "feedbackTitle": "",
+                "feedbackText": "«Als Breathwork-Coach weiss ich, wie kraftvoll bewusste Atmung und Achtsamkeit sind, um Stress abzubauen und mentale Klarheit zu gewinnen. Diese Techniken helfen, in herausfordernden Momenten fokussiert und gelassen zu bleiben. Philipp Schellenberg unterstützt Business Athleten dabei, durch Breathwork und Achtsamkeit ihre innere Stärke zu fördern und erfolgreich in der Immobilienbranche zu sein. Ich freue mich, ihn mit meiner Erfahrung zu unterstützen.»",
+                "feedbackAuthor": "Rahel Bertschinger",
+                "feedbackAuthorPosition": "Achtsamkeitstraining/Breathwork www.athletictherapy.ch",
                 
             },
             {
                 "id": 2,
-                "feedbackTitle": "Mit dem richtigen Mindset zum Erfolg",
-                "feedbackText": "Als Hockeytorhüter muss ich in entscheidenden Momenten fokussiert bleiben und dem hohen Druck standhalten – wie in der Immobilienbranche. Das richtige Mindset ist entscheidend: Herausforderungen annehmen, aus Rückschlägen lernen und den Spaß an der Aufgabe behalten. Philipp Schellenberg unterstützt Business Athleten, dieses Mindset zu entwickeln und ihre Stärken zu entfalten. Ich stehe ihm dabei gerne mit meiner Erfahrung zur Seite.",
-                "feedbackAuthor": "Pascal Stutz",
-                "feedbackAuthorPosition": "CEO, SWIT Zürich",
+                "feedbackImg": imgJN,
+                "feedbackTitle": "",
+                "feedbackText": "«Als ehemaliger Profisportler, Unternehmer und Familienvater weiss ich, wie wichtig es ist, beruflichen Erfolg mit dem Familienleben zu vereinbaren. Philipp Schellenberg unterstützt und befähigt Business Athleten – Menschen, die sowohl beruflich als auch privat ihr Bestes geben wollen. Disziplin, Ausdauer und ständige Verbesserung zeichnen sie aus. Seine Mission, Fach- und Führungskräften, Nachwuchstalenten und Quereinsteigern die Werkzeuge zu bieten, um ihre beruflichen und familiären Ziele zu erreichen, haben mich überzeugt und stehe ihm dabei mit meiner Erfahrung und Wissen beratend zu Seite.»",
+                "feedbackAuthor": "Janosch Nietlispach",
+                "feedbackAuthorPosition": "Athletic Coach und Unternehmer www.janosch-nietlispach.ch",
+                
+            },
+            {
+                "id": 3,
+                "feedbackImg": imgMP,
+                "feedbackTitle": "",
+                "feedbackText": "«Als Schulleiterin sehe ich täglich, wie wichtig eine ganzheitliche Förderung in der schulischen Entwicklung und Bildung ist. Philipp Schellenberg bringt mit der schellenberg.immo GmbH diesen Ansatz in die Immobilienbranche, indem er Business Athleten nicht nur beruflich stärkt, sondern auch ihre persönliche Resilienz und Lernbereitschaft fördert. Durch die dynamische Kombination von Coaching, Sparring und Fachmentoring entstehen nicht nur starke Fachkräfte, sondern auch Persönlichkeiten, die sich selbst reflektieren und lebenslanges Lernen als Schlüssel zum Erfolg sehen. Ich unterstütze diesen innovativen Ansatz mit voller Überzeugung.»",
+                "feedbackAuthor": "Mirjam Probst",
+                "feedbackAuthorPosition": "Schulleiterin und ehemalige Mentorin an der Pädagogischen Hochschule Zürich PHZH",
+                
+            },
+            {
+                "id": 4,
+                "feedbackImg": imgBS,
+                "feedbackTitle": "",
+                "feedbackText": "«Als Physiotherapeut, Personal Trainer und Athletenbetreuer sehe ich täglich, wie wichtig es ist, Körper und Geist in Einklang zu bringen, um Spitzenleistungen zu erreichen. Philipp Schellenberg unterstützt mit seinem komplementären Mentoring- und Coachingprogramm Business Athleten in der Immobilienbranche dabei, ihr volles Potenzial ganzheitlich zu entfalten. Die Kombination aus Coaching, Fachmentoring und Sparring fördert nicht nur beruflichen Erfolg, sondern auch persönliches Wohlbefinden. Ich unterstütze diesen Ansatz zu 100%, da er Menschen hilft, langfristig erfolgreich und ausgeglichen zu bleiben.»",
+                "feedbackAuthor": "Beda Stadelmann",
+                "feedbackAuthorPosition": "Physiotherapeut und Personal Trainer www.momentum-therapie.ch",
+                
+            },
+            {
+                "id": 5,
+                "feedbackImg": imgDL,
+                "feedbackTitle": "",
+                "feedbackText": "«Bei ZURZACH Care setzen wir auf einen ganzheitlichen Ansatz, der sich mit der Philosophie von schellenberg.immo GmbH deckt. Philip Schellenberg unterstützt Fach- und Führungskräfte im Immobiliensektor bei beruflichen und persönlichen Herausforderungen. Durch Coaching, Sparring und Fachmentoring fördert er eine Balance zwischen Karriere, Familie und Gesundheit – wobei erholsamer Schlaf entscheidend ist. Gerne stehe dem Coaching- und Mentoringprogramm von schellenberg.immo mit meiner Erfahrung und Expertise zur Seite.»",
+                "feedbackAuthor": "Dino Lauber",
+                "feedbackAuthorPosition": "GF Prävention und Reintegration sowie Kliniken Schlafmedizin ZURZACHCare",
+                
+            },
+            {
+                "id": 6,
+                "feedbackImg": imgCB,
+                "feedbackTitle": "",
+                "feedbackText": "«Im Spitzensport Eishockey lernt man, unter Druck zu performen, im Team zu funktionieren und immer an sich zu arbeiten – Eigenschaften, die auch im Berufsleben entscheidend sind. Genau hier setzt das Mentoring- Programm von schellenberg.immo an: Es überträgt die Prinzipien des Spitzensports auf die Business-Welt und hilft, berufliche Herausforderungen mit derselben Mentalität zu meistern, die man auf dem Eis braucht. Was mich besonders beeindruckt, ist der persönliche Ansatz. Das Programm unterstützt nicht nur bei der fachlichen Weiterentwicklung, sondern legt auch grossen Wert auf mentale Stärke und Resilienz – Faktoren, die im Sport wie im Beruf den Unterschied ausmachen können. Für mich ist schellenberg.immo ein idealer Sparringpartner für alle, die ihre Karriere mit der Disziplin und Leidenschaft eines Spitzensportlers angehen wollen.»",
+                "feedbackAuthor": "Chris Baltisberger",
+                "feedbackAuthorPosition": "Eishockeyspieler ZSC Lions",
                 
             },
         
@@ -120,14 +170,14 @@ const FeedbackCarousel = () => {
     }, [])
 
     
-    const Comment = ({ comment_id, url, title, text, author, authorPosition}) => {
+    const Comment = ({ comment_id, url, title, text, author, authorPosition, img}) => {
         
         return (
             <>
             <div  className={classes.CarouselItem}>
                 <div style={{height:'unset', display:'flex', justifyContent:'center', border: '1px solid #E1E4ED'}} className={classes.CarouselItemContent}  >
                     <div >
-                        <img style={{width: '60px'}} src={avatar} />
+                        <img style={{width: '60px', height: '60px', borderRadius:'50%', objectFit:'cover'}} src={img} />
                         <h3>{title}</h3>
                         <p>{text}</p>
                         <h4>{author}</h4>
@@ -165,6 +215,7 @@ const FeedbackCarousel = () => {
                             text={feedback.feedbackText}
                             author={feedback.feedbackAuthor}
                             authorPosition={feedback.feedbackAuthorPosition}  
+                            img={feedback.feedbackImg}
                         />
                
                     )
