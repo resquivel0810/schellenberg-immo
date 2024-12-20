@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import { HashLink } from 'react-router-hash-link';
 import Header from "../Components/Header";
 import Calendar from "../Components/Calendar";
@@ -42,51 +43,48 @@ import locationLogo from '../Images/location_logo.svg';
 
 
 export default function HomePage() {
-    const [displayedCategory, setDisplayedCategory] = useState('1')
-
-    const [status, setStatus] = useState("notSubmitted");
-
+    const [displayedCategory, setDisplayedCategory] = useState('1'); // 1
+    const [status, setStatus] = useState("notSubmitted"); // 2
     const [request, setRequest] = useState({
         name: '',
-        about: '',
         email:'',
-        body:''
-    })
+        lastname:'',
+        organization:'non',
+        telephone:'',
+        regard: '',
+        message:''
+    }); // 3
 
     const initError = {
         exists: false,
         helperText: null,
     };
 
-    const [enteredNameTouched, setEnteredNameTouched] = useState(false);
-    const [enteredAboutTouched, setEnteredAboutTouched] = useState(false);
-    const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
-    const [enteredBodyTouched, setEnteredBodyTouched] = useState(false);
+    const [enteredNameTouched, setEnteredNameTouched] = useState(false); // 4
+    const [enteredEmailTouched, setEnteredEmailTouched] = useState(false); // 5
+    const [enteredLastnameTouched, setEnteredLastnameTouched] = useState(false);
+    const [enteredTelephoneTouched, setEnteredTelephoneTouched] = useState(false);
+    const [enteredRegardTouched, setEnteredRegardTouched] = useState(false);
+    const [enteredMessageTouched, setEnteredMessageTouched] = useState(false);
 
-    const [nameError, setNameError] = useState(initError);
-    const [aboutError, setAboutError] = useState(initError);
+    const [nameError, setNameError] = useState(initError); 
     const [emailError, setEmailError] = useState(initError);
-    const [bodyError, setBodyError] = useState(initError);
+    const [lastnameError, setLastnameError] = useState(initError);
+    const [telephoneError, setTelephoneError] = useState(initError);
+    const [regardError, setRegardError] = useState(initError);
+    const [messageError, setMessageError] = useState(initError);
+
+
+  
 
     useEffect(() => {
         if (!request.name && enteredNameTouched) {
             setNameError({
               exists: true,
-              helperText: "Escribe tu nombre",
+              helperText: "schreibe deinen Namen",
             });
         } else {
             setNameError({
-              exists: false,
-              helperText: null,
-            });
-        }
-        if (!request.about && enteredAboutTouched) {
-            setAboutError({
-              exists: true,
-              helperText: "Escribe el asunto",
-            });
-        } else {
-            setAboutError({
               exists: false,
               helperText: null,
             });
@@ -94,7 +92,7 @@ export default function HomePage() {
         if (!request.email && enteredEmailTouched) {
             setEmailError({
               exists: true,
-              helperText: "Escribe el un correo electrónico",
+              helperText: "Schreiben Sie eine E-Mail",
             });
         } else {
             setEmailError({
@@ -102,21 +100,58 @@ export default function HomePage() {
               helperText: null,
             });
         }
-        if (!request.body && enteredBodyTouched) {
-            setBodyError({
+        if (!request.lastname && enteredLastnameTouched) {
+            setLastnameError({
               exists: true,
-              helperText: "Escribe un mensaje",
+              helperText: "Schreiben Sie Ihren Nachnamen",
             });
         } else {
-            setBodyError({
+            setLastnameError({
               exists: false,
               helperText: null,
             });
         }
-    }, [request, enteredNameTouched, enteredAboutTouched, enteredEmailTouched])
+        if (!request.telephone && enteredTelephoneTouched) {
+            setTelephoneError({
+              exists: true,
+              helperText: "Schreiben Sie eine Telefonnummer",
+            });
+        } else {
+            setTelephoneError({
+              exists: false,
+              helperText: null,
+            });
+        }
+        if (!request.regard && enteredRegardTouched) {
+            setRegardError({
+              exists: true,
+              helperText: "einen Betreff schreiben",
+            });
+        } else {
+            setRegardError({
+              exists: false,
+              helperText: null,
+            });
+        }
+        if (!request.message && enteredMessageTouched) {
+            setMessageError({
+              exists: true,
+              helperText: "Nachricht schreiben",
+            });
+        } else {
+            setMessageError({
+              exists: false,
+              helperText: null,
+            });
+        }
+       
+    }, [request, enteredNameTouched, enteredEmailTouched, enteredLastnameTouched, enteredTelephoneTouched, enteredRegardTouched, enteredMessageTouched])
 
-    const nameIsValid = !nameError.exists && enteredNameTouched;
-    const aboutIsValid = !aboutError.exists && enteredAboutTouched;
+    const form = useRef();
+
+    // const nameIsValid = !nameError.exists 
+    // const emailIsValid = !nameError.exists
+    // const aboutIsValid = !aboutError.exists
 
     const nameBlurHandler = (e) => {
         setEnteredNameTouched(true);
@@ -131,34 +166,84 @@ export default function HomePage() {
         }))
     }
 
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
-        setEnteredNameTouched(true);
-        setEnteredAboutTouched(true);
-        setEnteredEmailTouched(true);
-        setEnteredBodyTouched(true);
-
-
-        if (!nameIsValid) {
-            return;
+    const sendEmail = (e) => {
+        e.preventDefault();
+        if (!request.name) {
+            setNameError({
+              exists: true,
+              helperText: "schreibe deinen Namen",
+            });
+            return
+        } 
+        if (!request.email) {
+            setEmailError({
+              exists: true,
+              helperText: "Schreiben Sie eine E-Mail",
+            });
+            return
+        } 
+        if (!request.lastname) {
+            setLastnameError({
+              exists: true,
+              helperText: "Schreiben Sie Ihren Nachnamen",
+            });
+            return
+        } 
+        if (!request.telephone) {
+            setTelephoneError({
+              exists: true,
+              helperText: "Schreiben Sie eine Telefonnummer",
+            });
+            return
+        } 
+        if (!request.regard) {
+            setRegardError({
+              exists: true,
+              helperText: "einen Betreff schreiben",
+            });
+            return
+        } 
+        if (!request.message) {
+            setMessageError({
+              exists: true,
+              helperText: "Nachricht schreiben",
+            });
+            return
         }
-        if (!aboutIsValid) {
-            return;
+
+        
+
+
+        if (nameError.exists || emailError.exists || lastnameError.exists || telephoneError.exists || regardError.exists || messageError.exists) {
+            // return;
+            console.log('NOT!!!')
+        } else {
+            emailjs.sendForm('service_mo5a0en', 'template_cr8cyk6', form.current, {
+                publicKey: 'TRrJ-iqCKxRNqu_Nn',
+            }).then(
+                () => {
+                    console.log('SUCCESS!');
+                    document.getElementById("submitButton").disabled = true;
+                    document.getElementById("name").disabled = true;
+                    document.getElementById("email").disabled = true;
+                    document.getElementById("lastname").disabled = true;
+                    document.getElementById("organization").disabled = true;
+                    document.getElementById("telephone").disabled = true;
+                    document.getElementById("regard").disabled = true;
+                    document.getElementById("message").disabled = true;
+                },
+                (error) => {
+                    console.log('FAILED...', error.text);
+                },
+            );
         }
 
-        // fetch("", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify(
-        //         {data:{...request}}
-        //     ),
-        //     })
-        //     .then((response) => response.json())
-        //     .then((data) => setStatus("Submitted"));
-        console.log('Form submitted')
-    };
+
+    
+        
+      };
+
+  
     function scrollToTargetAdjusted(targetElement, offset){
         var element = document.getElementById(targetElement);
         var headerOffset = offset;
@@ -570,12 +655,13 @@ export default function HomePage() {
                             </div>
                         </div>
                     </div>
-                    <form onSubmit={handleSubmit}>
+                    <form ref={form} onSubmit={sendEmail} >
                         <div style={{marginBottom:'10px'}} >
                             <Input 
                                 title = {"name"}
                                 type = {"text"}
                                 name = {"name"}
+                                id = {"name"}
                                 placeholder = {"Name"}
                                 value={request.txt}
                                 handleChange={handleChange}
@@ -590,6 +676,7 @@ export default function HomePage() {
                                 title = {"email"}
                                 type = {"text"}
                                 name = {"email"}
+                                id = {"email"}
                                 placeholder = {"E-Mail"}
                                 value={request.txt}
                                 handleChange={handleChange}
@@ -601,30 +688,28 @@ export default function HomePage() {
                         </div>
                         <div style={{marginBottom:'10px'}} >
                             <Input 
-                                title = {"lastName"}
+                                title = {"lastname"}
                                 type = {"text"}
-                                name = {"lastName"}
+                                name = {"lastname"}
+                                id = {"lastname"}
                                 placeholder = {"Vorname"}
                                 value={request.txt}
-                                // handleChange={handleChange}
+                                handleChange={handleChange}
                                 // handleBlur={userBlurHandler}
-                                // className={emailError.exists ? "is-invalid": ""}
-                                // errorDiv = {emailError.exists ? "text-danger" : "no-danger"}
-                                // errorMsg = {emailError.helperText}
+                                className={lastnameError.exists ? "is-invalid": ""}
+                                errorDiv = {lastnameError.exists ? "text-danger" : "no-danger"}
+                                errorMsg = {lastnameError.helperText}
                             /> 
                         </div>
                         <div style={{marginBottom:'10px'}} >
                             <Input 
-                                title = {"company"}
+                                title = {"organization"}
                                 type = {"text"}
-                                name = {"company"}
+                                name = {"organization"}
                                 placeholder = {"Unternehmen (optional)"}
                                 value={request.txt}
-                                // handleChange={handleChange}
+                                handleChange={handleChange}
                                 // handleBlur={userBlurHandler}
-                                // className={emailError.exists ? "is-invalid": ""}
-                                // errorDiv = {emailError.exists ? "text-danger" : "no-danger"}
-                                // errorMsg = {emailError.helperText}
                             /> 
                         </div>
                         <div style={{marginBottom:'10px'}} >
@@ -632,43 +717,46 @@ export default function HomePage() {
                                 title = {"telephone"}
                                 type = {"text"}
                                 name = {"telephone"}
+                                id = {"telephone"}
                                 placeholder = {"Telefon Nr."}
                                 value={request.txt}
-                                // handleChange={handleChange}
+                                handleChange={handleChange}
                                 // handleBlur={userBlurHandler}
-                                // className={emailError.exists ? "is-invalid": ""}
-                                // errorDiv = {emailError.exists ? "text-danger" : "no-danger"}
-                                // errorMsg = {emailError.helperText}
+                                className={telephoneError.exists ? "is-invalid": ""}
+                                errorDiv = {telephoneError.exists ? "text-danger" : "no-danger"}
+                                errorMsg = {telephoneError.helperText}
                             /> 
                         </div>
                         <div style={{marginBottom:'10px'}} >
                             <Input 
                                 style={{width: '95%'}}
-                                title = {"about"}
+                                title = {"regard"}
                                 type = {"text"}
-                                name = {"about"}
+                                name = {"regard"}
+                                id = {"regard"}
                                 placeholder = {"Betreff"}
                                 value={request.txt}
                                 handleChange={handleChange}
                                 // handleBlur={userBlurHandler}
-                                className={aboutError.exists ? "is-invalid": ""}
-                                errorDiv = {aboutError.exists ? "text-danger" : "no-danger"}
-                                errorMsg = {aboutError.helperText}
+                                className={regardError.exists ? "is-invalid": ""}
+                                errorDiv = {regardError.exists ? "text-danger" : "no-danger"}
+                                errorMsg = {regardError.helperText}
                             /> 
                         </div>
                     
                         <TextArea 
                             placeholder="Nachricht hier eingeben..."
-                            name="body" 
+                            name="message" 
+                            id="message"
                             handleChange={handleChange} 
                             // handleBlur={commentBlurHandler}
                             style={{height:'150px', resize:'none', borderRadius:'5px', padding:'10px', width:'95%', marginTop:'16px', border:'1px solid #F1F3F7', boxShadow:'0px 1px 4px 0px rgba(25, 33, 61, 0.08)', fontFamily:'"Inter"'}}
-                            className={bodyError.exists ? "is-invalid": ""}
-                            errorDiv = {bodyError.exists ? "text-danger" : "no-danger"}
-                            errorMsg = {bodyError.helperText}
+                            className={messageError.exists ? "is-invalid": ""}
+                            errorDiv = {messageError.exists ? "text-danger" : "no-danger"}
+                            errorMsg = {messageError.helperText}
                             // writtenCharacters ={feedback.comment.length}
                         />
-                        <button className={classes.contactSubmit} style={{marginTop:'25px'}}>
+                        <button id="submitButton" className={classes.contactSubmit} style={{marginTop:'25px'}}>
                             <span>Senden</span>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5.88454 1.88074L10.1999 5.99995L5.88454 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
@@ -678,20 +766,20 @@ export default function HomePage() {
                     </form>
                     <GoogleMap mapWidth={'100vw'} mapHeight={'500px'}/>
                 </section>
-
             </>
             :
             <>
                 <section id="Kontakt" className={classes.contact}>
                     <GoogleMap mapWidth={'100vw'} mapHeight={'1000px'}/>
                     <div className={classes.contactContent}>
-                        <form onSubmit={handleSubmit}>
+                        <form ref={form} onSubmit={sendEmail}>
                             <div className={classes.formOneOfTwo}>
                                 <div style={{marginBottom:'10px'}} >
                                     <Input 
                                         title = {"name"}
                                         type = {"text"}
                                         name = {"name"}
+                                        id = {"name"}
                                         placeholder = {"Name"}
                                         value={request.txt}
                                         handleChange={handleChange}
@@ -706,6 +794,7 @@ export default function HomePage() {
                                         title = {"email"}
                                         type = {"text"}
                                         name = {"email"}
+                                        id = {"email"}
                                         placeholder = {"E-Mail"}
                                         value={request.txt}
                                         handleChange={handleChange}
@@ -717,30 +806,29 @@ export default function HomePage() {
                                 </div>
                                 <div style={{marginBottom:'10px'}} >
                                     <Input 
-                                        title = {"lastName"}
+                                        title = {"lastname"}
                                         type = {"text"}
-                                        name = {"lastName"}
+                                        name = {"lastname"}
+                                        id = {"lastname"}
                                         placeholder = {"Vorname"}
                                         value={request.txt}
-                                        // handleChange={handleChange}
+                                        handleChange={handleChange}
                                         // handleBlur={userBlurHandler}
-                                        // className={emailError.exists ? "is-invalid": ""}
-                                        // errorDiv = {emailError.exists ? "text-danger" : "no-danger"}
-                                        // errorMsg = {emailError.helperText}
+                                        className={lastnameError.exists ? "is-invalid": ""}
+                                        errorDiv = {lastnameError.exists ? "text-danger" : "no-danger"}
+                                        errorMsg = {lastnameError.helperText}
                                     /> 
                                 </div>
                                 <div style={{marginBottom:'10px'}} >
                                     <Input 
-                                        title = {"company"}
+                                        title = {"organization"}
                                         type = {"text"}
-                                        name = {"company"}
+                                        name = {"organization"}
+                                        id = {"organization"}
                                         placeholder = {"Unternehmen (optional)"}
                                         value={request.txt}
-                                        // handleChange={handleChange}
+                                        handleChange={handleChange}
                                         // handleBlur={userBlurHandler}
-                                        // className={emailError.exists ? "is-invalid": ""}
-                                        // errorDiv = {emailError.exists ? "text-danger" : "no-danger"}
-                                        // errorMsg = {emailError.helperText}
                                     /> 
                                 </div>
                                 <div style={{marginBottom:'10px'}} >
@@ -748,13 +836,14 @@ export default function HomePage() {
                                         title = {"telephone"}
                                         type = {"text"}
                                         name = {"telephone"}
+                                        id = {"telephone"}
                                         placeholder = {"Telefon Nr."}
                                         value={request.txt}
-                                        // handleChange={handleChange}
+                                        handleChange={handleChange}
                                         // handleBlur={userBlurHandler}
-                                        // className={emailError.exists ? "is-invalid": ""}
-                                        // errorDiv = {emailError.exists ? "text-danger" : "no-danger"}
-                                        // errorMsg = {emailError.helperText}
+                                        className={telephoneError.exists ? "is-invalid": ""}
+                                        errorDiv = {telephoneError.exists ? "text-danger" : "no-danger"}
+                                        errorMsg = {telephoneError.helperText}
                                     /> 
                                 </div>
                             </div>
@@ -762,31 +851,33 @@ export default function HomePage() {
                             <div style={{marginBottom:'10px'}} >
                                 <Input 
                                     style={{width: '95%'}}
-                                    title = {"about"}
+                                    title = {"regard"}
                                     type = {"text"}
-                                    name = {"about"}
+                                    name = {"regard"}
+                                    id = {"regard"}
                                     placeholder = {"Betreff"}
                                     value={request.txt}
                                     handleChange={handleChange}
                                     // handleBlur={userBlurHandler}
-                                    className={aboutError.exists ? "is-invalid": ""}
-                                    errorDiv = {aboutError.exists ? "text-danger" : "no-danger"}
-                                    errorMsg = {aboutError.helperText}
+                                    className={regardError.exists ? "is-invalid": ""}
+                                    errorDiv = {regardError.exists ? "text-danger" : "no-danger"}
+                                    errorMsg = {regardError.helperText}
                                 /> 
                             </div>
                         
                             <TextArea 
                                 placeholder="Nachricht hier eingeben..."
-                                name="Nachricht" 
+                                name="message" 
+                                id="message"
                                 handleChange={handleChange} 
                                 // handleBlur={commentBlurHandler}
                                 style={{height:'210px', resize:'none', borderRadius:'5px', padding:'10px', width:'95%', marginTop:'16px', border:'1px solid #F1F3F7', boxShadow:'0px 1px 4px 0px rgba(25, 33, 61, 0.08)', fontFamily:'"Inter"'}}
-                                className={bodyError.exists ? "is-invalid": ""}
-                                errorDiv = {bodyError.exists ? "text-danger" : "no-danger"}
-                                errorMsg = {bodyError.helperText}
+                                className={messageError.exists ? "is-invalid": ""}
+                                errorDiv = {messageError.exists ? "text-danger" : "no-danger"}
+                                errorMsg = {messageError.helperText}
                                 // writtenCharacters ={feedback.comment.length}
                             />
-                            <button className={classes.contactSubmit} style={{marginTop:'25px'}}>
+                            <button id="submitButton" className={classes.contactSubmit} style={{marginTop:'25px'}}>
                                 <span>Senden</span>
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5.88454 1.88074L10.1999 5.99995L5.88454 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
@@ -837,7 +928,6 @@ export default function HomePage() {
             </>
 
         }
-        
         <Footer />
         </>
     )
