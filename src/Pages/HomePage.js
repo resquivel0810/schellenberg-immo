@@ -14,13 +14,16 @@ import dummy from '../Images/empty.svg';
 
 import logo1 from '../Images/stock_logo.svg';
 import logo2 from '../Images/svit_logo.svg';
-import logo3 from '../Images/svit_s_logo.svg';
+import logo3 from '../Images/SVIT-Logo-STWE.svg';
 import logo4 from '../Images/athletes_network.png';
 import logo4s from '../Images/athletes_network_s.png';
 import logo5 from '../Images/dropbox.svg';
 import logo6 from '../Images/hubspot.svg';
 import logo7 from '../Images/framer.svg';
 import logo8 from '../Images/slack.svg';
+
+import P1Photo from '../Images/Philipp.png';
+import P2Photo from '../Images/Claudia.png';
 
 import instagramLogo from '../Images/instagram_logo.svg';
 import instagramLogoDark from '../Images/Instagram_logo_dark.svg';
@@ -36,6 +39,7 @@ import bannerResponsive from '../Videos/banner_responsive.mp4';
 import pAndMImg1 from '../Images/p&mImg1.png';
 import pAndMImg2 from '../Images/p&mImg2.png';
 import pAndMImg3 from '../Images/p&mImg3.png';
+import pAndMImg4 from '../Images/p&mImg4.jpg';
 
 import mailLogo from '../Images/mail_logo.svg';
 import telephoneLogo from '../Images/telephone_logo.svg';
@@ -81,7 +85,7 @@ export default function HomePage() {
         if (!request.name && enteredNameTouched) {
             setNameError({
               exists: true,
-              helperText: "schreibe deinen Namen",
+              helperText: "Bitte geben Sie Ihren Namen ein",
             });
         } else {
             setNameError({
@@ -92,7 +96,7 @@ export default function HomePage() {
         if (!request.email && enteredEmailTouched) {
             setEmailError({
               exists: true,
-              helperText: "Schreiben Sie eine E-Mail",
+              helperText: "Bitte geben Sie Ihre E-Mail-Adresse ein",
             });
         } else {
             setEmailError({
@@ -103,7 +107,7 @@ export default function HomePage() {
         if (!request.lastname && enteredLastnameTouched) {
             setLastnameError({
               exists: true,
-              helperText: "Schreiben Sie Ihren Nachnamen",
+              helperText: "Bitte geben Sie Ihren Nachnamen ein",
             });
         } else {
             setLastnameError({
@@ -114,7 +118,7 @@ export default function HomePage() {
         if (!request.telephone && enteredTelephoneTouched) {
             setTelephoneError({
               exists: true,
-              helperText: "Schreiben Sie eine Telefonnummer",
+              helperText: "Bitte geben Sie Ihre Telefonnummer ein",
             });
         } else {
             setTelephoneError({
@@ -125,7 +129,7 @@ export default function HomePage() {
         if (!request.regard && enteredRegardTouched) {
             setRegardError({
               exists: true,
-              helperText: "einen Betreff schreiben",
+              helperText: "Bitte geben Sie den Betreff ein",
             });
         } else {
             setRegardError({
@@ -136,7 +140,7 @@ export default function HomePage() {
         if (!request.message && enteredMessageTouched) {
             setMessageError({
               exists: true,
-              helperText: "Nachricht schreiben",
+              helperText: "Bitte geben Sie Ihre Nachricht ein",
             });
         } else {
             setMessageError({
@@ -167,42 +171,42 @@ export default function HomePage() {
         if (!request.name) {
             setNameError({
               exists: true,
-              helperText: "schreibe deinen Namen",
+              helperText: "Bitte geben Sie Ihren Namen ein",
             });
             return
         } 
         if (!request.email) {
             setEmailError({
               exists: true,
-              helperText: "Schreiben Sie eine E-Mail",
+              helperText: "Bitte geben Sie Ihre E-Mail-Adresse ein",
             });
             return
         } 
         if (!request.lastname) {
             setLastnameError({
               exists: true,
-              helperText: "Schreiben Sie Ihren Nachnamen",
+              helperText: "Bitte geben Sie Ihren Nachnamen ein",
             });
             return
         } 
         if (!request.telephone) {
             setTelephoneError({
               exists: true,
-              helperText: "Schreiben Sie eine Telefonnummer",
+              helperText: "Bitte geben Sie Ihre Telefonnummer ein",
             });
             return
         } 
         if (!request.regard) {
             setRegardError({
               exists: true,
-              helperText: "einen Betreff schreiben",
+              helperText: "Bitte geben Sie den Betreff ein",
             });
             return
         } 
         if (!request.message) {
             setMessageError({
               exists: true,
-              helperText: "Nachricht schreiben",
+              helperText: "Bitte geben Sie Ihre Nachricht ein",
             });
             return
         }
@@ -309,7 +313,7 @@ export default function HomePage() {
             <div className={classes.aboutPersons}>
                 <div className={classes.aboutPerson}>
                     <div className={classes.aboutPersonImg}>
-                        <img src={dummy}/>
+                        <img  src={P1Photo}/>
                     </div>
                     <h3>Philipp Schellenberg</h3>
                     <span>Inhaber und Geschäftsführer</span>
@@ -326,8 +330,8 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className={classes.aboutPerson}>
-                    <div className={classes.aboutPersonImg}>
-                        <img src={dummy}/>
+                    <div  className={classes.aboutPersonImg}>
+                        <img style={{height:'390px', objectFit:'cover', objectPosition:'top'}} src={P2Photo}/>
                     </div>
                     <h3>Claudia Schellenberg</h3>
                     <span>Leitung Backoffice/Administration</span>
@@ -355,7 +359,7 @@ export default function HomePage() {
             <div className={classes.mentorsAndCoachesPeople}>
                     <div className={classes.mentorOrCoach}>
                         <div className={classes.aboutPersonImg}>
-                        <img src={dummy}/>
+                        <img style={{width:'unset'}} src={dummy}/>
                     </div>
                         <h3>Vanessa Meister</h3>
                         <span>Agil Coach</span>
@@ -373,7 +377,7 @@ export default function HomePage() {
 
                     <div className={classes.mentorOrCoach}>
                         <div className={classes.aboutPersonImg}>
-                        <img src={dummy}/>
+                        <img style={{width:'unset'}} src={dummy}/>
                     </div>
                         <h3>Karoline Kühn</h3>
                         <span>Fachmentoring und Organisationsberatung</span>
@@ -391,7 +395,7 @@ export default function HomePage() {
 
                     <div className={classes.mentorOrCoach}>
                         <div className={classes.aboutPersonImg}>
-                        <img src={dummy}/>
+                        <img style={{width:'unset'}} src={dummy}/>
                     </div>
                         <h3>Philipp Schellenberg</h3>
                         <span>Branchenvisionär und Fachmentor</span>
@@ -407,9 +411,9 @@ export default function HomePage() {
                         </div>
                     </div>
 
-                    <div className={classes.mentorOrCoach}>
+                    {/* <div className={classes.mentorOrCoach}>
                         <div className={classes.aboutPersonImg}>
-                        <img src={dummy}/>
+                        <img style={{width:'unset'}} src={dummy}/>
                     </div>
                         <h3>Stefan Schwitter</h3>
                         <span>Mentalcoach und Zenmover</span>
@@ -422,7 +426,7 @@ export default function HomePage() {
                             <img src={instagramLogoDark} />
                             <img src={xLogoDark} />
                         </div>
-                    </div>
+                    </div> */}
                     
                 </div>
 
@@ -500,17 +504,18 @@ export default function HomePage() {
                         <div className={classes.categoryContent}>
                             <div className={classes.contentCharacteristic}>
                                 <div>
-                                    <h3>Title 1</h3>
+                                    <h3>Innovative Lösungen für eine zukunftsfähige Immobilienbranche</h3>
                                     <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                        Facere quasi minima beatae cumque? Alias aliquam corporis, 
-                                        maiores dolorum fuga numquam nihil suscipit eaque. Nobis, 
-                                        earum sapiente. Praesentium odio incidunt non!
+                                        innovage.immo ist eine Plattform, die innovative Lösungen für die Immobilienbranche 
+                                        entwickelt. Sie legt den Fokus auf Nachhaltigkeit, digitale Transformation und die 
+                                        Vereinbarkeit von Beruf und Familie, um Unternehmen zukunftsfähig und verantwortungsvoll 
+                                        zu gestalten. In Zusammenarbeit mit ingrado.immo bietet sie umfassende Programme für 
+                                        Coaching, Mentoring und Leadership an.
                                     </p>
                                 </div>
-                                <img />
+                                <img src={pAndMImg4} />
                             </div>
-                            <div className={classes.contentCharacteristic}>
+                            {/* <div className={classes.contentCharacteristic}>
                                 <div>
                                     <h3>Title 2</h3>
                                     <p>
@@ -534,7 +539,7 @@ export default function HomePage() {
                                 </div>
                                 
                                 <img />
-                            </div>
+                            </div> */}
                         </div>
                         
                         </>
@@ -572,12 +577,12 @@ export default function HomePage() {
                     <div className={classes.memberships}>
                         <img src={logo1}/>
                         <img src={logo2}/>
-                        <img src={logo3}/>
-                        <img src={window.innerWidth < 991 ? logo4s : logo4}/>
+                        <img style={{width:'120px'}} src={logo3}/>
+                        {/* <img src={window.innerWidth < 991 ? logo4s : logo4}/>
                         <img src={logo5}/>
                         <img src={logo6}/>
                         <img src={logo7}/>
-                        <img src={logo8}/>
+                        <img src={logo8}/> */}
                     </div>
             </div>
         </section>
@@ -875,8 +880,8 @@ export default function HomePage() {
                                     </div>
                                     <div className={classes.contactElementInfo}>
                                         <div>Telefonisch</div>
-                                        <div style={{fontWeight:'600'}}>Telefon: </div>
-                                        <div style={{fontWeight:'600'}}>Mobil: </div>
+                                        <div style={{fontWeight:'600'}}>Telefon: +41 44 244 60 60 </div>
+                                        {/* <div style={{fontWeight:'600'}}>Mobil: </div> */}
                                     </div>
                                 </div>
                                 <div className={classes.contactElement}>

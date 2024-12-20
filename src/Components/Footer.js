@@ -250,7 +250,7 @@ export default function Footer(){
                             <a href="https://www.linkedin.com/in/philipp-schellenberg-80811a6a/">
                                 <img src={linkedinLogo} />
                             </a>
-                            <a href="https://www.instagram.com/schellenberg.immo/">
+                            <a href="https://www.instagram.com/schellenberg_immo?igsh=MXMwM2dkdWxibjZ6Zg==">
                                 <img src={instagramLogo} />
                             </a>
                         </div>

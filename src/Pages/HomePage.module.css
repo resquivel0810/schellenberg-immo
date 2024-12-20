@@ -101,10 +101,14 @@ body {
 } */
 
 .aboutPersonImg {
-    height: 280px;
+    /* height: 280px; */
     display: grid;
     justify-content: center;
     align-content: center;
+}
+
+.aboutPersonImg img {
+    width: 450px;
 }
 
 .aboutPerson h3 {
@@ -127,7 +131,8 @@ body {
     height: unset;
     width: 92px;
     justify-content: space-between;
-    
+    position: absolute;
+    /* bottom: 0; */
 }
 
 /* .aboutPersonSocial img {
@@ -136,14 +141,15 @@ body {
 
 
 .aboutPerson {
-    height: 760px;
+    height: 875px;
     width: 410px;
-    padding: 20px 20px;
+    padding: 0px 20px 20px 20px;
 }
 
 .aboutPerson:first-child {
     background-color: #737373;
     color: white !important;
+    position: relative;
 }
 
 .aboutPerson:nth-child(2) {
@@ -362,12 +368,12 @@ body {
 
 .memberships {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     margin: auto;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 140px;
-    align-content: space-between;
-    justify-items: center; 
+    align-content: space-around;
+    justify-items: normal;
 }
 
 .contact {

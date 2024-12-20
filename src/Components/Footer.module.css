@@ -19,9 +19,9 @@
 
 .footerLinksAndForm {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto;
     padding-bottom: 47px;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .footerLinks h4 {
