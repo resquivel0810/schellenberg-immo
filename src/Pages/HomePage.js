@@ -149,10 +149,6 @@ export default function HomePage() {
 
     const form = useRef();
 
-    // const nameIsValid = !nameError.exists 
-    // const emailIsValid = !nameError.exists
-    // const aboutIsValid = !aboutError.exists
-
     const nameBlurHandler = (e) => {
         setEnteredNameTouched(true);
     };
@@ -286,11 +282,8 @@ export default function HomePage() {
             </div>
             
             <div className={classes.fisrtHalf}>
-                {
-
-                }
-                <h1>Ihre Vision, unsere Expertise</h1>
-                <h2>Persönliche und unternehmerische Exzellenz für die <br/> Zukunft der Immobilienbranche</h2>
+                <h1>schellenberg.immo – Dein Sparringpartner für Mentoring, Coaching und Gesundheitsförderung in der Immobilienbranche</h1>
+                <h2 className={classes.subtitle}>Karriere, Gesundheit und Familie im Einklang für nachhaltigen Erfolg als Business Athleten</h2>
                 <h3>Jetzt kostenloses Erstgespräch <br/> vereinbaren!</h3>
             </div>
             <Calendar shown={true} />
@@ -308,12 +301,9 @@ export default function HomePage() {
             <div className={classes.aboutMain}>
                 <h1>Über schellenberg.immo</h1>
                 <p>
-                    schellenberg.immo unterstützt Fachkräfte und Unternehmen der Immobilienbranche 
-                    bei ihrer Weiterentwicklung. Basierend auf über 30 Jahre Erfahrung in Architektur 
-                    und Immobilienbewirtschaftung, fördert das Unternehmen heute mit ingrado.immo die 
-                    persönliche Resilienz und Karriereentwicklung von Business Athleten. Innovage.immo 
-                    bietet zukunftsorientierte Unternehmenslösungen, die auf innovative, nachhaltige 
-                    und familienfreundliche Arbeitsmodelle abzielen
+                    Bei schellenberg.immo GmbH unterstützen wir Business Athletes dabei, berufliche Ambitionen mit einem erfüllten Privat- und Familienleben zu vereinbaren. Mit ingrado.immo begleiten wir Dich auf Deinem Weg zu mehr Resilienz, persönlicher Weiterentwicklung und einem ganzheitlichen Wohlbefinden – für eine harmonische Balance zwischen Karriere und Familie. <br/>
+                    Mit innovage.immo fördern wir Unternehmen dabei, innovative und familienfreundliche Arbeitsmodelle zu entwickeln, die langfristigen Erfolg und ein ausgewogenes Leben ermöglichen.<br/>
+                    Unser Anspruch: Erfolg im Beruf, Erfüllung im Leben und Raum für Familie.
                 </p>
             </div>
             <div className={classes.aboutPersons}>
@@ -324,12 +314,10 @@ export default function HomePage() {
                     <h3>Philipp Schellenberg</h3>
                     <span>Inhaber und Geschäftsführer</span>
                     <p>
-                        Ich bin seit dem Jahr 2002 in der Immobilienbranche «zu Hause» und will 
-                        durch meine Integrität, meinem Verantwortungsbewusstsein sowie dem Sinn 
-                        für das Machbare Menschen motivieren, Wissen teilen und gemeinsam Grosses 
-                        erreichen. Für mich ist meine tägliche Arbeit ein Zusammenspiel von Management 
-                        und Leadership mit einer gesunden Portion Menschlichkeit, bei der Vereinbarkeit 
-                        von Familie und Beruf möglich ist..
+                        Mit meiner langjährigen Erfahrung in der Immobilienbranche habe ich gelernt, dass wahre Erfüllung nicht nur im beruflichen Erfolg liegt, sondern auch in der Fähigkeit, Arbeit, Familie und persönliche Bedürfnisse in Einklang zu bringen. 
+                        Als Mentor und Coach unterstütze ich Menschen dabei, ihre Karriereziele zu erreichen und gleichzeitig ihre mentale und physische Gesundheit zu fördern.
+                        Mein Ansatz kombiniert praxisnahes Fachwissen mit individuellen und innovativen Lösungen, sowie dem Sinn für das Machbare, um Menschen zu motivieren, Wissen zu teilen und gemeinsam Grosses zu erreichen.
+                        "Für mich bedeutet Erfolg, im Beruf zu glänzen und gleichzeitig im Leben präsent zu sein."
                     </p>
                     <div className={classes.aboutPersonSocial}>
                         <img src={facebookLogo} />
@@ -344,13 +332,8 @@ export default function HomePage() {
                     <h3>Claudia Schellenberg</h3>
                     <span>Leitung Backoffice/Administration</span>
                     <p>
-                        Mit meiner langjährigen Branchen- und Führungserfahrung sowie 12-jährigen 
-                        Behördentätigkeit im schulischen Umfeld gelingt es mir, im dynamischen Umfeld 
-                        der Immobilienbranche meinem Anspruch Verantwortung wahrzunehmen, gerecht zu 
-                        werden. Mein Interesse, Freude und Verständnis an strategischen, 
-                        betriebswirtschaftlichen, politischen und sozialen Themen runden mein Profil 
-                        ab woduch meine Auftraggeber einen lösungsorientierten, sozialkompetenten und 
-                        verantwortungsbewussten Sparringpartner auf Augenhöhe an Ihrer Seite haben.
+                        Als Mutter und Hausfrau habe ich meine Fähigkeiten in Organisation und Multitasking perfektioniert. Wenn man den Haushalt effizient führt und gleichzeitig die Familie im Blick behält, ist es kein Problem, auch berufliche Prozesse strukturiert zu managen. Diese Erfahrungen helfen mir, stets den Überblick zu behalten und die Qualität meiner Arbeit zu sichern.
+                        Mit meinem Organisationstalent übernehme ich die Koordination interner Prozesse und stelle sicher, dass alle administrativen Aufgaben reibungslos laufen, sodass sich das Team auf das Wesentliche konzentrieren kann.
                     </p>
                     <div className={classes.aboutPersonSocial}>
                         <img src={facebookLogoDark} />
@@ -377,12 +360,9 @@ export default function HomePage() {
                         <h3>Vanessa Meister</h3>
                         <span>Agil Coach</span>
                         <p>
-                            Ich bin seit dem Jahr 2002 in der Immobilienbranche «zu Hause» und will durch 
-                            meine Integrität, meinem Verantwortungsbewusstsein sowie dem Sinn für das Machbare 
-                            Menschen motivieren, Wissen teilen und gemeinsam Grosses erreichen. Für mich ist 
-                            meine tägliche Arbeit ein Zusammenspiel von Management und Leadership mit einer 
-                            gesunden Portion Menschlichkeit, bei der Vereinbarkeit von Familie und Beruf 
-                            möglich ist..
+                            Vanessa bringt ihre umfangreiche Erfahrung in strategischer Beratung und Innovationsmanagement in ihre Tätigkeit bei ingrado.immo ein.
+                            Sie setzt ihre Expertise in agilen Arbeitsmethoden gezielt ein, um die Entwicklung von innovativen Lösungen zu unterstützen. Dabei begleitet sie insbesondere Teams aus dem Bereich New Business und Venture und hilft ihnen, digitale Produkte erfolgreich zu gestalten.
+                            Mit ihrem Wissen über die digitale Transformation und ihre langjährige Erfahrung in der Startup-Welt trägt sie dazu bei, Unternehmen bei der Einführung agiler Prozesse und der Weiterentwicklung ihrer Geschäftsmodelle voranzubringen.
                         </p>
                         <div className={classes.aboutPersonSocial}>
                             <img src={facebookLogoDark} />
@@ -395,16 +375,12 @@ export default function HomePage() {
                         <div className={classes.aboutPersonImg}>
                         <img src={dummy}/>
                     </div>
-                        <h3>Lukas Vetsch</h3>
-                        <span>E-Learning Spezialist</span>
+                        <h3>Karoline Kühn</h3>
+                        <span>Fachmentoring und Organisationsberatung</span>
                         <p>
-                            Mit meiner langjährigen Branchen- und Führungserfahrung sowie 12-jährigen 
-                            Behördentätigkeit im schulischen Umfeld gelingt es mir, im dynamischen Umfeld der 
-                            Immobilienbranche meinem Anspruch Verantwortung wahrzunehmen, gerecht zu werden. 
-                            Mein Interesse, Freude und Verständnis an strategischen, betriebswirtschaftlichen, 
-                            politischen und sozialen Themen runden mein Profil ab woduch meine Auftraggeber 
-                            einen lösungsorientierten, sozialkompetenten und verantwortungsbewussten 
-                            Sparringpartner auf Augenhöhe an Ihrer Seite haben.
+                            Karonbringt umfangreiche Erfahrung in der Immobilienbewirtschaftung, Prozess- und Projektmanagement sowie in der Aus- und Weiterbildung von Fachkräften mit.
+                            Als Fachbereichsleiterin Bewirtschaftung Schweiz bei einer großen und renommierten Immobiliengesellschaft verantwortet und fördert sie die interne Aus- und Weiterbildung. Ihre Expertise in Coaching und Prozessoptimierung setzt sie erfolgreich in der Führung von Teams und Projekten ein.
+                            Zudem ist sie als Mentorin und Prüfungsexpertin tätig und gibt ihre umfangreichen Kenntnisse in der Praxisbildung und Konfliktbewältigung weiter.
                         </p>
                         <div className={classes.aboutPersonSocial}>
                             <img src={facebookLogoDark} />
@@ -418,13 +394,11 @@ export default function HomePage() {
                         <img src={dummy}/>
                     </div>
                         <h3>Philipp Schellenberg</h3>
-                        <span>Fachmentor Immobilien</span>
+                        <span>Branchenvisionär und Fachmentor</span>
                         <p>
-                            Ich bin seit dem Jahr 2002 in der Immobilienbranche «zu Hause» und will durch meine 
-                            Integrität, meinem Verantwortungsbewusstsein sowie dem Sinn für das Machbare Menschen 
-                            motivieren, Wissen teilen und gemeinsam Grosses erreichen. Für mich ist meine tägliche 
-                            Arbeit ein Zusammenspiel von Management und Leadership mit einer gesunden Portion 
-                            Menschlichkeit, bei der Vereinbarkeit von Familie und Beruf möglich ist..
+                            Philipp ist der Kopf und Initiator von ingrado.immo. Mit seiner visionären Denkweise und langjährigen Erfahrung in der Immobilienbranche entwickelt er Konzepte, die beruflichen Erfolg und persönliches Wohlbefinden vereinen.
+                            Durch sein Netzwerk und Wissen setzt er erfolgreich Lösungen um, die Agilität, Gesundheit und nachhaltige Arbeitskulturen fördern. Als Gründer von ingrado.immo verändert er die Branche mit innovativen Arbeitsmodellen und zukunftsorientierten Konzepten.
+                            Philipp unterstützt mit seiner Führungskompetenz und fachlichen Förderung Teams bei der Entfaltung ihres Potenzials und trägt zur Weiterentwicklung von Fachkräften bei.
                         </p>
                         <div className={classes.aboutPersonSocial}>
                             <img src={facebookLogoDark} />
@@ -440,12 +414,8 @@ export default function HomePage() {
                         <h3>Stefan Schwitter</h3>
                         <span>Mentalcoach und Zenmover</span>
                         <p>
-                            Mit meiner langjährigen Branchen- und Führungserfahrung sowie 12-jährigen Behördentätigkeit 
-                            im schulischen Umfeld gelingt es mir, im dynamischen Umfeld der Immobilienbranche meinem 
-                            Anspruch Verantwortung wahrzunehmen, gerecht zu werden. Mein Interesse, Freude und Verständnis 
-                            an strategischen, betriebswirtschaftlichen, politischen und sozialen Themen runden mein Profil 
-                            ab woduch meine Auftraggeber einen lösungsorientierten, sozialkompetenten und 
-                            verantwortungsbewussten Sparringpartner auf Augenhöhe an Ihrer Seite haben.
+                            Stefan beschäftigte sich schon früh mit Lebensfragen und träumte von einer Karriere als Profi-Wrestler oder buddhistischer Mönch. Mit 20 Jahren begann er mit Wrestling und zog mit 22 nach Deutschland und später in die USA, um seinen Traum zu verwirklichen. Nach sieben Jahren im „Haifischbecken“ zahlte er einen hohen Preis, sammelte jedoch wertvolle Erfahrungen.
+                            Nach seiner Wrestling-Karriere gründete er Zenmove, ein effizientes Trainings- und Entspannungskonzept, das Körper und Geist vereint. Seit 2021 hält er Weltrekorde im Kettlebell-Sport und begeistert als Speaker. Ab 2023 arbeitet er als Performance Coach für die Schweizer Eishockey-Nationalmannschaft.
                         </p>
                         <div className={classes.aboutPersonSocial}>
                             <img src={facebookLogoDark} />
@@ -460,10 +430,9 @@ export default function HomePage() {
         <section id="Programme&Module" className={classes.programsAndModules}>
             <div className={classes.programsAndModulesContent}>
                 <div className={classes.programsAndModulesDescription}>
-                    <h2>Programme und Module für nachhaltigen Erfolg in der Immobilienbranche</h2>
+                    <h2>Transformative Programme und Module für eine nachhaltige Immobilienbranche</h2>
                     <p>
-                        Unsere Programme stärken Resilienz und Leadership und fördern innovative, 
-                        nachhaltige Unternehmensmodelle – für Fachkräfte und Unternehmen in der Immobilienbranche.
+                        Unsere Programme und Module, unterstützt von innovage.immo, stärken Resilienz und Leadership und helfen Menschen und Unternehmen, innovative, nachhaltige Modelle zu entwickeln, die Fachkompetenz und die Vereinbarkeit von Beruf und Familie fördern – für eine zukunftsfähige und erfolgreiche Immobilienbranche.
                     </p>
                     
                 </div>
@@ -497,8 +466,7 @@ export default function HomePage() {
                                 <div>
                                     <h3>Resilienz- und Achtsamkeitstraining</h3>
                                     <p>
-                                        Unsere Programme stärken Ihre Resilienz und mentale Gesundheit, 
-                                        um auch in stressreichen Phasen klar und fokussiert zu bleiben.
+                                        Programme, die Resilienz und Achtsamkeit stärken, fördern die innere Stärke, Klarheit und Gelassenheit, um auch in herausfordernden Zeiten fokussiert zu bleiben und mit Stärke und Klarheit zu handeln. Sie helfen dabei, Stress zu meistern und das volle Potenzial zu entfalten, sodass jede Herausforderung als Chance genutzt wird, gestärkt hervorzugehen.
                                     </p>
                                 </div>
                                 
@@ -508,8 +476,8 @@ export default function HomePage() {
                                 <div>
                                     <h3>Fachmentoring</h3>
                                     <p>
-                                        Profitieren Sie vom Fachwissen und der Erfahrung erfolgreicher
-                                        Mentoren, die Ihnen helfen, Ihre beruflichen Ziele zu erreichen.
+                                        Unsere Programme sind darauf ausgerichtet, das fachliche Know-how zu erweitern und die berufliche Weiterentwicklung zu fördern. 
+                                        Durch individuelle Begleitung und praxisorientierte Unterstützung werden Teilnehmer befähigt, ihre Expertise zu vertiefen und Herausforderungen selbstbewusst zu meistern.
                                     </p>
                                 </div>
                                 
@@ -519,8 +487,8 @@ export default function HomePage() {
                                 <div>
                                     <h3>Karriereentwicklung und Leadership-Coaching</h3>
                                     <p>
-                                        Bauen Sie Ihre Führungsfähigkeiten aus und gestalten Sie 
-                                        Ihre Karriere durch gezieltes Coaching.
+                                        Unser Programm unterstützt dabei, ein motiviertes und gut abgestimmtes Team zu entwickeln, das auf langfristige Zusammenarbeit und nachhaltigen Erfolg ausgerichtet ist. Die Teilnehmer lernen, die Stärken der Teammitglieder zu erkennen und Aufgaben entsprechend ihrer Kompetenzen zu verteilen, um Effizienz und Zusammenarbeit zu fördern. 
+                                        Dieser Ansatz stärkt den Zusammenhalt im Team und sorgt für eine verantwortungsbewusste und engagierte Arbeitsweise, die eine solide Basis für nachhaltige Teamentwicklung schafft.
                                     </p>
                                 </div>
                                 <img src={pAndMImg3} />
@@ -887,10 +855,9 @@ export default function HomePage() {
                             </button>
                         </form>
                         <div className={classes.contactInfo}>
-                            <h2>Wir sind für Sie da!</h2>
+                            <h2>Du hast Fragen? Wir haben Antworten – kontaktiere uns!</h2>
                             <p>
-                                Lassen Sie uns über Ihre Ziele sprechen – für Sie oder Ihr Unternehmen. 
-                                Unsere Experten freuen sich, Sie in einem persönlichen Gespräch kennenzulernen.
+                                Wir stehen mit Rat und Tat zur Seite. Egal, ob Du mehr über unsere Programme erfahren möchtest oder spezifische Fragen hast – wir sind hier, um Dir zu helfen. Kontaktiere uns einfach und starte noch heute Deine Reise zu nachhaltigem Erfolg!
                             </p>
                             <div className={classes.contactElements}>
                                 <div className={classes.contactElement}>
@@ -899,7 +866,7 @@ export default function HomePage() {
                                     </div>
                                     <div className={classes.contactElementInfo}>
                                         <div>E-Mail:</div>
-                                        <div style={{fontWeight:'600'}}>info@ingrado.immo</div>
+                                        <div style={{fontWeight:'600'}}>ingrado@schellenberg.immo</div>
                                     </div>
                                 </div>
                                 <div className={classes.contactElement}>
@@ -908,8 +875,8 @@ export default function HomePage() {
                                     </div>
                                     <div className={classes.contactElementInfo}>
                                         <div>Telefonisch</div>
-                                        <div style={{fontWeight:'600'}}>Telefon: +41 44 244 60 60</div>
-                                        <div style={{fontWeight:'600'}}>Mobil: +41 79 244 60 60</div>
+                                        <div style={{fontWeight:'600'}}>Telefon: </div>
+                                        <div style={{fontWeight:'600'}}>Mobil: </div>
                                     </div>
                                 </div>
                                 <div className={classes.contactElement}>
@@ -918,7 +885,7 @@ export default function HomePage() {
                                     </div>
                                     <div className={classes.contactElementInfo}>
                                         <div>Standort:</div>
-                                        <div style={{fontWeight:'600'}}>Scherrstrasse 3, 8006 Zürich</div>
+                                        <div style={{fontWeight:'600'}}>Riedhofstrasse 11, 8804 Au ZH</div>
                                     </div>
                                 </div>
                             </div>
