@@ -117,8 +117,8 @@ export default function Footer(){
                 <div style={{display: 'grid', gridTemplateColumns: 'auto auto'}}>
                     <div className={classes.footerLinks}>
                         <h4>Rechtliche Hinweise</h4>
-                        <div>Datenschutz</div>
-                        <div>Impressum</div>
+                        <div>Datenschutz/Impressum</div>
+                    
                         {/* <div>AGB</div> */}
                     </div>
                     {/* <div className={classes.footerLinks}>
@@ -206,8 +206,8 @@ export default function Footer(){
                         </div>
                         <div className={classes.footerLinks}>
                             <h4>Rechtliche Hinweise</h4>
-                            <div>Datenschutz</div>
-                            <div>Impressum</div>
+                            <div>Datenschutz/Impressum</div>
+                           
                             {/* <div>AGB</div> */}
                         </div>
                         {/* <div className={classes.footerLinks}>

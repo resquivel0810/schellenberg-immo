@@ -24,6 +24,8 @@ import logo8 from '../Images/slack.svg';
 
 import P1Photo from '../Images/Philipp.png';
 import P2Photo from '../Images/Claudia.png';
+import P3Photo from '../Images/Vanessa.jpg';
+import P4Photo from '../Images/Karo.png';
 
 import instagramLogo from '../Images/instagram_logo.svg';
 import instagramLogoDark from '../Images/Instagram_logo_dark.svg';
@@ -292,11 +294,18 @@ export default function HomePage() {
             </div>
             <Calendar shown={true} />
             <div className={classes.heroBottomText}>
-                <h4>Programme und Module <br/> ansehen</h4>
-                <svg width="54" height="67" viewBox="0 0 54 67" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M51.0558 38.8281L27.0279 64.0002L2.99998 38.8281" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M27.033 63L27.033 3" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <HashLink
+                    scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
+                    to='/#Programme&Module' 
+                    style={{textDecoration:'none', justifyItems:'center'}}
+                > 
+                    <h4>Programme und Module <br/> ansehen</h4>
+                    <svg width="54" height="67" viewBox="0 0 54 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M51.0558 38.8281L27.0279 64.0002L2.99998 38.8281" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M27.033 63L27.033 3" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </HashLink>
+                
             </div>
             
 
@@ -313,7 +322,7 @@ export default function HomePage() {
             <div className={classes.aboutPersons}>
                 <div className={classes.aboutPerson}>
                     <div className={classes.aboutPersonImg}>
-                        <img  src={P1Photo}/>
+                        <img className={classes.mentorOrCoachImg} src={P1Photo}/>
                     </div>
                     <h3>Philipp Schellenberg</h3>
                     <span>Inhaber und Geschäftsführer</span>
@@ -331,7 +340,7 @@ export default function HomePage() {
                 </div>
                 <div className={classes.aboutPerson}>
                     <div  className={classes.aboutPersonImg}>
-                        <img style={{height:'390px', objectFit:'cover', objectPosition:'top'}} src={P2Photo}/>
+                        <img className={classes.aboutPersonImg2}  src={P2Photo}/>
                     </div>
                     <h3>Claudia Schellenberg</h3>
                     <span>Leitung Backoffice/Administration</span>
@@ -359,7 +368,7 @@ export default function HomePage() {
             <div className={classes.mentorsAndCoachesPeople}>
                     <div className={classes.mentorOrCoach}>
                         <div className={classes.aboutPersonImg}>
-                        <img style={{width:'unset'}} src={dummy}/>
+                        <img className={classes.mentorOrCoachImg} style={{filter:'grayscale(100%)'}} src={P3Photo}/>
                     </div>
                         <h3>Vanessa Meister</h3>
                         <span>Agil Coach</span>
@@ -377,8 +386,8 @@ export default function HomePage() {
 
                     <div className={classes.mentorOrCoach}>
                         <div className={classes.aboutPersonImg}>
-                        <img style={{width:'unset'}} src={dummy}/>
-                    </div>
+                            <img className={classes.mentorOrCoachImg} style={{filter:'grayscale(100%)'}} src={P4Photo}/>
+                        </div>
                         <h3>Karoline Kühn</h3>
                         <span>Fachmentoring und Organisationsberatung</span>
                         <p>
@@ -395,7 +404,7 @@ export default function HomePage() {
 
                     <div className={classes.mentorOrCoach}>
                         <div className={classes.aboutPersonImg}>
-                        <img style={{width:'unset'}} src={dummy}/>
+                        <img className={classes.mentorOrCoachImg} src={P1Photo}/>
                     </div>
                         <h3>Philipp Schellenberg</h3>
                         <span>Branchenvisionär und Fachmentor</span>
@@ -549,10 +558,10 @@ export default function HomePage() {
                 <HashLink
                     scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
                     to='/#Kontakt' 
-                    className={classes.FooterLink}
+                    style={{textDecoration:'none'}}
                 > 
                     <button className={classes.programsAndModulesCallToAction}>
-                    <span>Lassen Sie uns reden</span>
+                    <span style={{textDecoration:'none'}}>Lassen Sie uns reden</span>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.88458 1.8808L10.1999 6.00001L5.88458 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M10.1999 6L1.79999 6" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
