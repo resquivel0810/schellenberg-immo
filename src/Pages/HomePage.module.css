@@ -580,7 +580,7 @@ body {
     }
 
     .aboutPerson {
-        height: 900px;
+        height: 935px;
         width: calc(90vw - 40px);
         padding: 0px 20px;
         margin: 5px 5vw;
@@ -713,6 +713,8 @@ body {
 
     .contentCharacteristic div p {
         margin-top: 5px;
+        font-size: 10px;
+        font-weight: 600;
     }
 
 

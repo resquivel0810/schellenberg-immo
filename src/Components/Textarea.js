@@ -5,7 +5,7 @@ const TextArea = (props) => {
     return(
         <div style={{position: 'relative'}}>
             <label htmlFor={props.name} className={classes.customLabel}>
-                {props.name}
+                {props.name === 'message' ? 'Nachricht' : 'Nachricht'}
             </label>
             <textarea
                 className={` ${props.className}`}

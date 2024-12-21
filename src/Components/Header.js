@@ -53,7 +53,13 @@ export default function Header(){
         <header className={classes.Header}>
             <div className={classes.Content}>
             <div className={classes.ImageContainer}>
-                <Link onClick={() => {scrollToTargetAdjusted("hero", 100); setNavbarOpen(false)}} to={`/`}>
+                <Link onClick={() => {
+                    if(location.pathname === '/'){
+                        scrollToTargetAdjusted("hero", 100); 
+                    }
+                    setNavbarOpen(false)
+                }} 
+                    to={`/`}>
                     <img className={classes.Logo} src={ window.innerWidth < 991 ? LogoHeaderSmall :LogoHeader } alt="HeaderLogo" />
                 </Link>
                 

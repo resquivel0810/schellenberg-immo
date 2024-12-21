@@ -12,6 +12,11 @@ import { HashLink } from 'react-router-hash-link';
 
 export default function Footer(){
 
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
     function scrollToTargetAdjusted(targetElement, offset){
         var element = document.getElementById(targetElement);
         var headerOffset = offset;
@@ -117,7 +122,16 @@ export default function Footer(){
                 <div style={{display: 'grid', gridTemplateColumns: 'auto auto'}}>
                     <div className={classes.footerLinks}>
                         <h4>Rechtliche Hinweise</h4>
-                        <div>Datenschutz/Impressum</div>
+                        <div>
+                        <Link
+                                    to={`/Datenschutz-Impressum`}
+                                    className={classes.FooterLink}
+                                    
+                                    onClick={() => {topFunction()}}
+                                >
+                                    Datenschutz/Impressum
+                                </Link>
+                        </div>
                     
                         {/* <div>AGB</div> */}
                     </div>
@@ -206,7 +220,17 @@ export default function Footer(){
                         </div>
                         <div className={classes.footerLinks}>
                             <h4>Rechtliche Hinweise</h4>
-                            <div>Datenschutz/Impressum</div>
+                            <div>
+                                <Link
+                                    to={`/Datenschutz-Impressum`}
+                                    className={classes.FooterLink}
+                                    
+                                    onClick={() => {topFunction()}}
+                                >
+                                    Datenschutz/Impressum
+                                </Link>
+                                
+                            </div>
                            
                             {/* <div>AGB</div> */}
                         </div>
