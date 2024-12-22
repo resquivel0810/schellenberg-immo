@@ -300,7 +300,7 @@ export default function HomePage() {
                     style={{textDecoration:'none', justifyItems:'center'}}
                 > 
                     <h4>Programme und Module <br/> ansehen</h4>
-                    <svg width="54" height="67" viewBox="0 0 54 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg style={{display:'flex', margin:'auto'}} width="54" height="67" viewBox="0 0 54 67" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M51.0558 38.8281L27.0279 64.0002L2.99998 38.8281" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M27.033 63L27.033 3" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -613,7 +613,7 @@ export default function HomePage() {
                                 </div>
                                 <div className={classes.contactElementInfo}>
                                     <div>E-Mail:</div>
-                                    <div style={{fontWeight:'600'}}>info@ingrado.immo</div>
+                                    <div style={{fontWeight:'600'}}>ingrado@schellenberg.immo</div>
                                 </div>
                             </div>
                             <div className={classes.contactElement}>
@@ -623,7 +623,6 @@ export default function HomePage() {
                                 <div className={classes.contactElementInfo}>
                                     <div>Telefonisch</div>
                                     <div style={{fontWeight:'600'}}>Telefon: +41 44 244 60 60</div>
-                                    <div style={{fontWeight:'600'}}>Mobil: +41 79 244 60 60</div>
                                 </div>
                             </div>
                             <div className={classes.contactElement}>
@@ -632,7 +631,7 @@ export default function HomePage() {
                                 </div>
                                 <div className={classes.contactElementInfo}>
                                     <div>Standort:</div>
-                                    <div style={{fontWeight:'600'}}>Scherrstrasse 3, 8006 Zürich</div>
+                                    <div style={{fontWeight:'600'}}>Riedhofstrasse 11, 8804 Au ZH</div>
                                 </div>
                             </div>
                         </div>

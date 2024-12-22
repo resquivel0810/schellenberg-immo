@@ -46,6 +46,7 @@ export default function Calendar({setSelectedDate=f=>f, selectedDate=new Date(),
       className={classes.calendar}
       onClick={e => {
         e.stopPropagation();
+        window.open("https://book.timify.com/services?accountId=6759f42d06b3e46fdfd7043d&hideCloseButton=true", 'DBox').focus()
       }}
     >
       <div style={{display:'flex', justifyContent: 'space-between', margin: '20px 0', alignItems:'center'}}>
@@ -97,12 +98,13 @@ export default function Calendar({setSelectedDate=f=>f, selectedDate=new Date(),
 
       <div  
         className={classes.calendarDays}
+        
       >
         <>{Object.keys(WEEK_DAYS).map(renderDayLabel)}</>
         <>{getCalendarDates().map((d, i) => 
           <CalendarDate 
             isToday={new Date(d.join("/")).toDateString()===new Date().toDateString()}  key={i} day={d[2]}  
-            setDate={() => {setSelectedDate(new Date(d.join("/")));window.open("https://book.timify.com/services?accountId=6759f42d06b3e46fdfd7043d&hideCloseButton=true", 'DBox').focus();}}
+            setDate={() => {setSelectedDate(new Date(d.join("/")))}}
             date={d}
             isSelected={selectedDate.toDateString() === new Date(d.join("/")).toDateString()}
             test={() => console.log(selectedDate.toDateString() == new Date(d.join("/")).toDateString() )}

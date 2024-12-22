@@ -41,7 +41,7 @@ body {
     padding-top: 430px;
     margin-bottom: 0.5rem;
     color: #A58D71;
-    padding-top: 43%;
+    padding-top: 45vh;
 }
 
 .hero h2 {
@@ -63,7 +63,7 @@ body {
     color: black;
     font-weight: 700;
     text-align: center;
-
+    margin-top: 0;
 }
 
 .heroBottomText {
@@ -72,6 +72,7 @@ body {
     display: grid;
     justify-items: center;
     width: 100vw;
+    height: 160px;
 }
 
 .about {
