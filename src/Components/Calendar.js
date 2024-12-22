@@ -48,6 +48,7 @@ export default function Calendar({setSelectedDate=f=>f, selectedDate=new Date(),
         e.stopPropagation();
         window.open("https://book.timify.com/services?accountId=6759f42d06b3e46fdfd7043d&hideCloseButton=true", 'DBox').focus()
       }}
+      style={{cursor:'pointer'}}
     >
       <div style={{display:'flex', justifyContent: 'space-between', margin: '20px 0', alignItems:'center'}}>
         <h2 className={classes.monthTitle}>{Object.values(CALENDAR_MONTHS)[dateState.month - 1]} {dateState.year}</h2>
