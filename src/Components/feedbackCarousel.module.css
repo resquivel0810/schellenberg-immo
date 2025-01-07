@@ -46,7 +46,7 @@
     line-height: 24px;
 }
 
-.CarouselItemContent div span {
+.CarouselItemContent div span, .CarouselItemContent div div {
     font-family: 'Inter';
     color: #B4B9C9;
     font-size: 16px;

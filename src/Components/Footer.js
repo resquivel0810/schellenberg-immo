@@ -145,10 +145,10 @@ export default function Footer(){
                     <img src={Logo} />
                 </div>
                 <div style={{display:"flex", justifyContent:'center'}}>
-                    <a href="https://www.linkedin.com/in/philipp-schellenberg-80811a6a/">
+                    <a href="https://www.linkedin.com/company/schellenberg-immo-gmbh/?viewAsMember=true">
                         <img src={linkedinLogo} />
                     </a>
-                    <a href="">
+                    <a href="https://www.instagram.com/schellenberg_immo/">
                         <img src={instagramLogo} />
                     </a>
                 </div>
@@ -271,10 +271,10 @@ export default function Footer(){
                         </div>
                         <div className={classes.trademark}>schellenberg.immo GmbH 2024 ©</div>
                         <div>
-                            <a href="https://www.linkedin.com/in/philipp-schellenberg-80811a6a/">
+                            <a href="https://www.linkedin.com/company/schellenberg-immo-gmbh/?viewAsMember=true">
                                 <img src={linkedinLogo} />
                             </a>
-                            <a href="https://www.instagram.com/schellenberg_immo?igsh=MXMwM2dkdWxibjZ6Zg==">
+                            <a href="https://www.instagram.com/schellenberg_immo/">
                                 <img src={instagramLogo} />
                             </a>
                         </div>

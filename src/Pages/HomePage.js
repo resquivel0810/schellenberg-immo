@@ -33,6 +33,8 @@ import facebookLogo from '../Images/facebook_logo.svg';
 import facebookLogoDark from '../Images/facebook_logo_dark.svg';
 import xLogo from '../Images/x_logo.svg';
 import xLogoDark from '../Images/x_logo_dark.svg';
+import linkedinLogo from '../Images/linkedin_black.svg';
+import linkedinLogo2 from '../Images/linkedin_logo.svg';
 
 
 import banner from "../Videos/banner.mp4";
@@ -333,9 +335,12 @@ export default function HomePage() {
                         "Für mich bedeutet Erfolg, im Beruf zu glänzen und gleichzeitig im Leben präsent zu sein."
                     </p>
                     <div className={classes.aboutPersonSocial}>
-                        <img src={facebookLogo} />
+                        {/* <img src={facebookLogo} />
                         <img src={instagramLogo} />
-                        <img src={xLogo} />
+                        <img src={xLogo} /> */}
+                        <a href="https://www.linkedin.com/in/philipp-schellenberg-80811a6a/">
+                            <img src={linkedinLogo2} />
+                        </a>
                     </div>
                 </div>
                 <div className={classes.aboutPerson}>
@@ -345,13 +350,18 @@ export default function HomePage() {
                     <h3>Claudia Schellenberg</h3>
                     <span>Leitung Backoffice/Administration</span>
                     <p>
-                        Als Mutter und Hausfrau habe ich meine Fähigkeiten in Organisation und Multitasking perfektioniert. Wenn man den Haushalt effizient führt und gleichzeitig die Familie im Blick behält, ist es kein Problem, auch berufliche Prozesse strukturiert zu managen. Diese Erfahrungen helfen mir, stets den Überblick zu behalten und die Qualität meiner Arbeit zu sichern.
-                        Mit meinem Organisationstalent übernehme ich die Koordination interner Prozesse und stelle sicher, dass alle administrativen Aufgaben reibungslos laufen, sodass sich das Team auf das Wesentliche konzentrieren kann.
+                        Ich übernehme die Verantwortung für die organisatorischen Abläufe und entlaste 
+                        die Geschäftsführung sowie Coaches und Mentoren, damit sie sich auf ihre Kernaufgaben 
+                        konzentrieren können. Als Mutter von zwei Kindern weiss ich, wie entscheidend es ist, 
+                        Beruf und Familie in Einklang zu bringen. Es erfüllt mich, meine Arbeit flexibel und 
+                        zugleich mit klarer Struktur zu gestalten, um sowohl berufliche Erfolge als auch 
+                        familiäre Zufriedenheit zu fördern. Diese Balance ist der Schlüssel, der mir hilft, 
+                        kreative Lösungen zu entwickeln und reibungslose Abläufe sicherzustellen.
                     </p>
                     <div className={classes.aboutPersonSocial}>
-                        <img src={facebookLogoDark} />
+                        {/* <img src={facebookLogoDark} />
                         <img src={instagramLogoDark} />
-                        <img src={xLogoDark} />
+                        <img src={xLogoDark} /> */}
                     </div>
                 </div>
             </div>
@@ -378,9 +388,12 @@ export default function HomePage() {
                             Mit ihrem Wissen über die digitale Transformation und ihre langjährige Erfahrung in der Startup-Welt trägt sie dazu bei, Unternehmen bei der Einführung agiler Prozesse und der Weiterentwicklung ihrer Geschäftsmodelle voranzubringen.
                         </p>
                         <div className={classes.aboutPersonSocial}>
-                            <img src={facebookLogoDark} />
+                            {/* <img src={facebookLogoDark} />
                             <img src={instagramLogoDark} />
-                            <img src={xLogoDark} />
+                            <img src={xLogoDark} /> */}
+                            <a href="https://www.linkedin.com/in/vanessa-meister/">
+                                <img src={linkedinLogo} />
+                            </a>
                         </div>
                     </div>
 
@@ -391,14 +404,23 @@ export default function HomePage() {
                         <h3>Karoline Kühn</h3>
                         <span>Fachmentoring und Organisationsberatung</span>
                         <p>
-                            Karonbringt umfangreiche Erfahrung in der Immobilienbewirtschaftung, Prozess- und Projektmanagement sowie in der Aus- und Weiterbildung von Fachkräften mit.
-                            Als Fachbereichsleiterin Bewirtschaftung Schweiz bei einer großen und renommierten Immobiliengesellschaft verantwortet und fördert sie die interne Aus- und Weiterbildung. Ihre Expertise in Coaching und Prozessoptimierung setzt sie erfolgreich in der Führung von Teams und Projekten ein.
-                            Zudem ist sie als Mentorin und Prüfungsexpertin tätig und gibt ihre umfangreichen Kenntnisse in der Praxisbildung und Konfliktbewältigung weiter.
+                            Karo bringt umfangreiche Erfahrung in der Immobilienbewirtschaftung, 
+                            Prozess- und Projektmanagement sowie in der Aus- und Weiterbildung von 
+                            Fachkräften mit. Als Fachbereichsleiterin Bewirtschaftung Schweiz bei 
+                            einer grossen und renommierten Immobiliengesellschaft verantwortet und 
+                            fördert sie die interne Aus- und Weiterbildung. Ihre Expertise in Coaching 
+                            und Prozessoptimierung setzt sie erfolgreich in der Führung von Teams und 
+                            Projekten ein. Zudem ist sie als Mentorin und Prüfungsexpertin tätig und 
+                            gibt ihre umfangreichen Kenntnisse in der Praxisbildung und 
+                            Konfliktbewältigung weiter.
                         </p>
                         <div className={classes.aboutPersonSocial}>
-                            <img src={facebookLogoDark} />
+                            {/* <img src={facebookLogoDark} />
                             <img src={instagramLogoDark} />
-                            <img src={xLogoDark} />
+                            <img src={xLogoDark} /> */}
+                            <a href="https://www.linkedin.com/in/karo-k%C3%BChn-29928b20b/">
+                                <img src={linkedinLogo} />
+                            </a>
                         </div>
                     </div>
 
@@ -414,9 +436,12 @@ export default function HomePage() {
                             Philipp unterstützt mit seiner Führungskompetenz und fachlichen Förderung Teams bei der Entfaltung ihres Potenzials und trägt zur Weiterentwicklung von Fachkräften bei.
                         </p>
                         <div className={classes.aboutPersonSocial}>
-                            <img src={facebookLogoDark} />
+                            {/* <img src={facebookLogoDark} />
                             <img src={instagramLogoDark} />
-                            <img src={xLogoDark} />
+                            <img src={xLogoDark} /> */}
+                            <a href="https://www.linkedin.com/in/philipp-schellenberg-80811a6a/">
+                                <img src={linkedinLogo} />
+                            </a>
                         </div>
                     </div>
 
