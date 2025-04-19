@@ -21,66 +21,6 @@ import imgCB from '../Images/Chris_Baltisberger.png';
 const FeedbackCarousel = () => {
     const [feedback, setFeedback] = useState(
         [
-            {
-                "id": 1,
-                "feedbackImg": imgRB,
-                "feedbackTitle": "",
-                "feedbackText": "«Als Breathwork-Coach weiss ich, wie kraftvoll bewusste Atmung und Achtsamkeit sind, um Stress abzubauen und mentale Klarheit zu gewinnen. Diese Techniken helfen, in herausfordernden Momenten fokussiert und gelassen zu bleiben. Philipp Schellenberg unterstützt Business Athleten dabei, durch Breathwork und Achtsamkeit ihre innere Stärke zu fördern und erfolgreich in der Immobilienbranche zu sein. Ich freue mich, ihn mit meiner Erfahrung zu unterstützen.»",
-                "feedbackAuthor": "Rahel Bertschinger",
-                "feedbackAuthorPosition": "Achtsamkeitstraining/Breathwork ",
-                "url": 'www.athletictherapy.ch'
-                
-            },
-            {
-                "id": 2,
-                "feedbackImg": imgJN,
-                "feedbackTitle": "",
-                "feedbackText": "«Als ehemaliger Profisportler, Unternehmer und Familienvater weiss ich, wie wichtig es ist, beruflichen Erfolg mit dem Familienleben zu vereinbaren. Philipp Schellenberg unterstützt und befähigt Business Athleten – Menschen, die sowohl beruflich als auch privat ihr Bestes geben wollen. Disziplin, Ausdauer und ständige Verbesserung zeichnen sie aus. Seine Mission, Fach- und Führungskräften, Nachwuchstalenten und Quereinsteigern die Werkzeuge zu bieten, um ihre beruflichen und familiären Ziele zu erreichen, haben mich überzeugt und stehe ihm dabei mit meiner Erfahrung und Wissen beratend zu Seite.»",
-                "feedbackAuthor": "Janosch Nietlispach",
-                "feedbackAuthorPosition": "Athletic Coach und Unternehmer",
-                "url": ' www.janosch-nietlispach.ch'
-                
-            },
-            {
-                "id": 3,
-                "feedbackImg": imgMP,
-                "feedbackTitle": "",
-                "feedbackText": "«Als Schulleiterin sehe ich täglich, wie wichtig eine ganzheitliche Förderung in der schulischen Entwicklung und Bildung ist. Philipp Schellenberg bringt mit der schellenberg.immo GmbH diesen Ansatz in die Immobilienbranche, indem er Business Athleten nicht nur beruflich stärkt, sondern auch ihre persönliche Resilienz und Lernbereitschaft fördert. Durch die dynamische Kombination von Coaching, Sparring und Fachmentoring entstehen nicht nur starke Fachkräfte, sondern auch Persönlichkeiten, die sich selbst reflektieren und lebenslanges Lernen als Schlüssel zum Erfolg sehen. Ich unterstütze diesen innovativen Ansatz mit voller Überzeugung.»",
-                "feedbackAuthor": "Mirjam Probst",
-                "feedbackAuthorPosition": "Schulleiterin und ehemalige Mentorin an der Pädagogischen Hochschule Zürich PHZH",
-                "url": ' '
-                
-            },
-            {
-                "id": 4,
-                "feedbackImg": imgBS,
-                "feedbackTitle": "",
-                "feedbackText": "«Als Physiotherapeut, Personal Trainer und Athletenbetreuer sehe ich täglich, wie wichtig es ist, Körper und Geist in Einklang zu bringen, um Spitzenleistungen zu erreichen. Philipp Schellenberg unterstützt mit seinem komplementären Mentoring- und Coachingprogramm Business Athleten in der Immobilienbranche dabei, ihr volles Potenzial ganzheitlich zu entfalten. Die Kombination aus Coaching, Fachmentoring und Sparring fördert nicht nur beruflichen Erfolg, sondern auch persönliches Wohlbefinden. Ich unterstütze diesen Ansatz zu 100%, da er Menschen hilft, langfristig erfolgreich und ausgeglichen zu bleiben.»",
-                "feedbackAuthor": "Beda Stadelmann",
-                "feedbackAuthorPosition": `Physiotherapeut und Personal Trainer`,
-                "url": "www.momentum-therapie.ch"
-                
-            },
-            {
-                "id": 5,
-                "feedbackImg": imgDL,
-                "feedbackTitle": "",
-                "feedbackText": "«Bei ZURZACH Care setzen wir auf einen ganzheitlichen Ansatz, der sich mit der Philosophie von schellenberg.immo GmbH deckt. Philip Schellenberg unterstützt Fach- und Führungskräfte im Immobiliensektor bei beruflichen und persönlichen Herausforderungen. Durch Coaching, Sparring und Fachmentoring fördert er eine Balance zwischen Karriere, Familie und Gesundheit – wobei erholsamer Schlaf entscheidend ist. Gerne stehe dem Coaching- und Mentoringprogramm von schellenberg.immo mit meiner Erfahrung und Expertise zur Seite.»",
-                "feedbackAuthor": "Dino Lauber",
-                "feedbackAuthorPosition": "GF Prävention und Reintegration sowie Kliniken Schlafmedizin ZURZACHCare",
-                "url": ' '
-                
-            },
-            // {
-            //     "id": 6,
-            //     "feedbackImg": imgCB,
-            //     "feedbackTitle": "",
-            //     "feedbackText": "«Im Spitzensport Eishockey lernt man, unter Druck zu performen, im Team zu funktionieren und immer an sich zu arbeiten – Eigenschaften, die auch im Berufsleben entscheidend sind. Genau hier setzt das Mentoring- Programm von schellenberg.immo an: Es überträgt die Prinzipien des Spitzensports auf die Business-Welt und hilft, berufliche Herausforderungen mit derselben Mentalität zu meistern, die man auf dem Eis braucht. Was mich besonders beeindruckt, ist der persönliche Ansatz. Das Programm unterstützt nicht nur bei der fachlichen Weiterentwicklung, sondern legt auch grossen Wert auf mentale Stärke und Resilienz – Faktoren, die im Sport wie im Beruf den Unterschied ausmachen können. Für mich ist schellenberg.immo ein idealer Sparringpartner für alle, die ihre Karriere mit der Disziplin und Leidenschaft eines Spitzensportlers angehen wollen.»",
-            //     "feedbackAuthor": "Chris Baltisberger",
-            //     "feedbackAuthorPosition": "Eishockeyspieler ZSC Lions",
-                
-            // },
-        
         ]
     )
     const [totalSlides, setTotalSlides] = useState()
@@ -145,28 +85,19 @@ const FeedbackCarousel = () => {
     });
 
     useEffect(() => {
-        // fetch(`https://super-useful-strapi-0bbdc58e284a.herokuapp.com/api/feedbacks?populate=*`, { 
-        //     method: 'GET' 
-        // })
-        //     .then(data => data.json())
-        //     .then(data => {
-        //         console.log(data.data)
-        //         console.log(hardCodedFeedback)
-        //         console.log( typeof(Object.entries(data.data) ))
-        //         setFeedback(
-        //             data.data
-        //         ); 
-
-        //         setTotalSlides(Object.keys(data.data).length)
-        //         setFeedback((prevState, n=0) => [
-        //             ...prevState.map(
-        //                 u => {return {...u, "comment_id":n++}}
-        //             )
-        //         ])
+        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/voice?acf_format=standard&_fields=id,title,acf`, { 
+            method: 'GET' 
+        })
+            .then(data => data.json())
+            .then(data => {
+                console.log(data)
+                console.log( )
+                setFeedback(data)
+                setTotalSlides(Object.entries(data).length)
             
-        //     })
+            })
 
-        setTotalSlides(Object.keys(feedback).length)
+        
         setFeedback((prevState, n=0) => [
             ...prevState.map(
                 u => {return {...u, "comment_id":n++}}
@@ -214,15 +145,15 @@ const FeedbackCarousel = () => {
                 onTouchEnd={move3}
             >
                 {
-                    feedback.map(feedback => 
+                    feedback.toReversed().map(feedback => 
                         <Comment 
                             id={feedback.comment_id} 
-                            title={feedback.feedbackTitle}
-                            text={feedback.feedbackText}
-                            author={feedback.feedbackAuthor}
-                            authorPosition={feedback.feedbackAuthorPosition}  
-                            img={feedback.feedbackImg}
-                            url={feedback.url}
+                            title={null}
+                            text={feedback.acf.text}
+                            author={feedback.acf.author}
+                            authorPosition={feedback.acf.occupation}  
+                            img={feedback.acf.photo}
+                            url={feedback.acf.url}
                         />
                
                     )

@@ -5,7 +5,7 @@ const Input = (props) => {
     return(
         <div className={classes.container} >
             <label htmlFor={props.name} className={classes.customLabel}>
-                {props.placeholder}
+                {props.label}
             </label>
             <input 
                 type={props.type}

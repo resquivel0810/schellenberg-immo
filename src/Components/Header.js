@@ -9,11 +9,24 @@ import classes from './Header.module.css'
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
-export default function Header(){
+export default function Header(props){
 
+    const [sectionNames, setSectionNames] = useState([])
     const [currentPage, setCurrentPage] = useState()
     const [navbarOpen, setNavbarOpen] = useState(false)
     const [menu_class, setMenuClass] = useState("menu hidden")
+
+    useEffect(() => {
+        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/sectionpage-name?acf_format=standard&_fields=id,acf`, { 
+            method: 'GET' 
+        })
+            .then(data => data.json())
+            .then(data => {
+                let namesList = []
+                data.toReversed().map(s => namesList.push(s.acf.sectionpage))
+                setSectionNames(namesList)
+            })
+    }, [])
 
     let location = useLocation();
 
@@ -84,7 +97,7 @@ export default function Header(){
                         // style={{color:location.hash === "#Überschellenberg.immo"?'white' : 'white'}}
                         onClick={() => setNavbarOpen(false)}
                     > 
-                        Über schellenberg.immo 
+                        {sectionNames[0]}
                     </HashLink>
                     <HashLink
                         scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
@@ -93,7 +106,7 @@ export default function Header(){
                         // style={{color:location.hash === "#Coaches&Mentoren"?'white' : 'white'}}
                         onClick={() => setNavbarOpen(false)}
                     > 
-                        Coaches & Mentoren
+                        {sectionNames[1]}
                     </HashLink>
                     <HashLink
                         scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
@@ -102,7 +115,7 @@ export default function Header(){
                         // style={{color:location.hash === "#Programme&Module"?'white' : 'white'}}
                         onClick={() => setNavbarOpen(false)}
                     > 
-                        Programme & Module
+                        {sectionNames[2]}
                     </HashLink>
                     <HashLink
                         scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
@@ -111,7 +124,7 @@ export default function Header(){
                         // style={{color:location.hash === "#Netzwerk"?'white' : 'white'}}
                         onClick={() => setNavbarOpen(false)}
                     > 
-                        Netzwerk
+                        {sectionNames[3]}
                     </HashLink>
                     <HashLink
                         scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
@@ -120,7 +133,7 @@ export default function Header(){
                         // style={{color:location.hash === "#Mitgliedschaften"?'white' : 'white'}}
                         onClick={() => setNavbarOpen(false)}
                     > 
-                        Mitgliedschaften
+                        {sectionNames[4]}
                     </HashLink>
                     <HashLink
                         scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
@@ -129,7 +142,7 @@ export default function Header(){
                         // style={{color:location.hash === "#Kontakt"?'white' : 'white'}}
                         onClick={() => setNavbarOpen(false)}
                     > 
-                        Kontakt
+                        {sectionNames[5]}
                     </HashLink>
                 </div>
             </div>

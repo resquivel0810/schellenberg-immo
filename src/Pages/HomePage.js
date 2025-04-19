@@ -8,49 +8,25 @@ import GoogleMap from "../Components/GoogleMap";
 import Input from "../Components/Input";
 import TextArea from "../Components/Textarea";
 import Footer from "../Components/Footer";
+import Toast from "../Components/Toast";
 
 import classes from './HomePage.module.css';
-import dummy from '../Images/empty.svg';
-
-import logo1 from '../Images/stock_logo.svg';
-import logo2 from '../Images/svit_logo.svg';
-import logo3 from '../Images/SVIT-Logo-STWE.svg';
-import logo4 from '../Images/athletes_network.png';
-import logo4s from '../Images/athletes_network_s.png';
-import logo5 from '../Images/dropbox.svg';
-import logo6 from '../Images/hubspot.svg';
-import logo7 from '../Images/framer.svg';
-import logo8 from '../Images/slack.svg';
-
-import P1Photo from '../Images/Philipp.png';
-import P2Photo from '../Images/Claudia.png';
-import P3Photo from '../Images/Vanessa.jpg';
-import P4Photo from '../Images/Karo.png';
-
-import instagramLogo from '../Images/instagram_logo.svg';
-import instagramLogoDark from '../Images/Instagram_logo_dark.svg';
-import facebookLogo from '../Images/facebook_logo.svg';
-import facebookLogoDark from '../Images/facebook_logo_dark.svg';
-import xLogo from '../Images/x_logo.svg';
-import xLogoDark from '../Images/x_logo_dark.svg';
-import linkedinLogo from '../Images/linkedin_black.svg';
-import linkedinLogo2 from '../Images/linkedin_logo.svg';
-
 
 import banner from "../Videos/banner.mp4";
 import bannerResponsive from '../Videos/banner_responsive.mp4';
-
-import pAndMImg1 from '../Images/p&mImg1.png';
-import pAndMImg2 from '../Images/p&mImg2.png';
-import pAndMImg3 from '../Images/p&mImg3.png';
-import pAndMImg4 from '../Images/p&mImg4.jpg';
 
 import mailLogo from '../Images/mail_logo.svg';
 import telephoneLogo from '../Images/telephone_logo.svg';
 import locationLogo from '../Images/location_logo.svg';
 
-
 export default function HomePage() {
+    
+    const [homepageContent, setHomepageContent] = useState([])
+    const [employees, setEmployees] = useState([])
+    const [mentors, setMentors] = useState([])
+    const [ingradoPAndM, setIngradoPAndM] = useState([])
+    const [innovagePAndM, setInnovagePAndM] = useState([])
+    const [memberships, setMemberships] = useState([])
     const [displayedCategory, setDisplayedCategory] = useState('1'); // 1
     const [status, setStatus] = useState("notSubmitted"); // 2
     const [request, setRequest] = useState({
@@ -82,14 +58,62 @@ export default function HomePage() {
     const [regardError, setRegardError] = useState(initError);
     const [messageError, setMessageError] = useState(initError);
 
+    const [toastVisible, setToastVisible] = useState(false) 
+    const [toastProperties, setToastProperties] = useState([])
 
+    useEffect(() => {
+        
+        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/pages/54?acf_format=standard&_fields=id,title,acf`, { 
+            method: 'GET' 
+        })
+            .then(data => data.json())
+            .then(data => {
+                setHomepageContent(data.acf)
+            })
+        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/employee?acf_format=standard&_fields=id,title,acf`, { 
+            method: 'GET' 
+        })
+            .then(data => data.json())
+            .then(data => {
+                setEmployees(data)
+            })
+        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/mentor?acf_format=standard&_fields=id,title,acf`, { 
+            method: 'GET' 
+        })
+            .then(data => data.json())
+            .then(data => {
+                setMentors(data)
+            })
+        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/ingrado-p-and-m?acf_format=standard&_fields=id,title,acf`, { 
+            method: 'GET' 
+        })
+            .then(data => data.json())
+            .then(data => {
+                setIngradoPAndM(data)
+            })
+        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/innovage-p-and-m?acf_format=standard&_fields=id,title,acf`, { 
+            method: 'GET' 
+        })
+            .then(data => data.json())
+            .then(data => {
+                setInnovagePAndM(data)
+            })
+        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/membership?acf_format=standard&_fields=id,title,acf`, { 
+            method: 'GET' 
+        })
+            .then(data => data.json())
+            .then(data => {
+                setMemberships(data)
+            })
+            // 
+
+    }, [])
   
-
     useEffect(() => {
         if (!request.name && enteredNameTouched) {
             setNameError({
               exists: true,
-              helperText: "Bitte geben Sie Ihren Namen ein",
+              helperText: `${homepageContent.input_name_not_empty_error}`,
             });
         } else {
             setNameError({
@@ -100,7 +124,7 @@ export default function HomePage() {
         if (!request.email && enteredEmailTouched) {
             setEmailError({
               exists: true,
-              helperText: "Bitte geben Sie Ihre E-Mail-Adresse ein",
+              helperText: `${homepageContent.input_email_not_empty_error}`,
             });
         } else {
             setEmailError({
@@ -111,7 +135,7 @@ export default function HomePage() {
         if (!request.lastname && enteredLastnameTouched) {
             setLastnameError({
               exists: true,
-              helperText: "Bitte geben Sie Ihren Nachnamen ein",
+              helperText: `${homepageContent.input_lastname_not_empty_error}`
             });
         } else {
             setLastnameError({
@@ -122,7 +146,7 @@ export default function HomePage() {
         if (!request.telephone && enteredTelephoneTouched) {
             setTelephoneError({
               exists: true,
-              helperText: "Bitte geben Sie Ihre Telefonnummer ein",
+              helperText: `${homepageContent.input_telephone_not_empty_error}`,
             });
         } else {
             setTelephoneError({
@@ -133,7 +157,7 @@ export default function HomePage() {
         if (!request.regard && enteredRegardTouched) {
             setRegardError({
               exists: true,
-              helperText: "Bitte geben Sie den Betreff ein",
+              helperText: `${homepageContent.input_regard_not_empty_error}`,
             });
         } else {
             setRegardError({
@@ -144,7 +168,7 @@ export default function HomePage() {
         if (!request.message && enteredMessageTouched) {
             setMessageError({
               exists: true,
-              helperText: "Bitte geben Sie Ihre Nachricht ein",
+              helperText: `${homepageContent.input_message_not_empty_error}`,
             });
         } else {
             setMessageError({
@@ -154,6 +178,14 @@ export default function HomePage() {
         }
        
     }, [request, enteredNameTouched, enteredEmailTouched, enteredLastnameTouched, enteredTelephoneTouched, enteredRegardTouched, enteredMessageTouched])
+
+    useEffect(() => {
+        setToastProperties({
+            description: `${homepageContent.toast_form_send_message}`,
+            borderColor: '#6D758F',
+            icon: 'icon-success'
+        })
+    }, [homepageContent])
 
     const form = useRef();
 
@@ -169,62 +201,52 @@ export default function HomePage() {
             [name]: value,
         }))
     }
+    const nameIsValid = !nameError.exists && enteredNameTouched;
+    const emailIsValid = !emailError.exists && enteredEmailTouched;
+    const lastnameIsValid = !lastnameError.exists && enteredLastnameTouched;
+    const telephoneIsValid = !emailError.exists && enteredEmailTouched;
+    const regardIsValid = !regardError.exists && enteredRegardTouched;
+    const messageIsValid = !messageError.exists && enteredMessageTouched
+
 
     const sendEmail = (e) => {
         e.preventDefault();
-        if (!request.name) {
-            setNameError({
-              exists: true,
-              helperText: "Bitte geben Sie Ihren Namen ein",
-            });
-            return
-        } 
-        if (!request.email) {
-            setEmailError({
-              exists: true,
-              helperText: "Bitte geben Sie Ihre E-Mail-Adresse ein",
-            });
-            return
-        } 
-        if (!request.lastname) {
-            setLastnameError({
-              exists: true,
-              helperText: "Bitte geben Sie Ihren Nachnamen ein",
-            });
-            return
-        } 
-        if (!request.telephone) {
-            setTelephoneError({
-              exists: true,
-              helperText: "Bitte geben Sie Ihre Telefonnummer ein",
-            });
-            return
-        } 
-        if (!request.regard) {
-            setRegardError({
-              exists: true,
-              helperText: "Bitte geben Sie den Betreff ein",
-            });
-            return
-        } 
-        if (!request.message) {
-            setMessageError({
-              exists: true,
-              helperText: "Bitte geben Sie Ihre Nachricht ein",
-            });
-            return
-        }
-
+        setEnteredEmailTouched(true)
+        setEnteredNameTouched(true)
+        setEnteredLastnameTouched(true)
+        setEnteredTelephoneTouched(true)
+        setEnteredRegardTouched(true)
+        setEnteredMessageTouched(true)
         
+        if (!nameIsValid) {
+            return;
+        }
+        if (!lastnameIsValid) {
+            return;
+        }
+        if(!emailIsValid){
+            return;
+        }
+        if(!telephoneIsValid){
+            return;
+        }
+        if(!regardIsValid){
+            return;
+        }
+        if(!messageIsValid){
+            return;
+        }
 
 
         if (nameError.exists || emailError.exists || lastnameError.exists || telephoneError.exists || regardError.exists || messageError.exists) {
             // return;
             console.log('NOT!!!')
         } else {
+            setToastVisible(true)
             emailjs.sendForm('service_mo5a0en', 'template_cr8cyk6', form.current, {
                 publicKey: 'TRrJ-iqCKxRNqu_Nn',
-            }).then(
+            }
+            ).then(
                 () => {
                     console.log('SUCCESS!');
                     document.getElementById("submitButton").disabled = true;
@@ -239,15 +261,14 @@ export default function HomePage() {
                 (error) => {
                     console.log('FAILED...', error.text);
                 },
+                setTimeout(() => {
+                    setToastVisible(false)
+                }, 5000)
             );
         }
-
-
-    
         
       };
 
-  
     function scrollToTargetAdjusted(targetElement, offset){
         var element = document.getElementById(targetElement);
         var headerOffset = offset;
@@ -262,6 +283,12 @@ export default function HomePage() {
     return (
         <>
         <Header/>
+        <Toast
+            toastList={toastProperties}
+            position="top-right" 
+            visible={toastVisible}
+            pageContent={"pageContent"}
+        />
         <section id="hero" className={classes.hero}>
             <div className={classes.banner}>
                 {
@@ -290,18 +317,18 @@ export default function HomePage() {
             </div>
             
             <div className={classes.fisrtHalf}>
-                <h1>schellenberg.immo – Dein Sparringpartner für Mentoring, Coaching und Gesundheitsförderung in der Immobilienbranche</h1>
-                <h2 className={classes.subtitle}>Karriere, Gesundheit und Familie im Einklang für nachhaltigen Erfolg als Business Athleten</h2>
-                <h3>Jetzt kostenloses Erstgespräch <br/> vereinbaren!</h3>
+                <h1>{homepageContent.hero}</h1>
+                <h2 className={classes.subtitle}>{homepageContent.moto}</h2>
+                <h3>{homepageContent.schedule}</h3>
             </div>
             <Calendar shown={true} />
             <div className={classes.heroBottomText}>
                 <HashLink
                     scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
                     to='/#Programme&Module' 
-                    style={{textDecoration:'none', justifyItems:'center'}}
+                    style={{textDecoration:'none', justifyItems:'center', maxWidth:'273px'}}
                 > 
-                    <h4>Programme und Module <br/> ansehen</h4>
+                    <h4>{homepageContent.go_to_pandms}</h4>
                     <svg style={{display:'flex', margin:'auto'}} width="54" height="67" viewBox="0 0 54 67" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M51.0558 38.8281L27.0279 64.0002L2.99998 38.8281" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M27.033 63L27.033 3" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -314,163 +341,71 @@ export default function HomePage() {
         </section>
         <section id="Überschellenberg.immo" className={classes.about}>
             <div className={classes.aboutMain}>
-                <h1>Über schellenberg.immo</h1>
+                <h1>{homepageContent.about_title}</h1>
                 <p>
-                    Bei schellenberg.immo GmbH unterstützen wir Business Athletes dabei, berufliche Ambitionen mit einem erfüllten Privat- und Familienleben zu vereinbaren. Mit ingrado.immo begleiten wir Dich auf Deinem Weg zu mehr Resilienz, persönlicher Weiterentwicklung und einem ganzheitlichen Wohlbefinden – für eine harmonische Balance zwischen Karriere und Familie. <br/>
-                    Mit innovage.immo fördern wir Unternehmen dabei, innovative und familienfreundliche Arbeitsmodelle zu entwickeln, die langfristigen Erfolg und ein ausgewogenes Leben ermöglichen.<br/>
-                    Unser Anspruch: Erfolg im Beruf, Erfüllung im Leben und Raum für Familie.
+                    {homepageContent.about_text}
                 </p>
             </div>
             <div className={classes.aboutPersons}>
-                <div className={classes.aboutPerson}>
-                    <div className={classes.aboutPersonImg}>
-                        <img className={classes.mentorOrCoachImg} src={P1Photo}/>
+                {
+                    employees.toReversed().map((e, i) => 
+                        <div className={classes.aboutPerson}>
+                        <div className={classes.aboutPersonImg}>
+                            <img className={i!==1?classes.mentorOrCoachImg:classes.aboutPersonImg2} src={e.acf.photo}/>
+                        </div>
+                        <h3>{e.acf.name}</h3>
+                        <span>{e.acf.occupation}</span>
+                        <p>
+                            {e.acf.about}
+                        </p>
+                        <div className={classes.aboutPersonSocial}>
+                            <a href={`${e.acf.link}`}>
+                                <img src={e.acf.social_media_logo} />
+                            </a>
+                        </div>
                     </div>
-                    <h3>Philipp Schellenberg</h3>
-                    <span>Inhaber und Geschäftsführer</span>
-                    <p>
-                        Mit meiner langjährigen Erfahrung in der Immobilienbranche habe ich gelernt, dass wahre Erfüllung nicht nur im beruflichen Erfolg liegt, sondern auch in der Fähigkeit, Arbeit, Familie und persönliche Bedürfnisse in Einklang zu bringen. 
-                        Als Mentor und Coach unterstütze ich Menschen dabei, ihre Karriereziele zu erreichen und gleichzeitig ihre mentale und physische Gesundheit zu fördern.
-                        Mein Ansatz kombiniert praxisnahes Fachwissen mit individuellen und innovativen Lösungen, sowie dem Sinn für das Machbare, um Menschen zu motivieren, Wissen zu teilen und gemeinsam Grosses zu erreichen.
-                        "Für mich bedeutet Erfolg, im Beruf zu glänzen und gleichzeitig im Leben präsent zu sein."
-                    </p>
-                    <div className={classes.aboutPersonSocial}>
-                        {/* <img src={facebookLogo} />
-                        <img src={instagramLogo} />
-                        <img src={xLogo} /> */}
-                        <a href="https://www.linkedin.com/in/philipp-schellenberg-80811a6a/">
-                            <img src={linkedinLogo2} />
-                        </a>
-                    </div>
-                </div>
-                <div className={classes.aboutPerson}>
-                    <div  className={classes.aboutPersonImg}>
-                        <img className={classes.aboutPersonImg2}  src={P2Photo}/>
-                    </div>
-                    <h3>Claudia Schellenberg</h3>
-                    <span>Leitung Backoffice/Administration</span>
-                    <p>
-                        Ich übernehme die Verantwortung für die organisatorischen Abläufe und entlaste 
-                        die Geschäftsführung sowie Coaches und Mentoren, damit sie sich auf ihre Kernaufgaben 
-                        konzentrieren können. Als Mutter von zwei Kindern weiss ich, wie entscheidend es ist, 
-                        Beruf und Familie in Einklang zu bringen. Es erfüllt mich, meine Arbeit flexibel und 
-                        zugleich mit klarer Struktur zu gestalten, um sowohl berufliche Erfolge als auch 
-                        familiäre Zufriedenheit zu fördern. Diese Balance ist der Schlüssel, der mir hilft, 
-                        kreative Lösungen zu entwickeln und reibungslose Abläufe sicherzustellen.
-                    </p>
-                    <div className={classes.aboutPersonSocial}>
-                        {/* <img src={facebookLogoDark} />
-                        <img src={instagramLogoDark} />
-                        <img src={xLogoDark} /> */}
-                    </div>
-                </div>
+                    )
+                }
             </div>
         </section>
         <section id="Coaches&Mentoren" className={classes.mentorsAndCoaches}>
             <div className={classes.mentorsAndCoachesIntro}>
-                <h2>Mentoren und Coaches</h2>
+                <h2>{homepageContent.mentors_and_coaches_title}</h2>
                 <p>
-                    Hinter jedem Erfolg steht ein starker Partner – unsere Mentoren und Coaches begleiten 
-                    Sie mit Erfahrung, Herz und Leidenschaft, um Ihre Ziele zu erreichen und Ihr Potenzial 
-                    voll auszuschöpfen.
+                    {homepageContent.mentors_and_coaches_text}
                 </p>
             </div>
+       
+            
             <div className={classes.mentorsAndCoachesPeople}>
+            {
+                mentors.toReversed().map(m => 
                     <div className={classes.mentorOrCoach}>
                         <div className={classes.aboutPersonImg}>
-                        <img className={classes.mentorOrCoachImg} style={{filter:'grayscale(100%)'}} src={P3Photo}/>
+                        <img className={classes.mentorOrCoachImg} style={{filter:'grayscale(100%)'}} src={m.acf.photo}/>
                     </div>
-                        <h3>Vanessa Meister</h3>
-                        <span>Agil Coach</span>
+                        <h3>{m.acf.name}</h3>
+                        <span>{m.acf.occupation}</span>
                         <p>
-                            Vanessa bringt ihre umfangreiche Erfahrung in strategischer Beratung und Innovationsmanagement in ihre Tätigkeit bei ingrado.immo ein.
-                            Sie setzt ihre Expertise in agilen Arbeitsmethoden gezielt ein, um die Entwicklung von innovativen Lösungen zu unterstützen. Dabei begleitet sie insbesondere Teams aus dem Bereich New Business und Venture und hilft ihnen, digitale Produkte erfolgreich zu gestalten.
-                            Mit ihrem Wissen über die digitale Transformation und ihre langjährige Erfahrung in der Startup-Welt trägt sie dazu bei, Unternehmen bei der Einführung agiler Prozesse und der Weiterentwicklung ihrer Geschäftsmodelle voranzubringen.
+                            {m.acf.about}
                         </p>
                         <div className={classes.aboutPersonSocial}>
-                            {/* <img src={facebookLogoDark} />
-                            <img src={instagramLogoDark} />
-                            <img src={xLogoDark} /> */}
-                            <a href="https://www.linkedin.com/in/vanessa-meister/">
-                                <img src={linkedinLogo} />
+                            <a href={m.acf.link}>
+                                <img src={m.acf.social_media_logo} />
                             </a>
                         </div>
                     </div>
-
-                    <div className={classes.mentorOrCoach}>
-                        <div className={classes.aboutPersonImg}>
-                            <img className={classes.mentorOrCoachImg} style={{filter:'grayscale(100%)'}} src={P4Photo}/>
-                        </div>
-                        <h3>Karoline Kühn</h3>
-                        <span>Fachmentoring und Organisationsberatung</span>
-                        <p>
-                            Karo bringt umfangreiche Erfahrung in der Immobilienbewirtschaftung, 
-                            Prozess- und Projektmanagement sowie in der Aus- und Weiterbildung von 
-                            Fachkräften mit. Als Fachbereichsleiterin Bewirtschaftung Schweiz bei 
-                            einer grossen und renommierten Immobiliengesellschaft verantwortet und 
-                            fördert sie die interne Aus- und Weiterbildung. Ihre Expertise in Coaching 
-                            und Prozessoptimierung setzt sie erfolgreich in der Führung von Teams und 
-                            Projekten ein. Zudem ist sie als Mentorin und Prüfungsexpertin tätig und 
-                            gibt ihre umfangreichen Kenntnisse in der Praxisbildung und 
-                            Konfliktbewältigung weiter.
-                        </p>
-                        <div className={classes.aboutPersonSocial}>
-                            {/* <img src={facebookLogoDark} />
-                            <img src={instagramLogoDark} />
-                            <img src={xLogoDark} /> */}
-                            <a href="https://www.linkedin.com/in/karo-k%C3%BChn-29928b20b/">
-                                <img src={linkedinLogo} />
-                            </a>
-                        </div>
-                    </div>
-
-                    <div className={classes.mentorOrCoach}>
-                        <div className={classes.aboutPersonImg}>
-                        <img className={classes.mentorOrCoachImg} src={P1Photo}/>
-                    </div>
-                        <h3>Philipp Schellenberg</h3>
-                        <span>Branchenvisionär und Fachmentor</span>
-                        <p>
-                            Philipp ist der Kopf und Initiator von ingrado.immo. Mit seiner visionären Denkweise und langjährigen Erfahrung in der Immobilienbranche entwickelt er Konzepte, die beruflichen Erfolg und persönliches Wohlbefinden vereinen.
-                            Durch sein Netzwerk und Wissen setzt er erfolgreich Lösungen um, die Agilität, Gesundheit und nachhaltige Arbeitskulturen fördern. Als Gründer von ingrado.immo verändert er die Branche mit innovativen Arbeitsmodellen und zukunftsorientierten Konzepten.
-                            Philipp unterstützt mit seiner Führungskompetenz und fachlichen Förderung Teams bei der Entfaltung ihres Potenzials und trägt zur Weiterentwicklung von Fachkräften bei.
-                        </p>
-                        <div className={classes.aboutPersonSocial}>
-                            {/* <img src={facebookLogoDark} />
-                            <img src={instagramLogoDark} />
-                            <img src={xLogoDark} /> */}
-                            <a href="https://www.linkedin.com/in/philipp-schellenberg-80811a6a/">
-                                <img src={linkedinLogo} />
-                            </a>
-                        </div>
-                    </div>
-
-                    {/* <div className={classes.mentorOrCoach}>
-                        <div className={classes.aboutPersonImg}>
-                        <img style={{width:'unset'}} src={dummy}/>
-                    </div>
-                        <h3>Stefan Schwitter</h3>
-                        <span>Mentalcoach und Zenmover</span>
-                        <p>
-                            Stefan beschäftigte sich schon früh mit Lebensfragen und träumte von einer Karriere als Profi-Wrestler oder buddhistischer Mönch. Mit 20 Jahren begann er mit Wrestling und zog mit 22 nach Deutschland und später in die USA, um seinen Traum zu verwirklichen. Nach sieben Jahren im „Haifischbecken“ zahlte er einen hohen Preis, sammelte jedoch wertvolle Erfahrungen.
-                            Nach seiner Wrestling-Karriere gründete er Zenmove, ein effizientes Trainings- und Entspannungskonzept, das Körper und Geist vereint. Seit 2021 hält er Weltrekorde im Kettlebell-Sport und begeistert als Speaker. Ab 2023 arbeitet er als Performance Coach für die Schweizer Eishockey-Nationalmannschaft.
-                        </p>
-                        <div className={classes.aboutPersonSocial}>
-                            <img src={facebookLogoDark} />
-                            <img src={instagramLogoDark} />
-                            <img src={xLogoDark} />
-                        </div>
-                    </div> */}
-                    
-                </div>
+                )
+            }
+            </div>
 
         </section>
         <section id="Programme&Module" className={classes.programsAndModules}>
             <div className={classes.programsAndModulesContent}>
                 <div className={classes.programsAndModulesDescription}>
-                    <h2>Transformative Programme und Module für eine nachhaltige Immobilienbranche</h2>
+                    <h2>{homepageContent.programs_and_modules_title}</h2>
                     <p>
-                        Unsere Programme und Module, unterstützt von innovage.immo, stärken Resilienz und Leadership und helfen Menschen und Unternehmen, innovative, nachhaltige Modelle zu entwickeln, die Fachkompetenz und die Vereinbarkeit von Beruf und Familie fördern – für eine zukunftsfähige und erfolgreiche Immobilienbranche.
+                        {homepageContent.programs_and_modules_text}
                     </p>
                     
                 </div>
@@ -483,7 +418,7 @@ export default function HomePage() {
                                     fontWeight: displayedCategory === '1' ? '800' : '400'
                                 }}
                             >
-                                ingrado.immo
+                                {homepageContent.ingrado_button_text}
                             </button>
                             <button
                                 onClick={() => setDisplayedCategory('2')} 
@@ -492,7 +427,7 @@ export default function HomePage() {
                                     fontWeight: displayedCategory === '2' ? '800' : '400'
                                 }}
                             >
-                                innovage.immo
+                                {homepageContent.innovage_button_text}
                             </button>
                     </div>
                     {
@@ -500,80 +435,38 @@ export default function HomePage() {
                         ?
                         <>
                         <div className={classes.categoryContent}>
-                            <div className={classes.contentCharacteristic}>
-                                <div>
-                                    <h3>Resilienz- und Achtsamkeitstraining</h3>
-                                    <p>
-                                        Programme, die Resilienz und Achtsamkeit stärken, fördern die innere Stärke, Klarheit und Gelassenheit, um auch in herausfordernden Zeiten fokussiert zu bleiben und mit Stärke und Klarheit zu handeln. Sie helfen dabei, Stress zu meistern und das volle Potenzial zu entfalten, sodass jede Herausforderung als Chance genutzt wird, gestärkt hervorzugehen.
-                                    </p>
+                            {
+                                ingradoPAndM.toReversed().map(pm => 
+                                    <div className={classes.contentCharacteristic}>
+                                    <div>
+                                        <h3>{pm.acf.title}</h3>
+                                        <p>
+                                            {pm.acf.description}
+                                        </p>
+                                    </div>
+                                    <img src={pm.acf.illustration} />
                                 </div>
-                                
-                                <img src={pAndMImg1} />
-                            </div>
-                            <div className={classes.contentCharacteristic}>
-                                <div>
-                                    <h3>Fachmentoring</h3>
-                                    <p>
-                                        Unsere Programme sind darauf ausgerichtet, das fachliche Know-how zu erweitern und die berufliche Weiterentwicklung zu fördern. 
-                                        Durch individuelle Begleitung und praxisorientierte Unterstützung werden Teilnehmer befähigt, ihre Expertise zu vertiefen und Herausforderungen selbstbewusst zu meistern.
-                                    </p>
-                                </div>
-                                
-                                <img src={pAndMImg2} />
-                            </div>
-                            <div className={classes.contentCharacteristic}>
-                                <div>
-                                    <h3>Karriereentwicklung und Leadership-Coaching</h3>
-                                    <p>
-                                        Unser Programm unterstützt dabei, ein motiviertes und gut abgestimmtes Team zu entwickeln, das auf langfristige Zusammenarbeit und nachhaltigen Erfolg ausgerichtet ist. Die Teilnehmer lernen, die Stärken der Teammitglieder zu erkennen und Aufgaben entsprechend ihrer Kompetenzen zu verteilen, um Effizienz und Zusammenarbeit zu fördern. 
-                                        Dieser Ansatz stärkt den Zusammenhalt im Team und sorgt für eine verantwortungsbewusste und engagierte Arbeitsweise, die eine solide Basis für nachhaltige Teamentwicklung schafft.
-                                    </p>
-                                </div>
-                                <img src={pAndMImg3} />
-                            </div>
+                                )
+                            }
                         </div>
                         </>
                         :
                         <>
                         <div className={classes.categoryContent}>
-                            <div className={classes.contentCharacteristic}>
-                                <div>
-                                    <h3>Innovative Lösungen für eine zukunftsfähige Immobilienbranche</h3>
-                                    <p>
-                                        innovage.immo ist eine Plattform, die innovative Lösungen für die Immobilienbranche 
-                                        entwickelt. Sie legt den Fokus auf Nachhaltigkeit, digitale Transformation und die 
-                                        Vereinbarkeit von Beruf und Familie, um Unternehmen zukunftsfähig und verantwortungsvoll 
-                                        zu gestalten. In Zusammenarbeit mit ingrado.immo bietet sie umfassende Programme für 
-                                        Coaching, Mentoring und Leadership an.
-                                    </p>
+                            {
+                                innovagePAndM.toReversed().map(pm => 
+                                    <div className={classes.contentCharacteristic}>
+                                    <div>
+                                        <h3>{pm.acf.title}</h3>
+                                        <p>
+                                            {pm.acf.description}
+                                        </p>
+                                    </div>
+                                    <img src={pm.acf.illustration} />
                                 </div>
-                                <img src={pAndMImg4} />
-                            </div>
-                            {/* <div className={classes.contentCharacteristic}>
-                                <div>
-                                    <h3>Title 2</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                        Facere quasi minima beatae cumque? Alias aliquam corporis, 
-                                        maiores dolorum fuga numquam nihil suscipit eaque. Nobis, 
-                                        earum sapiente. Praesentium odio incidunt non!
-                                    </p>
-                                </div>
-                                <img />
-                            </div>
-                            <div className={classes.contentCharacteristic}>
-                                <div>
-                                    <h3>Title 3</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                        Facere quasi minima beatae cumque? Alias aliquam corporis, 
-                                        maiores dolorum fuga numquam nihil suscipit eaque. Nobis, 
-                                        earum sapiente. Praesentium odio incidunt non!
-                                    </p>
-                                </div>
-                                
-                                <img />
-                            </div> */}
+                                )
+                            }
+                           
                         </div>
                         
                         </>
@@ -586,38 +479,32 @@ export default function HomePage() {
                     style={{textDecoration:'none'}}
                 > 
                     <button className={classes.programsAndModulesCallToAction}>
-                    <span style={{textDecoration:'none'}}>Lassen Sie uns reden</span>
+                    <span style={{textDecoration:'none'}}>{homepageContent.lets_talk_button}</span>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.88458 1.8808L10.1999 6.00001L5.88458 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M10.1999 6L1.79999 6" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
                 </HashLink>
-
-                
             </div>
-            
         </section>
         <section id="Netzwerk" className={classes.feedback}>
             <div className={classes.feedbackDescription}>
-                <h2>Freunde und beratende Stimmen</h2>
-                <p>Erfahrungen und Erfolge aus erster Hand</p>
+                <h2>{homepageContent.voices_title}</h2>
+                <p>{homepageContent.voices_text}</p>
             </div>
             <FeedbackCarousel />
         </section>
         <section id="Mitgliedschaften" className={classes.ourMemberships}>
             <div className={classes.ourMembershipsContent}>
-                    <h2>Unsere Mitgliedschaften</h2>
-                    <div className={classes.memberships}>
-                        <img src={logo1}/>
-                        <img src={logo2}/>
-                        <img style={{width:'120px'}} src={logo3}/>
-                        {/* <img src={window.innerWidth < 991 ? logo4s : logo4}/>
-                        <img src={logo5}/>
-                        <img src={logo6}/>
-                        <img src={logo7}/>
-                        <img src={logo8}/> */}
-                    </div>
+                <h2>{homepageContent.memberships_title}</h2>
+                <div className={classes.memberships}>
+                    {
+                        memberships.toReversed().map(m => 
+                            <a href={`${m.acf.memeber_url}`} ><img src={m.acf.logo} /></a> 
+                        )
+                    }
+                </div>
             </div>
         </section>
         {
@@ -626,10 +513,9 @@ export default function HomePage() {
             <>
                 <section id="Kontakt" className={classes.contact}>
                     <div className={classes.contactInfo}>
-                        <h2>Wir sind für Sie da!</h2>
+                        <h2>{homepageContent.title_mobile}</h2>
                         <p>
-                            Lassen Sie uns über Ihre Ziele sprechen – für Sie oder Ihr Unternehmen. 
-                            Unsere Experten freuen sich, Sie in einem persönlichen Gespräch kennenzulernen.
+                            {homepageContent.text_mobile}
                         </p>
                         <div className={classes.contactElements}>
                             <div className={classes.contactElement}>
@@ -637,8 +523,8 @@ export default function HomePage() {
                                     <img style={{margin:'5px'}} src={mailLogo} />
                                 </div>
                                 <div className={classes.contactElementInfo}>
-                                    <div>E-Mail:</div>
-                                    <div style={{fontWeight:'600'}}>ingrado@schellenberg.immo</div>
+                                    <div>{homepageContent.email_title}</div>
+                                    <div style={{fontWeight:'600'}}>{homepageContent.current_email}</div>
                                 </div>
                             </div>
                             <div className={classes.contactElement}>
@@ -646,8 +532,8 @@ export default function HomePage() {
                                     <img style={{margin:'5px'}} src={telephoneLogo} />
                                 </div>
                                 <div className={classes.contactElementInfo}>
-                                    <div>Telefonisch</div>
-                                    <div style={{fontWeight:'600'}}>Telefon: +41 44 244 60 60</div>
+                                    <div>{homepageContent.telephone_title}</div>
+                                    <div style={{fontWeight:'600'}}>{homepageContent.current_telephone}</div>
                                 </div>
                             </div>
                             <div className={classes.contactElement}>
@@ -655,8 +541,8 @@ export default function HomePage() {
                                     <img src={locationLogo} />
                                 </div>
                                 <div className={classes.contactElementInfo}>
-                                    <div>Standort:</div>
-                                    <div style={{fontWeight:'600'}}>Riedhofstrasse 11, 8804 Au ZH</div>
+                                    <div>{homepageContent.address_title}</div>
+                                    <div style={{fontWeight:'600'}}>{homepageContent.current_address}</div>
                                 </div>
                             </div>
                         </div>
@@ -668,7 +554,8 @@ export default function HomePage() {
                                 type = {"text"}
                                 name = {"name"}
                                 id = {"name"}
-                                placeholder = {"Name"}
+                                label = {`${homepageContent.input_name}`}
+                                placeholder = {`${homepageContent.input_name_placeholder}`}
                                 value={request.txt}
                                 handleChange={handleChange}
                                 handleBlur={nameBlurHandler}
@@ -683,10 +570,10 @@ export default function HomePage() {
                                 type = {"text"}
                                 name = {"email"}
                                 id = {"email"}
-                                placeholder = {"E-Mail"}
+                                label = {`${homepageContent.input_email}`}
+                                placeholder = {`${homepageContent.input_email_placeholder}`}
                                 value={request.txt}
                                 handleChange={handleChange}
-                                // handleBlur={userBlurHandler}
                                 className={emailError.exists ? "is-invalid": ""}
                                 errorDiv = {emailError.exists ? "text-danger" : "no-danger"}
                                 errorMsg = {emailError.helperText}
@@ -698,10 +585,10 @@ export default function HomePage() {
                                 type = {"text"}
                                 name = {"lastname"}
                                 id = {"lastname"}
-                                placeholder = {"Vorname"}
+                                label = {`${homepageContent.input_lastname}`}
+                                placeholder = {`${homepageContent.input_lastname_placeholder}`}
                                 value={request.txt}
                                 handleChange={handleChange}
-                                // handleBlur={userBlurHandler}
                                 className={lastnameError.exists ? "is-invalid": ""}
                                 errorDiv = {lastnameError.exists ? "text-danger" : "no-danger"}
                                 errorMsg = {lastnameError.helperText}
@@ -713,10 +600,10 @@ export default function HomePage() {
                                 type = {"text"}
                                 name = {"organization"}
                                 id = {"organization"}
-                                placeholder = {"Unternehmen (optional)"}
+                                label = {`${homepageContent.input_organization}`}
+                                placeholder = {`${homepageContent.input_organization_placeholder}`}
                                 value={request.txt}
                                 handleChange={handleChange}
-                                // handleBlur={userBlurHandler}
                             /> 
                         </div>
                         <div style={{marginBottom:'10px'}} >
@@ -725,10 +612,10 @@ export default function HomePage() {
                                 type = {"text"}
                                 name = {"telephone"}
                                 id = {"telephone"}
-                                placeholder = {"Telefon Nr."}
+                                label = {`${homepageContent.input_telephone}`}
+                                placeholder = {`${homepageContent.input_telephone_placeholder}`}
                                 value={request.txt}
                                 handleChange={handleChange}
-                                // handleBlur={userBlurHandler}
                                 className={telephoneError.exists ? "is-invalid": ""}
                                 errorDiv = {telephoneError.exists ? "text-danger" : "no-danger"}
                                 errorMsg = {telephoneError.helperText}
@@ -741,30 +628,28 @@ export default function HomePage() {
                                 type = {"text"}
                                 name = {"regard"}
                                 id = {"regard"}
-                                placeholder = {"Betreff"}
+                                label = {`${homepageContent.input_regard}`}
+                                placeholder = {`${homepageContent.input_regard_placeholder}`}
                                 value={request.txt}
                                 handleChange={handleChange}
-                                // handleBlur={userBlurHandler}
                                 className={regardError.exists ? "is-invalid": ""}
                                 errorDiv = {regardError.exists ? "text-danger" : "no-danger"}
                                 errorMsg = {regardError.helperText}
                             /> 
                         </div>
-                    
                         <TextArea 
-                            placeholder="Nachricht hier eingeben..."
+                            label={`${homepageContent.input_message}`}
+                            placeholder={`${homepageContent.input_message_placeholder}`}
                             name="message" 
                             id="message"
                             handleChange={handleChange} 
-                            // handleBlur={commentBlurHandler}
                             style={{height:'150px', resize:'none', borderRadius:'5px', padding:'10px', width:'95%', marginTop:'16px', border:'1px solid #F1F3F7', boxShadow:'0px 1px 4px 0px rgba(25, 33, 61, 0.08)', fontFamily:'"Inter"'}}
                             className={messageError.exists ? "is-invalid": ""}
                             errorDiv = {messageError.exists ? "text-danger" : "no-danger"}
                             errorMsg = {messageError.helperText}
-                            // writtenCharacters ={feedback.comment.length}
                         />
                         <button id="submitButton" className={classes.contactSubmit} style={{marginTop:'25px'}}>
-                            <span>Senden</span>
+                            <span>{homepageContent.send_button_text}</span>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5.88454 1.88074L10.1999 5.99995L5.88454 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M10.1999 6L1.79996 6" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
@@ -787,7 +672,8 @@ export default function HomePage() {
                                         type = {"text"}
                                         name = {"name"}
                                         id = {"name"}
-                                        placeholder = {"Name"}
+                                        label = {`${homepageContent.input_name}`}
+                                        placeholder = {`${homepageContent.input_name_placeholder}`}
                                         value={request.txt}
                                         handleChange={handleChange}
                                         handleBlur={nameBlurHandler}
@@ -802,7 +688,8 @@ export default function HomePage() {
                                         type = {"text"}
                                         name = {"email"}
                                         id = {"email"}
-                                        placeholder = {"E-Mail"}
+                                        label = {`${homepageContent.input_email}`}
+                                        placeholder = {`${homepageContent.input_email_placeholder}`}
                                         value={request.txt}
                                         handleChange={handleChange}
                                         // handleBlur={userBlurHandler}
@@ -817,7 +704,8 @@ export default function HomePage() {
                                         type = {"text"}
                                         name = {"lastname"}
                                         id = {"lastname"}
-                                        placeholder = {"Vorname"}
+                                        label = {`${homepageContent.input_lastname}`}
+                                        placeholder = {`${homepageContent.input_lastname_placeholder}`}
                                         value={request.txt}
                                         handleChange={handleChange}
                                         // handleBlur={userBlurHandler}
@@ -832,7 +720,8 @@ export default function HomePage() {
                                         type = {"text"}
                                         name = {"organization"}
                                         id = {"organization"}
-                                        placeholder = {"Unternehmen (optional)"}
+                                        label = {`${homepageContent.input_organization}`}
+                                        placeholder = {`${homepageContent.input_organization_placeholder}`}
                                         value={request.txt}
                                         handleChange={handleChange}
                                         // handleBlur={userBlurHandler}
@@ -844,7 +733,8 @@ export default function HomePage() {
                                         type = {"text"}
                                         name = {"telephone"}
                                         id = {"telephone"}
-                                        placeholder = {"Telefon Nr."}
+                                        label = {`${homepageContent.input_telephone}`}
+                                        placeholder = {`${homepageContent.input_telephone_placeholder}`}
                                         value={request.txt}
                                         handleChange={handleChange}
                                         // handleBlur={userBlurHandler}
@@ -854,7 +744,6 @@ export default function HomePage() {
                                     /> 
                                 </div>
                             </div>
-                            
                             <div style={{marginBottom:'10px'}} >
                                 <Input 
                                     style={{width: '95%'}}
@@ -862,7 +751,8 @@ export default function HomePage() {
                                     type = {"text"}
                                     name = {"regard"}
                                     id = {"regard"}
-                                    placeholder = {"Betreff"}
+                                    label = {`${homepageContent.input_regard}`}
+                                    placeholder = {`${homepageContent.input_regard_placeholder}`}
                                     value={request.txt}
                                     handleChange={handleChange}
                                     // handleBlur={userBlurHandler}
@@ -873,7 +763,8 @@ export default function HomePage() {
                             </div>
                         
                             <TextArea 
-                                placeholder="Nachricht hier eingeben..."
+                                label={`${homepageContent.input_message}`}
+                                placeholder={`${homepageContent.input_message_placeholder}`}
                                 name="message" 
                                 id="message"
                                 handleChange={handleChange} 
@@ -885,7 +776,7 @@ export default function HomePage() {
                                 // writtenCharacters ={feedback.comment.length}
                             />
                             <button id="submitButton" className={classes.contactSubmit} style={{marginTop:'25px'}}>
-                                <span>Senden</span>
+                                <span>{homepageContent.send_button_text}</span>
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5.88454 1.88074L10.1999 5.99995L5.88454 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M10.1999 6L1.79996 6" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
@@ -893,9 +784,9 @@ export default function HomePage() {
                             </button>
                         </form>
                         <div className={classes.contactInfo}>
-                            <h2>Du hast Fragen? Wir haben Antworten – kontaktiere uns!</h2>
+                            <h2>{homepageContent.title}</h2>
                             <p>
-                                Wir stehen mit Rat und Tat zur Seite. Egal, ob Du mehr über unsere Programme erfahren möchtest oder spezifische Fragen hast – wir sind hier, um Dir zu helfen. Kontaktiere uns einfach und starte noch heute Deine Reise zu nachhaltigem Erfolg!
+                                {homepageContent.text}
                             </p>
                             <div className={classes.contactElements}>
                                 <div className={classes.contactElement}>
@@ -903,8 +794,8 @@ export default function HomePage() {
                                         <img style={{margin:'5px'}} src={mailLogo} />
                                     </div>
                                     <div className={classes.contactElementInfo}>
-                                        <div>E-Mail:</div>
-                                        <div style={{fontWeight:'600'}}>ingrado@schellenberg.immo</div>
+                                        <div>{homepageContent.email_title}</div>
+                                        <div style={{fontWeight:'600'}}>{homepageContent.current_email}</div>
                                     </div>
                                 </div>
                                 <div className={classes.contactElement}>
@@ -912,9 +803,8 @@ export default function HomePage() {
                                         <img style={{margin:'5px'}} src={telephoneLogo} />
                                     </div>
                                     <div className={classes.contactElementInfo}>
-                                        <div>Telefonisch</div>
-                                        <div style={{fontWeight:'600'}}>Telefon: +41 44 244 60 60 </div>
-                                        {/* <div style={{fontWeight:'600'}}>Mobil: </div> */}
+                                        <div>{homepageContent.telephone_title}</div>
+                                        <div style={{fontWeight:'600'}}>{homepageContent.current_telephone}</div>
                                     </div>
                                 </div>
                                 <div className={classes.contactElement}>
@@ -922,8 +812,8 @@ export default function HomePage() {
                                         <img src={locationLogo} />
                                     </div>
                                     <div className={classes.contactElementInfo}>
-                                        <div>Standort:</div>
-                                        <div style={{fontWeight:'600'}}>Riedhofstrasse 11, 8804 Au ZH</div>
+                                        <div>{homepageContent.address_title}</div>
+                                        <div style={{fontWeight:'600'}}>{homepageContent.current_address}</div>
                                     </div>
                                 </div>
                             </div>
@@ -932,7 +822,6 @@ export default function HomePage() {
                     </div>     
                 </section>
             </>
-
         }
         <Footer />
         </>

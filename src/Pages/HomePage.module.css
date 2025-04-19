@@ -55,7 +55,9 @@ body {
     color: black;
     font-weight: 700;
     text-align: center;
+    margin: auto;
     margin-top: 63px;
+    max-width: 370px;
 }
 
 .hero h4 {
@@ -93,13 +95,9 @@ body {
 }
 
 .aboutPersons {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: auto auto;
 }
-
-/* .aboutPerson img {
-    margin: 80px 124px;
-} */
 
 .aboutPersonImg {
     /* height: 280px; */
@@ -158,6 +156,7 @@ body {
     height: 875px;
     width: 410px;
     padding: 0px 20px 20px 20px;
+    margin: 30px 0;
 }
 
 .aboutPerson:first-child {
@@ -225,7 +224,8 @@ body {
 
 .categoryContent {
     padding: 75px 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
     justify-content: space-evenly;
 }
 
@@ -596,6 +596,7 @@ body {
     .aboutPersons {
         display: grid;
         justify-content: center;
+        grid-template-columns: auto;
     }
 
     .mentorsAndCoachesIntro h2 {
@@ -681,6 +682,7 @@ body {
         width: calc(100vw - 70px);
         display: grid;
         margin: auto;
+        grid-template-columns: auto
     }
 
     .contentCharacteristic img {

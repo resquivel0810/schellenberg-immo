@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import Input from "../Components/Input";
 
 import classes from './Footer.module.css';
 
@@ -11,6 +10,31 @@ import instagramLogo from '../Images/instagram_logo.svg';
 import { HashLink } from 'react-router-hash-link';
 
 export default function Footer(){
+    const [footerContent, setFooterContent] = useState([])
+    const [sectionNames, setSectionNames] = useState([])
+    
+    useEffect(() => {
+        document.getElementById("year").innerHTML = new Date().getFullYear()
+
+        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/sectionpage-name?acf_format=standard&_fields=id,acf`, { 
+            method: 'GET' 
+        })
+            .then(data => data.json())
+            .then(data => {
+                let namesList = []
+                data.toReversed().map(s => namesList.push(s.acf.sectionpage))
+                setSectionNames(namesList)
+            })
+        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/posts/240?acf_format=standard&_fields=id,acf`, { 
+            method: 'GET' 
+        })
+            .then(data => data.json())
+            .then(data => {
+ 
+                setFooterContent(data.acf)
+            })
+    }, [])
+
 
     function topFunction() {
         document.body.scrollTop = 0;
@@ -36,41 +60,16 @@ export default function Footer(){
             ?
             <>
             <section className={classes.footer}>
-                {/* <div className={classes.newsletter}>
-                    <div>Newsletter abonnieren</div>
-                    <div>
-                        <div style={{marginBottom:'10px'}} >
-                            <Input 
-                                title = {"email"}
-                                type = {"text"}
-                                name = {"email"}
-                                placeholder = {"E-Mail Adresse"}
-                                // value={request.txt}
-                                // handleChange={handleChange}
-                                // handleBlur={userBlurHandler}
-                                // className={emailError.exists ? "is-invalid": ""}
-                                // errorDiv = {emailError.exists ? "text-danger" : "no-danger"}
-                                // errorMsg = {emailError.helperText}
-                            /> 
-                        </div>
-                    </div>
-                    <div>
-                        <p>
-                            Erhalten Sie regelmäßig Impulse zu Resilienz, persönlicher Entwicklung 
-                            und innovativen Lösungen für die Immobilienbranche – direkt in Ihr Postfach.
-                        </p>
-                    </div>
-
-                </div> */}
+            
                 <div className={classes.footerLinks}>
-                    <h4>Sitemap</h4>
+                    <h4>{footerContent.home_page_nav_title}</h4>
                     <div className={classes.FooterLinkContainer}>
                         <HashLink
                             scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
                             to='/#Überschellenberg.immo' 
                             className={classes.FooterLink}
                         > 
-                            Über schellenberg.immo 
+                            {sectionNames[0]}
                         </HashLink>
                     </div>
                     <div className={classes.FooterLinkContainer}>
@@ -79,7 +78,7 @@ export default function Footer(){
                             to='/#Coaches&Mentoren' 
                             className={classes.FooterLink}
                         > 
-                            Coaches & Mentoren
+                            {sectionNames[1]}
                         </HashLink>
                     </div>
                     <div className={classes.FooterLinkContainer} >
@@ -88,7 +87,7 @@ export default function Footer(){
                             to='/#Programme&Module' 
                             className={classes.FooterLink}
                         > 
-                            Programme & Module
+                            {sectionNames[2]}
                         </HashLink>
                     </div>
                     <div className={classes.FooterLinkContainer}>
@@ -97,7 +96,7 @@ export default function Footer(){
                             to='/#Netzwerk' 
                             className={classes.FooterLink}
                         > 
-                            Netzwerk
+                            {sectionNames[3]}
                         </HashLink>
                     </div>
                     <div className={classes.FooterLinkContainer}>
@@ -106,7 +105,7 @@ export default function Footer(){
                             to='/#Mitgliedschaften' 
                             className={classes.FooterLink}
                         > 
-                            Mitgliedschaften
+                            {sectionNames[4]}
                         </HashLink>
                     </div>
                     <div className={classes.FooterLinkContainer}>
@@ -115,13 +114,13 @@ export default function Footer(){
                             to='/#Kontakt' 
                             className={classes.FooterLink}
                         > 
-                            Kontakt
+                            {sectionNames[5]}
                         </HashLink>
                     </div>
                 </div>
                 <div style={{display: 'grid', gridTemplateColumns: 'auto auto'}}>
                     <div className={classes.footerLinks}>
-                        <h4>Rechtliche Hinweise</h4>
+                        <h4>{footerContent.pages_nav_title}</h4>
                         <div>
                         <Link
                                     to={`/Datenschutz-Impressum`}
@@ -129,17 +128,12 @@ export default function Footer(){
                                     
                                     onClick={() => {topFunction()}}
                                 >
-                                    Datenschutz/Impressum
+                                    {footerContent.impressum_link}
                                 </Link>
                         </div>
                     
-                        {/* <div>AGB</div> */}
                     </div>
-                    {/* <div className={classes.footerLinks}>
-                        <h4>Sprache</h4>
-                        <div>Deutsch</div>
-                        <div>Englisch</div>
-                    </div> */}
+              
                 </div>
                 <div>
                     <img src={Logo} />
@@ -152,7 +146,7 @@ export default function Footer(){
                         <img src={instagramLogo} />
                     </a>
                 </div>
-                <div style={{borderTop:'2px solid #e1e4ed'}}>schellenberg.immo GmbH 2024 ©</div>
+                <div style={{borderTop:'2px solid #e1e4ed'}}>{footerContent.copyright_text}  <span id="year"></span> ©</div>
 
             </section>
             </>
@@ -162,14 +156,14 @@ export default function Footer(){
                 <div className={classes.footerContent} >
                     <div className={classes.footerLinksAndForm}>
                         <div className={classes.footerLinks}>
-                            <h4>Sitemap</h4>
+                            <h4>{footerContent.home_page_nav_title}</h4>
                             <div className={classes.FooterLinkContainer}>
                                 <HashLink
                                     scroll={(el) => scrollToTargetAdjusted(el.id, 100)}
                                     to='/#Überschellenberg.immo' 
                                     className={classes.FooterLink}
                                 > 
-                                    Über schellenberg.immo 
+                                    {sectionNames[0]}
                                 </HashLink>
                             </div>
                             <div className={classes.FooterLinkContainer}>
@@ -178,7 +172,7 @@ export default function Footer(){
                                     to='/#Coaches&Mentoren' 
                                     className={classes.FooterLink}
                                 > 
-                                    Coaches & Mentoren
+                                    {sectionNames[1]}
                                 </HashLink>
                             </div>
                             <div className={classes.FooterLinkContainer} >
@@ -187,7 +181,7 @@ export default function Footer(){
                                     to='/#Programme&Module' 
                                     className={classes.FooterLink}
                                 > 
-                                    Programme & Module
+                                    {sectionNames[2]}
                                 </HashLink>
                             </div>
                             <div className={classes.FooterLinkContainer}>
@@ -196,7 +190,7 @@ export default function Footer(){
                                     to='/#Netzwerk' 
                                     className={classes.FooterLink}
                                 > 
-                                    Netzwerk
+                                    {sectionNames[3]}
                                 </HashLink>
                             </div>
                             <div className={classes.FooterLinkContainer}>
@@ -205,7 +199,7 @@ export default function Footer(){
                                     to='/#Mitgliedschaften' 
                                     className={classes.FooterLink}
                                 > 
-                                    Mitgliedschaften
+                                    {sectionNames[4]}
                                 </HashLink>
                             </div>
                             <div className={classes.FooterLinkContainer}>
@@ -214,12 +208,12 @@ export default function Footer(){
                                     to='/#Kontakt' 
                                     className={classes.FooterLink}
                                 > 
-                                    Kontakt
+                                    {sectionNames[5]}
                                 </HashLink>
                             </div>
                         </div>
                         <div className={classes.footerLinks}>
-                            <h4>Rechtliche Hinweise</h4>
+                            <h4>{footerContent.pages_nav_title}</h4>
                             <div>
                                 <Link
                                     to={`/Datenschutz-Impressum`}
@@ -227,49 +221,19 @@ export default function Footer(){
                                     
                                     onClick={() => {topFunction()}}
                                 >
-                                    Datenschutz/Impressum
+                                    {footerContent.impressum_link}
                                 </Link>
                                 
                             </div>
-                           
-                            {/* <div>AGB</div> */}
+             
                         </div>
-                        {/* <div className={classes.footerLinks}>
-                            <h4>Sprache</h4>
-                            <div>Deutsch</div>
-                            <div>Englisch</div>
-                        </div> */}
-                        {/* <div className={classes.newsletter}>
-                            <div>Newsletter abonnieren</div>
-                            <div>
-                                <div style={{marginBottom:'10px'}} >
-                                    <Input 
-                                        title = {"email"}
-                                        type = {"text"}
-                                        name = {"email"}
-                                        placeholder = {"E-Mail Adresse"}
-                                        // value={request.txt}
-                                        // handleChange={handleChange}
-                                        // handleBlur={userBlurHandler}
-                                        // className={emailError.exists ? "is-invalid": ""}
-                                        // errorDiv = {emailError.exists ? "text-danger" : "no-danger"}
-                                        // errorMsg = {emailError.helperText}
-                                    /> 
-                                </div>
-                            </div>
-                            <div>
-                                <p>
-                                    Erhalten Sie regelmäßig Impulse zu Resilienz, persönlicher Entwicklung 
-                                    und innovativen Lösungen für die Immobilienbranche – direkt in Ihr Postfach.
-                                </p>
-                            </div>
-                        </div> */}
+                        
                     </div>
                     <div className={classes.footerInfo}>
                         <div>
                             <img src={Logo} />
                         </div>
-                        <div className={classes.trademark}>schellenberg.immo GmbH 2024 ©</div>
+                        <div className={classes.trademark}>{footerContent.copyright_text}<span id="year"></span> ©</div>
                         <div>
                             <a href="https://www.linkedin.com/company/schellenberg-immo-gmbh/?viewAsMember=true">
                                 <img src={linkedinLogo} />
