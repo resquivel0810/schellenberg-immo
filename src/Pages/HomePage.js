@@ -77,7 +77,7 @@ export default function HomePage() {
             .then(data => {
                 setEmployees(data)
             })
-        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/mentor?acf_format=standard&_fields=id,title,acf`, { 
+        fetch(`https://login.schellenberg.immo/wp-json/wp/v2/mentor?acf_format=standard&_fields=id,title,acf&orderby=date&order=asc`, { 
             method: 'GET' 
         })
             .then(data => data.json())
