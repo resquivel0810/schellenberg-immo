@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { Fragment, useState } from "react";
 
 import calendar, {
   WEEK_DAYS,
@@ -30,11 +30,11 @@ export default function Calendar({setSelectedDate=f=>f, selectedDate=new Date(),
   const renderDayLabel = (day) => {
     const daylabel = WEEK_DAYS[day]
     return (
-      <>
-      <div style={{textAlign: 'center',color: '#696969', fontSize:'16px'}} key={Math.random()} >
+      <Fragment key={day}>
+      <div  style={{textAlign: 'center',color: '#696969', fontSize:'16px'}}  >
         {daylabel}
       </div>
-      </>
+      </Fragment>
     );
   };
 
@@ -104,7 +104,8 @@ export default function Calendar({setSelectedDate=f=>f, selectedDate=new Date(),
         <>{Object.keys(WEEK_DAYS).map(renderDayLabel)}</>
         <>{getCalendarDates().map((d, i) => 
           <CalendarDate 
-            isToday={new Date(d.join("/")).toDateString()===new Date().toDateString()}  key={i} day={d[2]}  
+            key={i}
+            isToday={new Date(d.join("/")).toDateString()===new Date().toDateString()} day={d[2]}  
             setDate={() => {setSelectedDate(new Date(d.join("/")))}}
             date={d}
             isSelected={selectedDate.toDateString() === new Date(d.join("/")).toDateString()}
@@ -124,11 +125,11 @@ const NextButton = () => {
     <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_d_105_2105)">
       <rect x="8" y="6.5" width="32" height="32" rx="16" fill="#F1F6FE"/>
-      <path d="M22 17.8332L26.6667 22.4998L22 27.1665" stroke="#3B7BE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 17.8332L26.6667 22.4998L22 27.1665" stroke="#3B7BE0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       </g>
       <defs>
-      <filter id="filter0_d_105_2105" x="0" y="0.5" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <filter id="filter0_d_105_2105" x="0" y="0.5" width="48" height="48" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+      <feFlood floodOpacity="0" result="BackgroundImageFix"/>
       <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
       <feOffset dy="2"/>
       <feGaussianBlur stdDeviation="4"/>
@@ -147,11 +148,11 @@ const previousButton = () => {
     <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_105_2107)">
 <rect x="40" y="38.5" width="32" height="32" rx="16" transform="rotate(-180 40 38.5)" fill="#F1F6FE"/>
-<path d="M26 27.1668L21.3333 22.5002L26 17.8335" stroke="#3B7BE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26 27.1668L21.3333 22.5002L26 17.8335" stroke="#3B7BE0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 </g>
 <defs>
-<filter id="filter0_d_105_2107" x="0" y="0.5" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter0_d_105_2107" x="0" y="0.5" width="48" height="48" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="2"/>
 <feGaussianBlur stdDeviation="4"/>

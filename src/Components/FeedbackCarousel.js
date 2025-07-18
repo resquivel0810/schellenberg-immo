@@ -1,20 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import {Fragment, useEffect, useState} from 'react';
 
 import classes from './feedbackCarousel.module.css'
-
-import avatar from '../Images/avatar.png'
-
-import imgRB from '../Images/Rahel_Bertschinger.png';
-import imgJN from '../Images/Janosch_Nietlispach.png';
-import imgMP from '../Images/Mirjam_Probst.png';
-import imgBS from '../Images/Beda_Stadelmann.png';
-import imgDL from '../Images/Dino_Lauber.png';
-import imgCB from '../Images/Chris_Baltisberger.png';
-
-
-
-
-
 
 
 
@@ -90,8 +76,6 @@ const FeedbackCarousel = () => {
         })
             .then(data => data.json())
             .then(data => {
-                console.log(data)
-                console.log( )
                 setFeedback(data)
                 setTotalSlides(Object.entries(data).length)
             
@@ -106,10 +90,10 @@ const FeedbackCarousel = () => {
     }, [])
 
     
-    const Comment = ({ comment_id, url, title, text, author, authorPosition, img}) => {
+    const Comment = ({ url, title, text, author, authorPosition, img}) => {
         
         return (
-            <>
+            <Fragment>
             <div  className={classes.CarouselItem}>
                 <div style={{height:'unset', display:'flex', justifyContent:'center', border: '1px solid #E1E4ED'}} className={classes.CarouselItemContent}  >
                     <div >
@@ -123,7 +107,7 @@ const FeedbackCarousel = () => {
                     
                 </div>
             </div>
-            </>
+            </Fragment>
         )
     }
 
@@ -145,8 +129,9 @@ const FeedbackCarousel = () => {
                 onTouchEnd={move3}
             >
                 {
-                    feedback.toReversed().map(feedback => 
+                    feedback.toReversed().map((feedback, i) => 
                         <Comment 
+                            key={i}
                             id={feedback.comment_id} 
                             title={null}
                             text={feedback.acf.text}
@@ -168,8 +153,8 @@ const FeedbackCarousel = () => {
                 }}
             >
             {
-                feedback.map(feedback =>
-                    <li id={feedback.comment_id} className={`indicator ${feedback.comment_id === currentSlide ? `${classes.active}` : ''}`}></li>
+                feedback.map((feedback, i) =>
+                    <li key={i} id={feedback.comment_id} className={`indicator ${feedback.comment_id === currentSlide ? `${classes.active}` : ''}`}></li>
                 )
             }
             </ol>
@@ -192,7 +177,7 @@ const FeedbackCarousel = () => {
                     
                 }} id='backwardButton' className='none' style={{opacity:currentSlide === 0 ?0: 1}}>
                     <svg style={{transform: 'rotate(180deg)'}} width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3.03835 12L8.96143 6.5L3.03835 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.03835 12L8.96143 6.5L3.03835 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </button>
                 <button onClick={() => {
@@ -211,7 +196,7 @@ const FeedbackCarousel = () => {
                     
                 }} id='fordwardButton' className='none' style={{opacity:currentSlide === totalSlides -1 ?0: 1}}>
                     <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3.03835 12L8.96143 6.5L3.03835 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.03835 12L8.96143 6.5L3.03835 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
 
                 </button>

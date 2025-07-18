@@ -6,7 +6,7 @@
         <polygon id="path-3" points="-2.84217094e-14 1.42108547e-14 125.174 1.42108547e-14 125.174 37.167 -2.84217094e-14 37.167"></polygon>
         <polygon id="path-5" points="0 0 272.133 0 272.133 139.418 0 139.418"></polygon>
     </defs>
-    <g id="SVIT-Logo-STWE_CMYK" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="SVIT-Logo-STWE_CMYK" stroke="none" strokeWidth="1" fill="none" fill-rule="evenodd">
         <g id="Group-3" transform="translate(0.285000, 155.773000)">
             <mask id="mask-2" fill="white">
                 <use xlink:href="#path-1"></use>

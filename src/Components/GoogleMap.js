@@ -1,5 +1,4 @@
-import React from 'react';
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript} from '@react-google-maps/api';
 
 import demoFancyMapStyles from "./MapStyle.json";
 
@@ -39,7 +38,7 @@ const Map = ({mapWidth, mapHeight}) => {
             styles: demoFancyMapStyles,
             disableDefaultUI: true,
         }}>
-        <Marker position={center} />
+        {/* <Marker position={center} /> */}
       </GoogleMap>
     </div>
   );

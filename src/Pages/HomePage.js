@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import emailjs from '@emailjs/browser';
 import { HashLink } from 'react-router-hash-link';
 import Header from "../Components/Header";
@@ -295,20 +295,20 @@ export default function HomePage() {
                     window.innerWidth < 991 
                     ?
                     <>
-                    <video style={{width:'90vw', objectFit:'cover', height:'calc(80vh + 0px)', minHeight:'800px',  filter: 'brightness(95%)', marginTop:'46px', borderRadius:'16px' }} controlsList="nofullscreen" autoPlay="true" muted="true" loop="true" controls='' webkit-playsInLine="true" playsInLine="true">
+                    <video style={{width:'90vw', objectFit:'cover', height:'calc(80vh + 0px)', minHeight:'800px',  filter: 'brightness(95%)', marginTop:'46px', borderRadius:'16px' }} controlsList="nofullscreen" autoPlay={true} muted={true} loop={true} controls='' playsInline={true}>
                     <source src={bannerResponsive} type="video/mp4"/>
                         Your browser does not support the video tag.
                     </video>
                     </>
                     :
                     <>
-                    <video style={{width:'100vw', objectFit:'cover', height:'calc(100vh + 100px)',  filter: 'brightness(90%)' }} controlsList="nofullscreen" autoPlay="true" muted="true" loop="true" controls='' webkit-playsInLine="true" playsInLine="true">
+                    <video style={{width:'100vw', objectFit:'cover', height:'calc(100vh + 100px)',  filter: 'brightness(90%)' }} controlsList="nofullscreen" autoPlay={true} muted={true} loop={true} controls=''  playsInline={true}>
                     <source src={banner} type="video/mp4"/>
                         Your browser does not support the video tag.
                     </video>
-                    <div class="custom-shape-divider-bottom-1734117816">
+                    <div className="custom-shape-divider-bottom-1734117816">
                         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
                         </svg>
                     </div>
                     </>
@@ -330,8 +330,8 @@ export default function HomePage() {
                 > 
                     <h4>{homepageContent.go_to_pandms}</h4>
                     <svg style={{display:'flex', margin:'auto'}} width="54" height="67" viewBox="0 0 54 67" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M51.0558 38.8281L27.0279 64.0002L2.99998 38.8281" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M27.033 63L27.033 3" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M51.0558 38.8281L27.0279 64.0002L2.99998 38.8281" stroke="black" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M27.033 63L27.033 3" stroke="black" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </HashLink>
                 
@@ -349,7 +349,8 @@ export default function HomePage() {
             <div className={classes.aboutPersons}>
                 {
                     employees.toReversed().map((e, i) => 
-                        <div className={classes.aboutPerson}>
+                        
+                        <div key={i} className={classes.aboutPerson}>
                         <div className={classes.aboutPersonImg}>
                             <img className={i!==1?classes.mentorOrCoachImg:classes.aboutPersonImg2} src={e.acf.photo}/>
                         </div>
@@ -379,8 +380,8 @@ export default function HomePage() {
             
             <div className={classes.mentorsAndCoachesPeople}>
             {
-                mentors.toReversed().map(m => 
-                    <div className={classes.mentorOrCoach}>
+                mentors.toReversed().map((m, i) => 
+                    <div key={i} className={classes.mentorOrCoach}>
                         <div className={classes.aboutPersonImg}>
                         <img className={classes.mentorOrCoachImg} style={{filter:'grayscale(100%)'}} src={m.acf.photo}/>
                     </div>
@@ -436,8 +437,8 @@ export default function HomePage() {
                         <>
                         <div className={classes.categoryContent}>
                             {
-                                ingradoPAndM.toReversed().map(pm => 
-                                    <div className={classes.contentCharacteristic}>
+                                ingradoPAndM.toReversed().map((pm, i) => 
+                                    <div key={i} className={classes.contentCharacteristic}>
                                     <div>
                                         <h3>{pm.acf.title}</h3>
                                         <p>
@@ -481,8 +482,8 @@ export default function HomePage() {
                     <button className={classes.programsAndModulesCallToAction}>
                     <span style={{textDecoration:'none'}}>{homepageContent.lets_talk_button}</span>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5.88458 1.8808L10.1999 6.00001L5.88458 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M10.1999 6L1.79999 6" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5.88458 1.8808L10.1999 6.00001L5.88458 10.1192" stroke="white" strokeWidth="1.28571" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M10.1999 6L1.79999 6" stroke="white" strokeWidth="1.28571" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </button>
                 </HashLink>
@@ -500,8 +501,8 @@ export default function HomePage() {
                 <h2>{homepageContent.memberships_title}</h2>
                 <div className={classes.memberships}>
                     {
-                        memberships.toReversed().map(m => 
-                            <a href={`${m.acf.memeber_url}`} ><img src={m.acf.logo} /></a> 
+                        memberships.toReversed().map((m) => 
+                            <a key={m.id} href={`${m.acf.memeber_url}`} ><img src={m.acf.logo} /></a> 
                         )
                     }
                 </div>
@@ -651,8 +652,8 @@ export default function HomePage() {
                         <button id="submitButton" className={classes.contactSubmit} style={{marginTop:'25px'}}>
                             <span>{homepageContent.send_button_text}</span>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5.88454 1.88074L10.1999 5.99995L5.88454 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10.1999 6L1.79996 6" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5.88454 1.88074L10.1999 5.99995L5.88454 10.1192" stroke="white" strokeWidth="1.28571" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M10.1999 6L1.79996 6" stroke="white" strokeWidth="1.28571" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                         </button>
                     </form>
@@ -778,8 +779,8 @@ export default function HomePage() {
                             <button id="submitButton" className={classes.contactSubmit} style={{marginTop:'25px'}}>
                                 <span>{homepageContent.send_button_text}</span>
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.88454 1.88074L10.1999 5.99995L5.88454 10.1192" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M10.1999 6L1.79996 6" stroke="white" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M5.88454 1.88074L10.1999 5.99995L5.88454 10.1192" stroke="white" strokeWidth="1.28571" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M10.1999 6L1.79996 6" stroke="white" strokeWidth="1.28571" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             </button>
                         </form>

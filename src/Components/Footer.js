@@ -233,7 +233,7 @@ export default function Footer(){
                         <div>
                             <img src={Logo} />
                         </div>
-                        <div className={classes.trademark}>{footerContent.copyright_text}<span id="year"></span> ©</div>
+                        <div className={classes.trademark}>{footerContent.copyright_text} <span id="year"></span> ©</div>
                         <div>
                             <a href="https://www.linkedin.com/company/schellenberg-immo-gmbh/?viewAsMember=true">
                                 <img src={linkedinLogo} />

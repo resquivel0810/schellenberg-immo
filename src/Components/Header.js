@@ -73,7 +73,7 @@ export default function Header(props){
                     setNavbarOpen(false)
                 }} 
                     to={`/`}>
-                    <img className={classes.Logo} src={ window.innerWidth < 991 ? LogoHeaderSmall :LogoHeader } alt="HeaderLogo" />
+                    <img className={classes.Logo} src={ window.innerWidth < 991 ?  LogoHeaderSmall :LogoHeader } alt="HeaderLogo" />
                 </Link>
                 
             </div>
